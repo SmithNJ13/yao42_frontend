@@ -1,11 +1,19 @@
-import { useState } from 'react'
+
+import {Routes, Route} from 'react-router-dom'
+import {NavBar} from './components'
+
+import { NotFound } from "./pages" 
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <h1>WEBSITE</h1>
+      <Routes>
+        <Route path="/" element={<NavBar/>}>
+          <Route path="*" element={<NotFound/>}/>
+        </Route>
+      </Routes>
     </>
   )
 }
