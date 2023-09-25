@@ -1,1 +1,1 @@
-export {default as Carousel} from "./Carousel"
+export {default as CarouselComponent} from "./Carousel"
