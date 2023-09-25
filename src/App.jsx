@@ -21,13 +21,9 @@ function App() {
       </div>} />
         <Route path="/:season" element={<SeasonalPage />}>
       </Route>
+        <Route path="*" element={<NotFound/>} />
+        <Route path="/profile" element={<Profile/>}/>
     </Routes>
-      <Routes>
-        <Route path="/" element={<NavBar/>}>
-          <Route path="*" element={<NotFound/>}/>
-          <Route path="/profile" element={<Profile/>}/>
-        </Route>
-      </Routes>
     </>
   )
 }

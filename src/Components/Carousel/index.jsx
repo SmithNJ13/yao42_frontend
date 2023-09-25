@@ -9,7 +9,7 @@ const CarouselComponent = () => {
     <>
     <Carousel>
       <CarouselItem>
-        <img src="src\assets\grapefruit.png" />
+        <img src="src\assets\grapefruit.png"/>
         <CarouselCaption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
