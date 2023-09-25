@@ -8,7 +8,7 @@ const seasons = ["spring", "summer", "autumn", "winter"]
 const SeasonalPage = () => {
   const {season} = useParams()
   if(!seasons.includes(season)) {
-    return <Navigate replace={true} to="/" />
+    return <Navigate replace={true} to="/notfound" />
   }
 
   return (
