@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, useParams } from 'react-router-dom'
-import {CarouselComponent} from "../../Components/export"
+import {CarouselComponent} from "../../components"
 import "./style.css"
 
 const seasons = ["spring", "summer", "autumn", "winter"]
