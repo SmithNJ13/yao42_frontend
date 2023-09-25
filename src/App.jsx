@@ -13,16 +13,16 @@ function App() {
       <NavBar />
     }
     <Routes>
+      <Route path="/notfound" element={<NotFound />}></Route>
       <Route path="/" element={<div>
         <Link to="/spring">Spring</Link>
         <Link to="/summer">Summer</Link>
         <Link to="/autumn">Autumn</Link>
         <Link to="/winter">Winter</Link>
       </div>} />
-        <Route path="/:season" element={<SeasonalPage />}>
-      </Route>
-        <Route path="*" element={<NotFound/>} />
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/:season" element={<SeasonalPage/>}>
+      </Route>
     </Routes>
     </>
   )
