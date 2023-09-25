@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, useParams } from 'react-router-dom'
-import {CarouselComponent, RecipeCard} from "../../Components/export"
+import {CarouselComponent, RecipeCard} from "../../Components/"
 
 import "./style.css"
 
