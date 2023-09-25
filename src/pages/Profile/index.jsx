@@ -1,4 +1,5 @@
 import './Profile.css'
+import CommentBox from '../../components/CommentBox'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faUser, faFileLines } from '@fortawesome/free-solid-svg-icons'
@@ -44,28 +45,21 @@ const index = () => {
                             <span className="text-green-500">
                                 <FontAwesomeIcon icon={faUser} />
                             </span>
-                            <span className="tracking-wide">About</span>
+                            <span className="tracking-wide">Profile</span>
                         </div>
                         <div className="text-gray-700">
                             <div className="grid md:grid-cols-2 text-sm">
                                 <div className="grid grid-cols-2">
-                                    <div className="px-4 py-2 font-semibold">First Name</div>
+                                    <div className="px-4 py-2 font-semibold">Username</div>
                                     <div className="px-4 py-2">Bob</div>
                                 </div>
                                 <div className="grid grid-cols-2">
-                                    <div className="px-4 py-2 font-semibold">Last Name</div>
-                                    <div className="px-4 py-2">Bobbers</div>
-                                </div>
-                                <div className="grid grid-cols-2">
-                                    <div className="px-4 py-2 font-semibold">Email.</div>
-                                    <div className="px-4 py-2">
+                                    <div className="px-4 py-2 font-semibold">Email Address</div>
+                                    <div className="py-2">
                                         <a className="text-blue-800" href="mailto:jane@example.com">bob@example.com</a>
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-2">
-                                    <div className="px-4 py-2 font-semibold">Birthday</div>
-                                    <div className="px-4 py-2">Feb 06, 1998</div>
-                                </div>
+    
                             </div>
                         </div>
                     </div>
@@ -127,6 +121,7 @@ const index = () => {
         </div>
     </div>
     </div>
+    <CommentBox />
     </>
   )
 }

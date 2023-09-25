@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {Routes, Route, Link, useLocation} from "react-router-dom"
-import {SeasonalPage} from "./Pages/export"
 import {NavBar} from './components'
-import { NotFound, Profile } from "./pages" 
+import { NotFound, Profile, SeasonalPage } from "./pages" 
 import './App.css'
 
 function App() {
