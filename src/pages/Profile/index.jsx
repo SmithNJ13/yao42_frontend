@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faUser, faFileLines } from '@fortawesome/free-solid-svg-icons'
 
 
-const index = () => {
+const Profile = () => {
   return (
     <>
    
@@ -131,4 +131,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Profile
