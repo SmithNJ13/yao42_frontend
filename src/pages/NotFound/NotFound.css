@@ -1,0 +1,26 @@
+
+h1 {
+    font-size: 80px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    line-height: 100px;
+}
+
+h2{
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    line-height: 50px;
+}
+
+.home_link{
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    color: #000000;
+    text-decoration: none;
+}
