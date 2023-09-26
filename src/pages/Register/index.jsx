@@ -1,9 +1,12 @@
 import React from 'react'
+import { RegisterForm } from '../../components'
+import './RegisterPage.css'
+
 
 const RegisterPage = () => {
   return (
     <div>
-        <h1>RegisterPage</h1>
+        <RegisterForm />
     </div>
   )
 }

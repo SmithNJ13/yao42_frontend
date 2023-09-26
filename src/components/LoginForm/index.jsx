@@ -3,7 +3,7 @@ import Lottie from 'lottie-react'
 import animationData from '../../assets/cooking-ani.json'
 import form from '../../assets/formBg.png'
 
-const Register = () => {
+const Login = () => {
 
   const cookingRef = useRef()
 
@@ -19,7 +19,7 @@ const Register = () => {
              />
         </div>
         <form style= {{ backgroundImage: `url(${form})`}} className= 'bg-cover w-full mx-auto px-[4rem]'>
-          <h2 className='text-left text-4xl text-white font-bold pt-[7.5rem] pb-7' >Register</h2>
+          <h2 className='text-left text-4xl text-white font-bold pt-[7.5rem] pb-7' >Login</h2>
           <div className='flex flex-col py-1'>
             <label>Username</label>
             <input type='text' className='border p-1'/>
@@ -44,4 +44,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Login

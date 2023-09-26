@@ -3,6 +3,8 @@ import CommentBox from '../../components/CommentBox'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faUser, faFileLines } from '@fortawesome/free-solid-svg-icons'
+import { Comments } from '../../components'
+
 
 
 const Profile = () => {
@@ -121,7 +123,9 @@ const Profile = () => {
         </div>
     </div>
     </div>
-    <CommentBox />
+    <Comments>
+    <CommentBox  />
+    </Comments>
     </>
   )
 }

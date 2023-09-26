@@ -1,5 +1,7 @@
-export { default as NavBar } from "./NavBar/index.jsx";
+export { default as NavBar } from "./NavBar/index.jsx"
 export { default as RegisterForm } from "./RegisterForm/index.jsx"
-export {default as CarouselComponent} from "./Carousel"
-export {default as RecipeCard} from "./RecipeCard"
-export {default as CommentBox} from "./CommentBox"
+export {default as CarouselComponent} from "./Carousel/index.jsx"
+export {default as RecipeCard} from "./RecipeCard/index.jsx"
+export {default as CommentBox} from "./CommentBox/index.jsx"
+export {default as Comments} from "./Comments/index.jsx"
+export {default as Comment} from "./Comment/index.jsx"
