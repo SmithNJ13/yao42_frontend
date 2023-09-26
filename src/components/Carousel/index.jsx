@@ -10,26 +10,24 @@ const CarouselComponent = () => {
     <>
     <Carousel>
       <CarouselItem>
-        <img src="src\assets\grapefruit.png"/>
+        <img src="src/assets/grapefruit.png" />
         <CarouselCaption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Ingredient Name[1]</h3>
+          <p>This is a placeholder ingredient description</p>
         </CarouselCaption>
       </CarouselItem>
       <CarouselItem>
-        <img src="src\assets\grapefruit.png" />
+        <img src="src/assets/grapefruit.png" />
         <CarouselCaption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Ingredient Name[2]</h3>
+          <p>This is a placeholder ingredient description</p>
         </CarouselCaption>
       </CarouselItem>
       <CarouselItem>
-        <img src="src\assets\grapefruit.png" />
+        <img src="src/assets/grapefruit.png" />
         <CarouselCaption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3>Ingredient Name[3]</h3>
+          <p>This is a placeholder ingredient description</p>
         </CarouselCaption>
       </CarouselItem>
     </Carousel>
