@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import {CarouselComponent, RecipeCard} from "../../components"
 import axios from "axios"
-
 import "./style.css"
 // Declaring seasons for useParams comparison
 const seasons = ["spring", "summer", "autumn", "winter"]
@@ -10,6 +9,7 @@ const seasons = ["spring", "summer", "autumn", "winter"]
 const SeasonalPage = () => {
   const {season} = useParams()
   const displaySeason = season.toUpperCase()
+  // Logic for if the current page paramater doesn't match any of the seasons 
   if(!seasons.includes(season)) {
     return <Navigate replace={true} to="/notfound" />
   }
