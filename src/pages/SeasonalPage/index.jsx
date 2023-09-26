@@ -12,14 +12,14 @@ const SeasonalPage = () => {
   if(!seasons.includes(season)) {
     return <Navigate replace={true} to="/notfound" />
   }
-  const [array,setArray] = useState(undefined)
+  const [recipes,setRecipes] = useState(undefined)
 
   // Fetching recipes from backend
   async function getRecipes() {
     axios.get("https://lap-4-server.onrender.com/recipes")
     .then(resp => {
       const data = resp.data.recipes
-      setArray(data)
+      setRecipes(data)
     })
   }
 
@@ -27,10 +27,10 @@ const SeasonalPage = () => {
     getRecipes()
   }, [])
   // Loading logic 
-  if(!array) {
+  if(!recipes) {
     return <div>Loading page!</div>
   } else {
-    console.log(array)
+    console.log(recipes)
   }
 
 
@@ -49,9 +49,9 @@ const SeasonalPage = () => {
       </div>
     </div>
     <div id="RecipeInfo">
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
+      <RecipeCard recipes={recipes}/>
+      <RecipeCard recipes={recipes}/>
+      <RecipeCard recipes={recipes}/>
     </div>
     </>
   )
