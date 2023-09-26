@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { IngredientList, RecipeList, RecipeSearch } from "../../components"
 
 const MixingBowl = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -85,42 +86,18 @@ const MixingBowl = () => {
   return (
     <div>
       <h1>Mixing Bowl</h1>
-      <div>
-        <input
-          type="text"
-          placeholder="Search for ingredients"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
-        <button onClick={handleAddIngredient}>Add Ingredient</button>
-      </div>
-      <div>
-        <h2>Selected Ingredients:</h2>
-        <ul>
-          {selectedIngredients.map((ingredient, index) => (
-            <li key={index}>
-              {ingredient}
-              <button onClick={() => handleRemoveIngredient(ingredient)}>X</button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <RecipeSearch
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        handleAddIngredient={handleAddIngredient}
+      />
+      <IngredientList
+        selectedIngredients={selectedIngredients}
+        handleRemoveIngredient={handleRemoveIngredient}
+      />
       <button onClick={handleMixMeClick}>Mix Me!</button>
       {showRecipes && (
-        <div>
-          {recipes.length > 0 ? (
-            <div>
-              <h2>Recipes:</h2>
-              <ul>
-                {recipes.map((recipe, index) => (
-                  <li key={index}>{recipe.name}</li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <p>No recipes found.</p>
-          )}
-        </div>
+        <RecipeList recipes={recipes} />
       )}
     </div>
   );
