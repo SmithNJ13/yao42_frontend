@@ -1,10 +1,10 @@
 > # SzndChef, an app made by the Flask and Foodious!
 
-Welcome to our app! The aim of this app is to allow users to navigate to each season, and see the ingredients (currently limited to fruit & veg!)  
-that are best for that particular season. Using these ingredients we then fetch from our recipe API and display what recipes you can cook up  
-with the ingredients.  
+Welcome to our app! The aim of this app is to allow users to navigate to each season, and see the ingredients (currently limited to fruit & veg!)
+that are best for that particular season. Using these ingredients we then fetch from our recipe API and display what recipes you can cook up
+with the ingredients.
 
-You can also use our app to come up with recipe items that already belong in your house! Do you have leftover fruit and veg that you don't  
+You can also use our app to come up with recipe items that already belong in your house! Do you have leftover fruit and veg that you don't
 know what to do with? Worry no more! Just simply add them to our mixing bowl and we'll tell you what recipes you can make!
 
 > **Fill out below with more information on the application as we go!**
