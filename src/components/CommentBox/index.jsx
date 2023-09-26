@@ -3,9 +3,11 @@ import React, {useState, useRef} from 'react'
 import cn from 'classnames';
 import useDynamicHeightField from './useDynamicHeightField';
 
+
 const initialHeight = 46;
 
 const CommentBox = () => {
+ 
 const [isExpanded, setIsExpanded] = useState(false);
 const [commentValue, setCommentValue] = useState('');
 
@@ -32,56 +34,78 @@ setIsExpanded(true);
         setIsExpanded(false);
       };
 
-      const onSubmit = (e) => {
+      const onSubmit = async (e) => {
         e.preventDefault();
-        console.log('send the form data somewhere')
-      }
+        console.log('commentValue:', commentValue)
+        const newComment = {
+          comment: commentValue,
+          recipe_id: 5, // Replace with the actual recipe ID
+          user_id: 6, // Replace with the actual user ID
+        };
+        try {
+          const response = await fetch('https://lap-4-server.onrender.com/comments', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newComment),
+          });
+          if (response.ok) {
+            console.log('Comment posted successfully!');
+            setCommentValue('');
+            setIsExpanded(false);
+          } else {
+            console.error('Failed to post comment:', JSON.stringify(newComment));
 
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+
+     
+
+      
       return (
         <form
-        onSubmit={onSubmit}
-        ref={containerRef}
-        className={cn("comment-box", {
-          expanded: isExpanded,
-          collapsed: !isExpanded,
-                modified: commentValue.length > 0,
-        })}
-        style={{
-          minHeight: isExpanded ? outerHeight.current : initialHeight
-        }}
-      >
-        <div className="header">
-      <div className="user">
-        <img
-          src="avatar/path"
-          alt="User avatar"
-        />
-        <span>User Name</span>
-      </div>
-    </div>
-    <label htmlFor="comment">What are your thoughts?</label>
-    <textarea
-      ref={textRef}
-      onClick={onExpand}
-      onFocus={onExpand}
-      onChange={onChange}
-      className="comment-field"
-      placeholder="What are your thoughts?"
-      value={commentValue}
-      name="comment"
-      id="comment"
-    />
-    <div className="actions">
-      <button type="button" className="cancel" onClick={onClose}>
-        Cancel
-      </button>
-      <button type="submit" disabled={commentValue.length < 1}>
-        Respond
-      </button>
-    </div>
-      </form>
-    );
-
-}
+          onSubmit={onSubmit}
+          ref={containerRef}
+          className={cn('comment-box', {
+            expanded: isExpanded,
+            collapsed: !isExpanded,
+            modified: commentValue.length > 0,
+          })}
+          style={{
+            minHeight: isExpanded ? outerHeight.current : initialHeight,
+          }}
+        >
+          <div className="header">
+            <div className="user">
+              <span>Username</span> {/* Replace with the actual user name */}
+            </div>
+          </div>
+          <label htmlFor="comment">What are your thoughts?</label>
+          <textarea
+            ref={textRef}
+            onClick={onExpand}
+            onFocus={onExpand}
+            onChange={onChange}
+            className="comment-field"
+            placeholder="What are your thoughts?"
+            value={commentValue}
+            name="comment"
+            id="comment"
+          />
+          <div className="actions">
+            <button type="button" className="cancel" onClick={onClose}>
+              Cancel
+            </button>
+            <button type="submit" disabled={commentValue.length < 1}>
+              Respond
+            </button>
+          </div>
+        </form>
+      );
+    };
 
 export default CommentBox
