@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import './CommentBox.css'
 import React, {useState, useRef} from 'react'
 import cn from 'classnames';
@@ -6,8 +7,9 @@ import useDynamicHeightField from './useDynamicHeightField';
 
 const initialHeight = 46;
 
-const CommentBox = () => {
- 
+const CommentBox = ({user_id}) => {
+
+
 const [isExpanded, setIsExpanded] = useState(false);
 const [commentValue, setCommentValue] = useState('');
 
@@ -37,10 +39,12 @@ setIsExpanded(true);
       const onSubmit = async (e) => {
         e.preventDefault();
         console.log('commentValue:', commentValue)
+        const recipeId = localStorage.getItem('recipe_id');
+        const userId = localStorage.getItem('user_id');
         const newComment = {
           comment: commentValue,
-          recipe_id: 5, // Replace with the actual recipe ID
-          user_id: 6, // Replace with the actual user ID
+          recipe_id: recipeId, 
+          user_id: userId, 
         };
         try {
           const response = await fetch('https://lap-4-server.onrender.com/comments', {
@@ -50,6 +54,7 @@ setIsExpanded(true);
             },
             body: JSON.stringify(newComment),
           });
+
           if (response.ok) {
             console.log('Comment posted successfully!');
             setCommentValue('');
@@ -63,9 +68,6 @@ setIsExpanded(true);
         }
       };
 
-     
-
-      
       return (
         <form
           onSubmit={onSubmit}
@@ -81,7 +83,7 @@ setIsExpanded(true);
         >
           <div className="header">
             <div className="user">
-              <span>Username</span> {/* Replace with the actual user name */}
+              <span>User Id: {user_id}</span> 
             </div>
           </div>
           <label htmlFor="comment">What are your thoughts?</label>
@@ -101,7 +103,7 @@ setIsExpanded(true);
               Cancel
             </button>
             <button type="submit" disabled={commentValue.length < 1}>
-              Respond
+              Comment
             </button>
           </div>
         </form>

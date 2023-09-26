@@ -4,6 +4,7 @@ import CommentBox from '../CommentBox'
 
 const Comments = () => {
     const [comments, setComments] = useState([]);
+    
  const getComments = async () => {
  try {
 const response = await fetch('https://lap-4-server.onrender.com/comments')
