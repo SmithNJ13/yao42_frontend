@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Routes, Route, Link, useLocation} from "react-router-dom"
 import {NavBar} from './components'
-import { NotFound, Profile, SeasonalPage } from "./pages" 
+import { NotFound, RegisterPage, Profile, SeasonalPage } from "./pages" 
 import './App.css'
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
         <Link to="/winter">Winter</Link>
       </div>} />
         <Route path="/profile" element={<Profile/>}/>
+        <Route path='/register' element={<RegisterPage />}/>
         <Route path="/:season" element={<SeasonalPage/>}>
       </Route>
     </Routes>
