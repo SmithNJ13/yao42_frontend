@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import CarouselItem from 'react-bootstrap/CarouselItem'
 import CarouselCaption from 'react-bootstrap/CarouselCaption'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./style.css"
 
 const CarouselComponent = () => {
   return (
