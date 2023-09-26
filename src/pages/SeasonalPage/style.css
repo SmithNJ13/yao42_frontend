@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Poppins&display=swap');
+/* font-family: 'Dancing Script', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif; */
 #Sidebanner {
     position: absolute;
     top: 0;
@@ -8,8 +11,8 @@
 }
 #Title {
     font-size: 75px;
-    font-family: 'Marck Script', cursive;
-    text-decoration: underline 2px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
 }
 #Title.spring {
     color: lawngreen;

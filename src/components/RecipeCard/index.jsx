@@ -22,3 +22,7 @@ const RecipeCard = (recipes) => {
 }
 
 export default RecipeCard
+
+// Button on click should eventually have functionality
+// to take you to another page where you can
+// view the recipe in more detail?

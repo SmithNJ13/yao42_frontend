@@ -9,6 +9,7 @@ const seasons = ["spring", "summer", "autumn", "winter"]
 
 const SeasonalPage = () => {
   const {season} = useParams()
+  const displaySeason = season.toUpperCase()
   if(!seasons.includes(season)) {
     return <Navigate replace={true} to="/notfound" />
   }
@@ -42,7 +43,7 @@ const SeasonalPage = () => {
     </div>
     <div id="MainContent">
       <div id="Title" className={season}>
-        {season}
+        {displaySeason}
       </div>
       <div id="Carousel" className={season}>
         <CarouselComponent />
