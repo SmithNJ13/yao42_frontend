@@ -2,7 +2,7 @@
 import {Routes, Route} from 'react-router-dom'
 import {NavBar} from './components'
 
-import { NotFound } from "./pages" 
+import { NotFound, RegisterPage } from "./pages" 
 import './App.css'
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
         <Route path="/" element={<NavBar/>}>
           <Route path="*" element={<NotFound/>}/>
         </Route>
+        <Route path='/register' element={<RegisterPage />} />
       </Routes>
     </>
   )
