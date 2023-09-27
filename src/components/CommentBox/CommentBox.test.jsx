@@ -17,7 +17,7 @@ describe("CommentBox component", () => {
     })
 
     it("renders correctly", () => {
-        console.log(document.body.innerHTML)
+        console.log(document.body.innerHTM)
         expect(screen.getByLabelText("What are your thoughts?")).toBeInTheDocument();
         expect(screen.getByText("Cancel")).toBeInTheDocument();
         expect(screen.getByText("Comment")).toBeInTheDocument();
