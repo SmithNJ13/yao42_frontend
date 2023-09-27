@@ -19,11 +19,12 @@
     color: var(--gray);
   }
   
-  label {
+  /* label {
     height: 0;
     width: 0;
     visibility: hidden;
-  }
+  } This was causing conflicts with other css :) */
+   
   
   button {
     cursor: pointer;
