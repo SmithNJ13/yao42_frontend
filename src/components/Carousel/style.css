@@ -6,7 +6,11 @@ h3 {
 }
 #CarouselItems img {
     position: relative;
-    left: 200px;
+    left: 320px;
+    max-width: 400px;
+    max-height: 350px;
+    min-width: 400px;
+    min-height: 350px;
 }
 /* Spring Styling  */
 .spring h3 {

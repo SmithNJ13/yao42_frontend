@@ -13,24 +13,23 @@ const SeasonalPage = () => {
   if(!seasons.includes(season)) {
     return <Navigate replace={true} to="/notfound" />
   }
-  const [recipes,setRecipes] = useState(undefined)
-  const [ingredients, setIngredients] = useState(undefined)
-  const seasonArray = []
+  const [recipes,setRecipes] = useState()
+  const [ingredients, setIngredients] = useState()
 
   // Fetching recipes from backend
   async function getRecipes() {
-    axios.get("https://lap-4-server.onrender.com/recipes")
-    .then(resp => {
-      const data = resp.data.recipes
-      setRecipes(data)
-    })
+    await axios.get("https://lap-4-server.onrender.com/recipes")
+      .then(resp => {
+        const data = resp.data.recipes
+        setRecipes(data)
+      })
   }
   async function getIngredients() {
-    axios.get("https://lap-4-server.onrender.com/ingredients")
-    .then(resp => {
-      const data = resp.data.ingredients
-      setIngredients(data)
-    })
+    await axios.get("https://lap-4-server.onrender.com/ingredients")
+      .then(resp => {
+        const data = resp.data.ingredients
+        setIngredients(data)
+      })
   }
 
   useEffect(() => {
@@ -38,17 +37,8 @@ const SeasonalPage = () => {
     getRecipes()
   }, [])
   // Loading logic 
-  if(!recipes && !ingredients) {
+  if(!recipes || !ingredients) {
     return <div className="loading">Loading page!</div>
-  } else {
-    try {
-      // console.log(recipes)
-      // console.log(ingredients)
-      ingredients.filter((i) => i.season.toLowerCase().includes(season))
-      .map(i => {console.log(i.season)})
-    } catch (error) {
-      console.log("Cannot filter ingredients!")
-    }
   }
 
 

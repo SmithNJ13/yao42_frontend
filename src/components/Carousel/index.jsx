@@ -9,28 +9,18 @@ const CarouselComponent = ({ingredients, season}) => {
   return (
     <>
     <div id="CarouselItems">
-    <Carousel>
-      <CarouselItem>
-        <img src="../src/assets/grapefruit.png" />
-        <CarouselCaption>
-          <h3>Ingredient Name[1]</h3>
-          <p>This is a placeholder ingredient description</p>
-        </CarouselCaption>
-      </CarouselItem>
-      <CarouselItem>
-        <img src="../src/assets/grapefruit.png" />
-        <CarouselCaption>
-          <h3>Ingredient Name[2]</h3>
-          <p>This is a placeholder ingredient description</p>
-        </CarouselCaption>
-      </CarouselItem>
-      <CarouselItem>
-        <img src="../src/assets/grapefruit.png" />
-        <CarouselCaption>
-          <h3>Ingredient Name[3]</h3>
-          <p>This is a placeholder ingredient description</p>
-        </CarouselCaption>
-      </CarouselItem>
+    <Carousel> {
+      ingredients.filter((i) => i.season.toLowerCase().includes(season))
+      .map((ingredient, index) => (
+        <CarouselItem key={index}>
+          <img src={ingredient.image}/>
+          <CarouselCaption>
+            <h3>{ingredient.name}</h3>
+            <p>{ingredient.description}</p>
+          </CarouselCaption>
+        </CarouselItem>
+      ))
+      }
     </Carousel>
     </div>
     </>

@@ -73,10 +73,14 @@ font-family: 'Poppins', sans-serif;
     min-width: 15vw;
     background-color: skyblue;
 }
+#Carousel {
+    padding-top: 2.5rem;
+}
 #RecipeInfo {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-top: 2.5rem;
     gap: 42.5px;
 }
 
