@@ -1,0 +1,39 @@
+.mixing-bowl-container {
+    text-align: center;
+  }
+  
+  .mixing-bowl {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.left-column {
+    margin-left: 20px;
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: white; 
+    border-radius: 5px;
+    height: 80vh;
+    max-width: 25%;
+}
+  
+.right-column {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.mix-button {
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+  
