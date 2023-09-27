@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/NavBar/index.jsx</title>
+    <title>Code coverage report for components/RecipeSearch/index.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/NavBar</a> index.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/RecipeSearch</a> index.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>23/23</span>
+                <span class='fraction'>6/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>23/23</span>
+                <span class='fraction'>6/24</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,49 +90,49 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-import { NavLink, Outlet } from 'react-router-dom'
-import './NavBar.css'
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import './style.css';
 &nbsp;
-const NavBar = () =&gt; {
-  return (
-    &lt;&gt;
-    &lt;nav className='navbar'&gt;
-    &lt;div className='navlinks' data-testid="navlinks"&gt;
-     &lt;NavLink to='/' className='navlink'&gt;Home&lt;/NavLink&gt; 
-     &lt;NavLink to='/profile' className='navlink'&gt;My Profile&lt;/NavLink&gt;
-     &lt;NavLink to='/addrecipe' className='navlink'&gt;Add Recipe&lt;/NavLink&gt;
-     &lt;NavLink to='/register' className='navlink'&gt;Sign-Up&lt;/NavLink&gt;
-     &lt;NavLink to='/mixingbowl' className='navlink'&gt;Mixing Bowl&lt;/NavLink&gt;
-    &lt;/div&gt;
-  &lt;/nav&gt;    
-  &lt;Outlet /&gt;
-  &lt;footer className='footer'&gt;SzndChef 2023&lt;/footer&gt;
-    &lt;/&gt;
-  )
-}
+const RecipeSearch = <span class="fstat-no" title="function not covered" >({ searchInput, setSearchInput, handleAddIngredient }) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;div className="recipe-search"&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;input</span>
+<span class="cstat-no" title="statement not covered" >        type="text"</span>
+<span class="cstat-no" title="statement not covered" >        placeholder="Search for ingredients"</span>
+<span class="cstat-no" title="statement not covered" >        value={searchInput}</span>
+<span class="cstat-no" title="statement not covered" >        onChange={(e) =&gt; setSearchInput(e.target.value)}</span>
+<span class="cstat-no" title="statement not covered" >        className="search-input"</span>
+<span class="cstat-no" title="statement not covered" >      /&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;button </span>
+<span class="cstat-no" title="statement not covered" >        onClick={handleAddIngredient}</span>
+<span class="cstat-no" title="statement not covered" >        className="search-button"</span>
+<span class="cstat-no" title="statement not covered" >      &gt;</span>
+<span class="cstat-no" title="statement not covered" >        Add Ingredient</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-export default NavBar
-&nbsp;</pre></td></tr></table></pre>
+export default RecipeSearch;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

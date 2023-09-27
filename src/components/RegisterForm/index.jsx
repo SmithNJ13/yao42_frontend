@@ -75,39 +75,43 @@ const Register = () => {
         <form style= {{ backgroundImage: `url(${form})`}} className= 'poppins-font tw-bg-cover tw-w-full tw-mx-auto tw-px-[4rem]' onSubmit={handleSubmit}>
           <h2 className='tw-text-left tw-text-4xl tw-text-white tw-font-bold tw-pt-[7.5rem] tw-pb-7'>Register</h2>
           <div className='tw-flex tw-flex-col tw-py-1'>
-            <label>Username</label>
+            <label htmlFor='username'>Username</label>
             <input className='tw-border-2 tw-rounded-lg focus:tw-border-green-700 focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm' 
               type='text' 
               placeholder='user123'
               value={name}
               onChange={handleName}
+              id='username'
             />
           </div>
           <div className='tw-flex tw-flex-col tw-py-1'>
-            <label>Email</label>
+            <label htmlFor='email'>Email</label>
             <input className='tw-border-2 tw-rounded-lg focus:tw-border-green-700 focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm' 
               type='email' 
               placeholder='e.g. JohnDoe@email.com'
               value={email}
               onChange={handleEmail} 
+              id='email'
               />
           </div>
           <div className='tw-flex tw-flex-col tw-py-1'>
-            <label>Password</label>
+            <label htmlFor='password'>Password</label>
             <input className='tw-border-2 tw-rounded-lg focus:tw-border-green-700 focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm' 
               type='text' 
               placeholder='Please enter your password...'
               value={password}
               onChange={handlePassword}
+              id='password'
               />
           </div>
           <div className='tw-flex tw-flex-col tw-py-1'>
-            <label>Confirm Password</label>
+            <label htmlFor='confirm'>Confirm Password</label>
             <input className='tw-border-2 tw-rounded-lg focus:tw-border-green-700 focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm'
               type='text'  
               placeholder='Please re-enter your password...' 
               value={passConfirm}
               onChange={handlePassConfirm}
+              id='confirm'
               />
           </div>
           <button type='submit' className='tw-border tw-rounded-2xl tw-flex tw-mx-auto tw-justify-center tw-transition tw-ease-in-out tw-bg-green-500 hover:tw-bg-green-700 tw-w-1/3 tw-my-2 tw-py-2 tw-text-white tw-font-bold'>Sign-Up</button>
