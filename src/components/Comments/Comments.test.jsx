@@ -16,23 +16,26 @@ describe("Comments component", () => {
         cleanup()
     })
 
-    it("Fetches comments from the api", async () => {
-        vi.spyOn(axios, "get").mockResolvedValueOnce({
-            comments: [
-            {
-            "id": 1,
-            "comment": "This recipe is amazing!",
-            "recipe_id": 1,
-            "user_id": 1
-            }
-            ]
-            })
-            await waitFor(() => {
-                expect(screen.getByText("This recipe is amazing!")).toBeInTheDocument();
-            });
+    it("Fetches comments from the API", async () => {
         
+        vi.spyOn(axios, "get").mockResolvedValueOnce({
+            data: {
+                comments: [
+                    {
+                        "id": 1,
+                        "comment": "This recipe is amazing!",
+                        "recipe_id": 1,
+                        "user_id": 1
+                    }
+                ]
+            }
+        });
 
-    })
+        
+        await waitFor(() => {
+            expect(screen.getByText("This recipe is amazing!")).toBeInTheDocument();
+        });
+    });
 
     
 })
