@@ -5,34 +5,28 @@ import CarouselCaption from 'react-bootstrap/CarouselCaption'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
 
-const CarouselComponent = () => {
+const CarouselComponent = ({ingredients, season}) => {
   return (
     <>
-    <Carousel>
-      <CarouselItem>
-        <img src="src/assets/grapefruit.png" />
-        <CarouselCaption>
-          <h3>Ingredient Name[1]</h3>
-          <p>This is a placeholder ingredient description</p>
-        </CarouselCaption>
-      </CarouselItem>
-      <CarouselItem>
-        <img src="src/assets/grapefruit.png" />
-        <CarouselCaption>
-          <h3>Ingredient Name[2]</h3>
-          <p>This is a placeholder ingredient description</p>
-        </CarouselCaption>
-      </CarouselItem>
-      <CarouselItem>
-        <img src="src/assets/grapefruit.png" />
-        <CarouselCaption>
-          <h3>Ingredient Name[3]</h3>
-          <p>This is a placeholder ingredient description</p>
-        </CarouselCaption>
-      </CarouselItem>
+    <div id="CarouselItems">
+    <Carousel> {
+      ingredients.filter((i) => i.season.toLowerCase().includes(season))
+      .map((ingredient, index) => (
+        <CarouselItem key={index}>
+          <img src={ingredient.image}/>
+          <CarouselCaption>
+            <h3>{ingredient.name}</h3>
+            <p>{ingredient.description}</p>
+          </CarouselCaption>
+        </CarouselItem>
+      ))
+      }
     </Carousel>
+    </div>
     </>
   )
 }
 
 export default CarouselComponent
+
+// For each ingredient that belongs to the season, render the ingredient
