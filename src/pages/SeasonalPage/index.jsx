@@ -31,6 +31,12 @@ const SeasonalPage = () => {
         setIngredients(data)
       })
   }
+  function setRootClass() {
+    const root = document.getElementById("root")
+    if(root) {
+      root.className = season
+    }
+  }
 
   useEffect(() => {
     getIngredients()
@@ -38,6 +44,7 @@ const SeasonalPage = () => {
   }, [])
   // Loading logic 
   if(!recipes || !ingredients) {
+    setRootClass()
     return <div className="loading">Loading page!</div>
   }
 
@@ -59,7 +66,7 @@ const SeasonalPage = () => {
     <div id="RecipeInfo">
       {recipes.map((recipe, index) => (
         <div key={index+1} id="card">
-          <RecipeCard recipe={recipe}/>
+          <RecipeCard recipe={recipe} season={season}/>
         </div>
       ))}
     </div>

@@ -3,13 +3,13 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import "./style.css"
 
-const RecipeCard = ({recipe}) => {
+const RecipeCard = ({recipe, season}) => {
   const name = recipe.name
   const desc = recipe.description
   // console.log(recipe.name)
   return (
     <>
-    <Card style={{ width: '20rem' }}>
+    <Card style={{ width: '20rem' }} className={season}>
       <Card.Img variant="top" src="src\assets\grapefruit-recipe.png" />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
