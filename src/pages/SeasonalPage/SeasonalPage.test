@@ -14,8 +14,8 @@ describe("SeasonalPage renders each season: ", () => {
   beforeEach(() => {
     
       render(
-        <MemoryRouter>
-      <SeasonalPage />
+      <MemoryRouter>
+       <SeasonalPage />
       </MemoryRouter>
       );
     

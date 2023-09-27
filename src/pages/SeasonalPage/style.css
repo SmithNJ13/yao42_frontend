@@ -4,12 +4,25 @@ font-family: 'Dancing Script', cursive;
 font-family: 'Playfair Display', serif;
 font-family: 'Poppins', sans-serif; 
 */
+#root {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.loading{
+    font-size: 100px;
+    font-weight: bold;
+}
 #Sidebanner {
     position: absolute;
     top: 0;
     left: 0;
     min-height: 100vh;
     min-width: 15vw;
+    z-index: -1;
+}
+#MainContent {
+    text-align: center;
 }
 #Title {
     font-size: 75px;
@@ -60,10 +73,14 @@ font-family: 'Poppins', sans-serif;
     min-width: 15vw;
     background-color: skyblue;
 }
+#Carousel {
+    padding-top: 2.5rem;
+}
 #RecipeInfo {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 75px;
+    padding-top: 2.5rem;
+    gap: 42.5px;
 }
 

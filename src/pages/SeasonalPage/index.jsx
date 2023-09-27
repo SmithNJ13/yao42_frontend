@@ -13,25 +13,32 @@ const SeasonalPage = () => {
   if(!seasons.includes(season)) {
     return <Navigate replace={true} to="/notfound" />
   }
-  const [recipes,setRecipes] = useState(undefined)
+  const [recipes,setRecipes] = useState()
+  const [ingredients, setIngredients] = useState()
 
   // Fetching recipes from backend
   async function getRecipes() {
-    axios.get("https://lap-4-server.onrender.com/recipes")
-    .then(resp => {
-      const data = resp.data.recipes
-      setRecipes(data)
-    })
+    await axios.get("https://lap-4-server.onrender.com/recipes")
+      .then(resp => {
+        const data = resp.data.recipes
+        setRecipes(data)
+      })
+  }
+  async function getIngredients() {
+    await axios.get("https://lap-4-server.onrender.com/ingredients")
+      .then(resp => {
+        const data = resp.data.ingredients
+        setIngredients(data)
+      })
   }
 
   useEffect(() => {
+    getIngredients()
     getRecipes()
   }, [])
   // Loading logic 
-  if(!recipes) {
-    return <div>Loading page!</div>
-  } else {
-    console.log(recipes)
+  if(!recipes || !ingredients) {
+    return <div className="loading">Loading page!</div>
   }
 
 
@@ -46,13 +53,15 @@ const SeasonalPage = () => {
         {displaySeason}
       </div>
       <div id="Carousel" className={season}>
-        <CarouselComponent />
+        <CarouselComponent ingredients={ingredients} season={season}/>
       </div>
     </div>
     <div id="RecipeInfo">
-      <RecipeCard recipes={recipes}/>
-      <RecipeCard recipes={recipes}/>
-      <RecipeCard recipes={recipes}/>
+      {recipes.map((recipe, index) => (
+        <div key={index+1} id="card">
+          <RecipeCard recipe={recipe}/>
+        </div>
+      ))}
     </div>
     </>
   )
