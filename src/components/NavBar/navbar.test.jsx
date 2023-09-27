@@ -1,4 +1,3 @@
-import React from 'react'
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { screen, render, cleanup } from '@testing-library/react'
 import { userEvent} from '@testing-library/user-event'
@@ -26,7 +25,7 @@ describe("NavBar component", () => {
     it("Displays a nav bar will have three children", () => {
         const nav = screen.getByTestId("navlinks")
         expect(nav).toBeInTheDocument()
-        expect(nav.childNodes.length).toBe(3)
+        expect(nav.childNodes.length).toBe(4)
     })
 
     it("Displays navigation links", () => {
