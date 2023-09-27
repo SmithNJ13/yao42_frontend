@@ -12,7 +12,7 @@ const handleClick = () => {
 
   return (
     <>
-        <FontAwesomeIcon icon={like ? solidHeart : regularHeart } className='likebutton' onClick={handleClick}/>
+        <FontAwesomeIcon icon={like ? solidHeart : regularHeart } className='likebutton' onClick={handleClick} data-testid="like-button"/>
         </>
   )
 }
