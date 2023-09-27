@@ -8,7 +8,7 @@ const IngredientList = ({ selectedIngredients, handleRemoveIngredient }) => {
         {selectedIngredients.map((ingredient, index) => (
           <li key={index}>
             {ingredient}
-            <button onClick={() => handleRemoveIngredient(ingredient)}>Remove</button>
+            <button onClick={() => handleRemoveIngredient(ingredient)}>x</button>
           </li>
         ))}
       </ul>
