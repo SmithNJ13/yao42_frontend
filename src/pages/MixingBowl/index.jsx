@@ -100,7 +100,12 @@ const MixingBowl = () => {
           />
         </div>
         <div className="right-column">
-          <button onClick={handleMixMeClick}>Mix Me!</button>
+          <button 
+            onClick={handleMixMeClick}
+            className="mix-button"
+          >
+            Mix Me!
+          </button>
           {showRecipes && <RecipeList recipes={recipes} />}
         </div>
       </div>
