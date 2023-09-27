@@ -5,7 +5,6 @@ const RecipeList = ({ recipes }) => {
     <div>
       {recipes.length > 0 ? (
         <div>
-          <h2>Recipes:</h2>
           <ul>
             {recipes.map((recipe, index) => (
               <li key={index}>{recipe.name}</li>
