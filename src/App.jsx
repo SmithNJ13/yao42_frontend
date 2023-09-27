@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Routes, Route, Link, useLocation} from "react-router-dom"
 import {NavBar} from './components'
-import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl } from "./pages" 
+import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage } from "./pages" 
 import './App.css'
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         {/* If new pages are being added in, render them before /:season! */}
         <Route path="/profile" element={<Profile/>}/>
         <Route path='/register' element={<RegisterPage />}/>
+        <Route path='/login' element={<LoginPage />} />
         <Route path="/:season" element={<SeasonalPage/>}>
       </Route>
     </Routes>
