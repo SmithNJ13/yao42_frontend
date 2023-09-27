@@ -6,7 +6,7 @@ import "./style.css"
 const RecipeCard = ({recipe}) => {
   const name = recipe.name
   const desc = recipe.description
-  console.log(recipe.name)
+  // console.log(recipe.name)
   return (
     <>
     <Card style={{ width: '20rem' }}>

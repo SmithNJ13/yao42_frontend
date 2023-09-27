@@ -5,7 +5,7 @@ import CarouselCaption from 'react-bootstrap/CarouselCaption'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
 
-const CarouselComponent = () => {
+const CarouselComponent = ({ingredients, season}) => {
   return (
     <>
     <div id="CarouselItems">
@@ -38,3 +38,5 @@ const CarouselComponent = () => {
 }
 
 export default CarouselComponent
+
+// For each ingredient that belongs to the season, render the ingredient
