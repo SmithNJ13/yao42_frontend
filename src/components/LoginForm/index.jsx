@@ -7,29 +7,47 @@ import { Link } from 'react-router-dom'
 const Login = () => {
 
   const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleName = (e) => {
     setName(e.target.value)
-  }
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
   }
   const handlePassword = (e) => {
     setPassword(e.target.value)
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    const form = new FormData(e.target);
+    e.preventDefault();
+  
     const data = {
-      user: form.get('name'),
-      email: form.get('email'),
-      password: form.get('password')
+      username: name,
+      password: password,
+    };
+  
+    try {
+      const response = await fetch('https://lap-4-server.onrender.com/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Login successful!', result);
+  
+        localStorage.setItem('token', result.token);
+        localStorage.setItem('user_id', result.id);
+        localStorage.setItem('email', result.email);
+        window.location.href = '/';
+      } else {
+        console.error('Login failed!', await response.json());
+      }
+    } catch (error) {
+      console.error('Network error:', error);
     }
-  }
+  };
 
   const cookingRef = useRef()
 
@@ -52,15 +70,6 @@ const Login = () => {
             placeholder='user'
             value={name}
             onChange={handleName}
-            />
-          </div>
-          <div className='tw-flex tw-flex-col tw-py-1'>
-            <label>Email</label>
-            <input className='tw-border-2 tw-rounded-lg focus:tw-border-green-700 focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm'
-            type='email' 
-            placeholder='e.g. JohnDoe@email.com'  
-            value={email}
-            onChange={handleEmail}
             />
           </div>
           <div className='tw-flex tw-flex-col tw-py-1'>

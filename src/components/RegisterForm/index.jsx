@@ -24,19 +24,42 @@ const Register = () => {
     setPassConfirm(e.target.value)
   }
 
-  const handleSubmit = async (e) =>{
-    e.preventDefault()
-
-    if(!(password === passConfirm)) return
-
-    const form = new FormData(e.target)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    if (!(password === passConfirm)) return;
+  
+    // Construct the payload
     const data = {
-      user: form.get('name'),
-      email: form.get('email'),
-      password: form.get('password')
+      username: name,
+      email: email,
+      password: password,
+    };
+  
+    try {
+      const response = await fetch('https://lap-4-server.onrender.com/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+     
+      if (response.ok) {
+       
+        console.log('Registration successful!', await response.json());
+        window.location.href = '/login';
+      } else {
+        
+        console.error('Registration failed!', await response.text());
+      }
+    } catch (error) {
+      
+      console.error('Network error:', error);
     }
-    
-  }
+  };
+  
 
   const cookingRef = useRef()
 
