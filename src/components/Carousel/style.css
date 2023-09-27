@@ -4,6 +4,10 @@ p {
 h3 {
     -webkit-text-stroke: 1px black;
 }
+#CarouselItems img {
+    position: relative;
+    left: 200px;
+}
 /* Spring Styling  */
 .spring h3 {
     color: lawngreen;

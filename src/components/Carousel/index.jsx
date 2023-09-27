@@ -8,6 +8,7 @@ import "./style.css"
 const CarouselComponent = () => {
   return (
     <>
+    <div id="CarouselItems">
     <Carousel>
       <CarouselItem>
         <img src="../src/assets/grapefruit.png" />
@@ -17,7 +18,7 @@ const CarouselComponent = () => {
         </CarouselCaption>
       </CarouselItem>
       <CarouselItem>
-        <img src="../src/assets/pear.png" />
+        <img src="../src/assets/grapefruit.png" />
         <CarouselCaption>
           <h3>Ingredient Name[2]</h3>
           <p>This is a placeholder ingredient description</p>
@@ -31,6 +32,7 @@ const CarouselComponent = () => {
         </CarouselCaption>
       </CarouselItem>
     </Carousel>
+    </div>
     </>
   )
 }
