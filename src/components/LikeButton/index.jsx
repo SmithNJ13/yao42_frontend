@@ -8,7 +8,7 @@ import './LikeButton.css'
 const LikeButton = () => {
 
 const [like, setLike] = useState(false);
-const [likeId, setLikeId] = useState(null);
+const [likeId, setLikeId] = useState(0);
 
 // const getUserIdFromLocalStorage = () => {
 //   const userId = localStorage.getItem('user_id');
@@ -33,18 +33,18 @@ useEffect(() => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTgyMzkyNSwianRpIjoiYmVmNjlmNWMtMDRhNy00Njc0LWE0ZTQtZjcxNTQ3NDZjMTUzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBleGFtcGxlLmNvbSJ9LCJuYmYiOjE2OTU4MjM5MjUsImV4cCI6MTY5NTgyNDgyNX0.-kFqXKxQFcGUxbmv8Lv7K0D61ezMdHYXngN8iYlIf5M', // Replace with your access token
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTgzMTg2NiwianRpIjoiMGVmMzY0OGEtODRkMC00YmRiLWI5NmEtM2I3NWE0ZTZkZjc3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBleGFtcGxlLmNvbSJ9LCJuYmYiOjE2OTU4MzE4NjYsImV4cCI6MTY5NTgzMjc2Nn0.uoyVrFTXAS6uN9-FEXKS5RmogPMksG6umG2uqPm-dkE', 
       },
     })
       .then((response) => response.json())
       .then((data) => {
-        // Check if the user has already liked the recipe
+        if ( data.likes && data.likes.length > 0) {
         console.log("There's a like!", data)
-        if (data.length > 0) {
           setLike(true);
-          setLikeId(data[0].id);
-        }
-      })
+          setLikeId(data.likes[0].id);
+          console.log('Likes found:', data.likes[0].id);
+      
+  }})
       .catch((error) => {
         console.error('Error fetching user like:', error);
       });
@@ -52,50 +52,56 @@ useEffect(() => {
 }, [userId, recipeId]);
 
 
-const handleClick = () => {
-
-  if (userId !== null && recipeId !== null) {
-    if (like) {
-      // User wants to remove their like
-      fetch(`https://lap-4-server.onrender.com/likes/${likeId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTgyMzkyNSwianRpIjoiYmVmNjlmNWMtMDRhNy00Njc0LWE0ZTQtZjcxNTQ3NDZjMTUzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBleGFtcGxlLmNvbSJ9LCJuYmYiOjE2OTU4MjM5MjUsImV4cCI6MTY5NTgyNDgyNX0.-kFqXKxQFcGUxbmv8Lv7K0D61ezMdHYXngN8iYlIf5M', // Replace with your access token
-        },
-      })
-        .then(() => {
-          setLike(false);
-          setLikeId(null);
-        })
-        .catch((error) => {
-          console.error('Error deleting like:', error);
-        });
-    } else {
-    setLike(!like);
-    if (userId !== null && recipeId !== null && !like) {
-      const requestBody = JSON.stringify({ user_id: userId, recipe_id: recipeId });
-
-      fetch('https://lap-4-server.onrender.com/likes', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // 'Authorization': `Bearer ${localStorage.getItem('token')}`
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTgyMzkyNSwianRpIjoiYmVmNjlmNWMtMDRhNy00Njc0LWE0ZTQtZjcxNTQ3NDZjMTUzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBleGFtcGxlLmNvbSJ9LCJuYmYiOjE2OTU4MjM5MjUsImV4cCI6MTY5NTgyNDgyNX0.-kFqXKxQFcGUxbmv8Lv7K0D61ezMdHYXngN8iYlIf5M' 
-        },
-        body: requestBody,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          // Handle the response as needed
-          console.log('Like created:', data);
-        })
-        .catch((error) => {
-          console.error('Error creating like:', error);
-        });
-    } }
+const handleClick = async () => {
+  try {
+    if (userId !== null && recipeId !== null) {
+      if (like) {
+        if (likeId !== null) {
+          console.log('Deleting likeId:', likeId)
+          const response = await fetch(
+            `https://lap-4-server.onrender.com/likes/${likeId}`,
+            {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTgzMTg2NiwianRpIjoiMGVmMzY0OGEtODRkMC00YmRiLWI5NmEtM2I3NWE0ZTZkZjc3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBleGFtcGxlLmNvbSJ9LCJuYmYiOjE2OTU4MzE4NjYsImV4cCI6MTY5NTgzMjc2Nn0.uoyVrFTXAS6uN9-FEXKS5RmogPMksG6umG2uqPm-dkE',
+              },
+            }
+          );
+          if (response.ok) {
+            setLike(false);
+            setLikeId(null);
+          } else {
+            console.error('Failed to delete like');
+          }
+        }
+      } else {
+        setLike(!like);
+        if (!like) {
+          const requestBody = JSON.stringify({ user_id: userId, recipe_id: recipeId });
+          const response = await fetch('https://lap-4-server.onrender.com/likes', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTgzMTg2NiwianRpIjoiMGVmMzY0OGEtODRkMC00YmRiLWI5NmEtM2I3NWE0ZTZkZjc3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBleGFtcGxlLmNvbSJ9LCJuYmYiOjE2OTU4MzE4NjYsImV4cCI6MTY5NTgzMjc2Nn0.uoyVrFTXAS6uN9-FEXKS5RmogPMksG6umG2uqPm-dkE',
+            },
+            body: requestBody,
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setLikeId(data.id);
+            console.log('Like created:', data);
+          } else {
+            console.error('Failed to create like');
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.error('Error:', error);
   }
-  }
+};
+
 
   return (
     <>
