@@ -29,9 +29,9 @@ const SeasonalPage = () => {
   }, [])
   // Loading logic 
   if(!recipes) {
-    return <div>Loading page!</div>
+    return <div className="loading">Loading page!</div>
   } else {
-    console.log(recipes)
+    // console.log(recipes)
   }
 
 
@@ -50,9 +50,11 @@ const SeasonalPage = () => {
       </div>
     </div>
     <div id="RecipeInfo">
-      <RecipeCard recipes={recipes}/>
-      <RecipeCard recipes={recipes}/>
-      <RecipeCard recipes={recipes}/>
+      {recipes.map((recipe, index) => (
+        <div key={index+1} id="card">
+          <RecipeCard recipe={recipe}/>
+        </div>
+      ))}
     </div>
     </>
   )

@@ -9,6 +9,10 @@ font-family: 'Poppins', sans-serif;
   margin: 0 auto;
   padding: 1rem;
 }
+.loading{
+    font-size: 100px;
+    font-weight: bold;
+}
 #Sidebanner {
     position: absolute;
     top: 0;

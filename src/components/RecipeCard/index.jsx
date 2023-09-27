@@ -3,10 +3,10 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import "./style.css"
 
-const RecipeCard = (recipes) => {
-  const name = recipes.recipes[0].name
-  const desc = recipes.recipes[0].description
-  console.log(recipes.recipes[0].name)
+const RecipeCard = ({recipe}) => {
+  const name = recipe.name
+  const desc = recipe.description
+  console.log(recipe.name)
   return (
     <>
     <Card style={{ width: '20rem' }}>
