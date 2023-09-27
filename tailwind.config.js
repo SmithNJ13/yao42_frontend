@@ -6,7 +6,10 @@ export default {
   ],
   prefix: "tw-",
   theme: {
-    extend: {},
+    extend: {
+      'dancing-script': ['Dancing Script', 'cursive'],
+      'poppins': ['Poppins', 'sans-serif']
+    },
   },
   plugins: [],
 }
