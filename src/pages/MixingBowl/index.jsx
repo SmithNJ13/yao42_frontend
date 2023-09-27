@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IngredientList, RecipeList, RecipeSearch } from "../../components"
+import './style.css'
 
 const MixingBowl = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -84,21 +85,25 @@ const MixingBowl = () => {
   };
 
   return (
-    <div>
+    <div className="mixing-bowl-container">
       <h1>Mixing Bowl</h1>
-      <RecipeSearch
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-        handleAddIngredient={handleAddIngredient}
-      />
-      <IngredientList
-        selectedIngredients={selectedIngredients}
-        handleRemoveIngredient={handleRemoveIngredient}
-      />
-      <button onClick={handleMixMeClick}>Mix Me!</button>
-      {showRecipes && (
-        <RecipeList recipes={recipes} />
-      )}
+      <div className="mixing-bowl">
+        <div className="left-column">
+          <RecipeSearch
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            handleAddIngredient={handleAddIngredient}
+          />
+          <IngredientList
+            selectedIngredients={selectedIngredients}
+            handleRemoveIngredient={handleRemoveIngredient}
+          />
+        </div>
+        <div className="right-column">
+          <button onClick={handleMixMeClick}>Mix Me!</button>
+          {showRecipes && <RecipeList recipes={recipes} />}
+        </div>
+      </div>
     </div>
   );
 };

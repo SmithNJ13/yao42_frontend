@@ -1,0 +1,21 @@
+.mixing-bowl-container {
+    text-align: center;
+}
+
+.mixing-bowl {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.left-column {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+.right-column {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
