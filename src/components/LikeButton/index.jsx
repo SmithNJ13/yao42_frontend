@@ -5,27 +5,19 @@ import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'
 import {faHeart as regularHeart} from '@fortawesome/free-regular-svg-icons'
 import './LikeButton.css'
 
-const LikeButton = () => {
+const LikeButton = ({recipe_id}) => {
 
 const [like, setLike] = useState(false);
-const [likeId, setLikeId] = useState(0);
+const [likeId, setLikeId] = useState(null);
 
-// const getUserIdFromLocalStorage = () => {
-//   const userId = localStorage.getItem('user_id');
-//   return userId ? parseInt(userId, 10) : null;
-// };
-
-// const getRecipeIdFromLocalStorage = () => {
-//   const recipeId = localStorage.getItem('recipe_id');
-//   return recipeId ? parseInt(recipeId, 10) : null;
-// };
-
-const userId = 1;
-const recipeId = 1;
+const getUserIdFromLocalStorage = () => {
+  const userId = localStorage.getItem('user_id');
+  return userId ? parseInt(userId, 10) : null;
+};
 
 
-// const userId = getUserIdFromLocalStorage();
-// const recipeId = getRecipeIdFromLocalStorage();
+const userId = getUserIdFromLocalStorage();
+const recipeId = recipe_id;
 
 useEffect(() => {
   if (userId !== null && recipeId !== null) {
@@ -33,7 +25,7 @@ useEffect(() => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTgzMTg2NiwianRpIjoiMGVmMzY0OGEtODRkMC00YmRiLWI5NmEtM2I3NWE0ZTZkZjc3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBleGFtcGxlLmNvbSJ9LCJuYmYiOjE2OTU4MzE4NjYsImV4cCI6MTY5NTgzMjc2Nn0.uoyVrFTXAS6uN9-FEXKS5RmogPMksG6umG2uqPm-dkE', 
+        'Authorization': `Bearer ${localStorage.getItem('token')}`, 
       },
     })
       .then((response) => response.json())
@@ -42,9 +34,9 @@ useEffect(() => {
         console.log("There's a like!", data)
           setLike(true);
           setLikeId(data.likes[0].id);
-          console.log('Likes found:', data.likes[0].id);
-      
-  }})
+        } else {
+          setLikeId(null);
+        }})
       .catch((error) => {
         console.error('Error fetching user like:', error);
       });
@@ -64,7 +56,7 @@ const handleClick = async () => {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTgzMTg2NiwianRpIjoiMGVmMzY0OGEtODRkMC00YmRiLWI5NmEtM2I3NWE0ZTZkZjc3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBleGFtcGxlLmNvbSJ9LCJuYmYiOjE2OTU4MzE4NjYsImV4cCI6MTY5NTgzMjc2Nn0.uoyVrFTXAS6uN9-FEXKS5RmogPMksG6umG2uqPm-dkE',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
               },
             }
           );
@@ -83,7 +75,7 @@ const handleClick = async () => {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTgzMTg2NiwianRpIjoiMGVmMzY0OGEtODRkMC00YmRiLWI5NmEtM2I3NWE0ZTZkZjc3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBleGFtcGxlLmNvbSJ9LCJuYmYiOjE2OTU4MzE4NjYsImV4cCI6MTY5NTgzMjc2Nn0.uoyVrFTXAS6uN9-FEXKS5RmogPMksG6umG2uqPm-dkE',
+              'Authorization': `Bearer ${localStorage.getItem('token')}`,
             },
             body: requestBody,
           });
