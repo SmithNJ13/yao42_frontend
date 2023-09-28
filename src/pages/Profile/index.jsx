@@ -11,6 +11,7 @@ import CommentBox from '../../components/CommentBox';
 const Profile = () => {
 const [username, setUsername] = useState('');
 const [email, setEmail] = useState('');
+const [recipes, setRecipes] = useState([])
 
 useEffect(() => {
     const storedUsername = localStorage.getItem('username');
