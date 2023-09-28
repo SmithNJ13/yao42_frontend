@@ -1,9 +1,12 @@
 import React from 'react'
+import {useParams}  from "react-router-dom"
 
 const ViewRecipe = (recipe) => {
+  const name = recipe.name
+  useParams(name)
   return (
     <>
-    <h1>{recipe.name}</h1>
+    <h1>{name}</h1>
     </>
   )
 }
