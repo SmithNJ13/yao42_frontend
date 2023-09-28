@@ -8,7 +8,11 @@ const IngredientList = ({ selectedIngredients, handleRemoveIngredient }) => {
         {selectedIngredients.map((ingredient, index) => (
           <li key={index}>
             {ingredient}
-            <button onClick={() => handleRemoveIngredient(ingredient)}>x</button>
+            <i
+              className="fa fa-trash"
+              style={{ color: '#181a1b', marginLeft: '5px', cursor: 'pointer' }}
+              onClick={() => handleRemoveIngredient(ingredient)}
+            ></i>
           </li>
         ))}
       </ul>

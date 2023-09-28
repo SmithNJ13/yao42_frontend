@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { IngredientList, RecipeList, RecipeSearch } from "../../components"
+import Lottie from 'lottie-react'
+import animationData from '../../assets/mixing-bowl.json'
 import './style.css'
 
 const MixingBowl = () => {
@@ -7,6 +9,7 @@ const MixingBowl = () => {
   const [searchInput, setSearchInput] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [showRecipes, setShowRecipes] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const fetchIngredients = async () => {
     try {
@@ -28,42 +31,48 @@ const MixingBowl = () => {
   };
 
   const fetchRecipes = async () => {
-    const allRecipes = await fetchIngredients();
-    if (selectedIngredients.length > 0 || searchInput.trim() !== '') {
-      const filteredRecipes = allRecipes.filter((recipe) => {
-        const recipeIngredients = recipe.ingredients
-          .split(',')
-          .map((ingredient) => ingredient.trim().toLowerCase());
-        const searchWords = searchInput
-          .toLowerCase()
-          .split(' ')
-          .filter((word) => word);
+    setLoading(true);
+    
+    setTimeout(async () => {
+      const allRecipes = await fetchIngredients();
+      if (selectedIngredients.length > 0 || searchInput.trim() !== '') {
+        const filteredRecipes = allRecipes.filter((recipe) => {
+          const recipeIngredients = recipe.ingredients
+            .split(',')
+            .map((ingredient) => ingredient.trim().toLowerCase());
+          const searchWords = searchInput
+            .toLowerCase()
+            .split(' ')
+            .filter((word) => word);
 
-        const selectedIngredientsIncluded =
-          selectedIngredients.length === 0 ||
-          selectedIngredients.every((selectedIngredient) =>
-            recipeIngredients.some((recipeIngredient) =>
-              recipeIngredient.includes(selectedIngredient.toLowerCase())
-            )
-          );
+          const selectedIngredientsIncluded =
+            selectedIngredients.length === 0 ||
+            selectedIngredients.every((selectedIngredient) =>
+              recipeIngredients.some((recipeIngredient) =>
+                recipeIngredient.includes(selectedIngredient.toLowerCase())
+              )
+            );
 
-        const searchInputMatched =
-          searchWords.length === 0 ||
-          searchWords.some((searchWord) =>
-            recipeIngredients.some((recipeIngredient) =>
-              recipeIngredient.includes(searchWord)
-            )
-          );
+          const searchInputMatched =
+            searchWords.length === 0 ||
+            searchWords.some((searchWord) =>
+              recipeIngredients.some((recipeIngredient) =>
+                recipeIngredient.includes(searchWord)
+              )
+            );
 
-        return selectedIngredientsIncluded && searchInputMatched;
-      });
+          return selectedIngredientsIncluded && searchInputMatched;
+        });
 
-      setRecipes(filteredRecipes);
-      setShowRecipes(true);
-    } else {
-      setRecipes([]);
-      setShowRecipes(false);
-    }
+        setRecipes(filteredRecipes);
+        setShowRecipes(true);
+      } else {
+        setRecipes([]);
+        setShowRecipes(false);
+      }
+
+      setLoading(false);
+    }, 2000);
   };
 
   const handleAddIngredient = () => {
@@ -85,28 +94,39 @@ const MixingBowl = () => {
   };
 
   return (
-    <div className="mixing-bowl-container">
-      <h1>Mixing Bowl</h1>
-      <div className="mixing-bowl">
-        <div className="left-column">
-          <RecipeSearch
-            searchInput={searchInput}
-            setSearchInput={setSearchInput}
-            handleAddIngredient={handleAddIngredient}
-          />
-          <IngredientList
-            selectedIngredients={selectedIngredients}
-            handleRemoveIngredient={handleRemoveIngredient}
-          />
-        </div>
-        <div className="right-column">
-          <button 
-            onClick={handleMixMeClick}
-            className="mix-button"
-          >
-            Mix Me!
-          </button>
-          {showRecipes && <RecipeList recipes={recipes} />}
+    <div className="container">
+      <div id="Sidebanner"></div>
+      <div className="mixing-bowl-container">
+        <h1 id="title">Mixing Bowl</h1>
+        <div className="mixing-bowl">
+          <div className="left-column">
+            <RecipeSearch
+              searchInput={searchInput}
+              setSearchInput={setSearchInput}
+              handleAddIngredient={handleAddIngredient}
+            />
+            <IngredientList
+              selectedIngredients={selectedIngredients}
+              handleRemoveIngredient={handleRemoveIngredient}
+            />
+          </div>
+          <div className="right-column">
+            {loading ? (
+              <Lottie 
+              className="animation"
+                animationData={animationData}
+              />
+            ) : (
+              <button
+                onClick={handleMixMeClick}
+                className="mix-button"
+                disabled={loading}
+              >
+                Find Recipes!
+              </button>
+            )}
+            {showRecipes && !loading && <RecipeList recipes={recipes} />}
+          </div>
         </div>
       </div>
     </div>

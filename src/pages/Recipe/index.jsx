@@ -1,11 +1,11 @@
 import React from 'react'
 import { PostRecipe } from '../../components'
-// import './RecipePage.css'
+import './style.css'
 
 
 const RecipePage = () => {
   return (
-    <div>
+    <div className="RecipePage_Container">
         <PostRecipe />
     </div>
   )

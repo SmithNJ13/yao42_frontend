@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './style.css'
 
 const PostRecipe = () => {
   const [name, setName] = useState('');
@@ -59,12 +58,13 @@ const PostRecipe = () => {
   };
   
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} class="Recipe_Form">
       <div>
-        <label htmlFor="name">Name:</label>
+        <label class="recipe_label" htmlFor="name">Name:</label>
         <input
+          class="input_recipe"
           type="text"
-          id="name"
+          id="recipe_name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Spaghetti Bolognese"
@@ -72,10 +72,10 @@ const PostRecipe = () => {
         />
       </div>
       <div>
-        <label htmlFor="description">Description:</label>
+        <label class="recipe_label" htmlFor="description">Description:</label>
         <input
           type="text"
-          id="description"
+          id="recipe_description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="A tasty dish originating from ..."
@@ -83,10 +83,10 @@ const PostRecipe = () => {
         />
       </div>
       <div>
-        <label htmlFor="ingredients">Ingredients:</label>
+        <label htmlFor="ingredients" class="recipe_label">Ingredients:</label>
         <input
           type="text"
-          id="ingredients"
+          id="recipe_ingredients"
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
           placeholder="ie: two tablespoons of ..."
@@ -94,9 +94,9 @@ const PostRecipe = () => {
         />
       </div>
       <div>
-        <label htmlFor="season">Season:</label>
+        <label class="recipe_label" htmlFor="season">Season:</label>
         <select
-          id="season"
+          id="recipe_season"
           value={season}
           onChange={(e) => setSeason(e.target.value)}
           required
@@ -109,17 +109,19 @@ const PostRecipe = () => {
         </select>
       </div>
       <div>
-        <label htmlFor="image">Image:</label>
+        <label class="recipe_label" htmlFor="image">Image:</label>
         <input
           type="text"
-          id="season"
+          id="recipe_season"
           value={image}
           onChange={(e) => setImage(e.target.value)}
           placeholder="Input image URL here"
           required
         />
       </div>
-      <button type="submit">Submit</button>
+      <div class="button_container">
+      <button id ="button" type="submit">Submit</button>
+      </div>
     </form>
   );
 };
