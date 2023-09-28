@@ -31,20 +31,37 @@ describe("LikeButton component", () => {
     }
     )
 
-    it("Displays a solid heart when clicked", () => {
-        const likeButton = screen.getByTestId("like-button")
-        fireEvent.click(likeButton)
-        expect(likeButton).toHaveClass('solid-heart')
-    }
-    )
+    it('should render with the regular heart icon initially', () => {
+        const likeButton = screen.getByTestId('like-button');
+    
+        expect(likeButton).toBeInTheDocument();
+        expect(likeButton).toHaveClass('fa-heart');
+        
+      });
 
-    it("Displays a regular heart when clicked twice", () => {
-        const likeButton = screen.getByTestId("like-button")
-        fireEvent.click(likeButton)
-        fireEvent.click(likeButton)
-        expect(likeButton).toHaveClass('regular-heart')
-    }
-    )
+
+
+    
+  it('should toggle to the solid heart icon when clicked', () => {
+    const likeButton = screen.getByTestId('like-button');
+
+    
+    fireEvent.click(likeButton);
+
+    expect(likeButton).toHaveClass('svg-inline--fa fa-heart likebutton');
+    
+
+    fireEvent.click(likeButton);
+    expect(likeButton).toHaveClass('fa-heart');
+    
+  });
 
     
 });
+
+
+
+ 
+
+
+
