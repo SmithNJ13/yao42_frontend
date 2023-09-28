@@ -16,7 +16,7 @@ const RecipeCard = ({recipe, season}) => {
         <Card.Body>
           <Card.Title>{recipe.name}</Card.Title>
           <Card.Text>{recipe.description}</Card.Text>
-          <Button className="button" onClick={handleClick}>View recipe</Button>
+          <Button className="button">View recipe</Button>
         </Card.Body>
     </Card>
     </>

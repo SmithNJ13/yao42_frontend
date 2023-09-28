@@ -2,7 +2,7 @@ import { React, useRef, useState } from 'react'
 import Lottie from 'lottie-react'
 import animationData from '../../assets/cooking-ani.json'
 import form from '../../assets/formBg.png'
-import { Link } from 'react-router-dom'
+import { Naviagte, Link } from 'react-router-dom'
 
 const Login = () => {
 
