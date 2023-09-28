@@ -111,16 +111,18 @@ const MixingBowl = () => {
             />
           </div>
           <div className="right-column">
-          <Lottie onComplete={() => {
-            }} animationData={animationData} className='tw-w-full tw-h-full tw-object-cover tw-relative tw-pt-11'/>
-            <button
-              onClick={handleMixMeClick}
-              className="mix-button"
-              disabled={loading}
-            >
-              {loading ? 'Loading...' : 'Find Recipes!'}
-            </button>
-            {showRecipes && <RecipeList recipes={recipes} />}
+            {loading ? (
+              <Lottie animationData={animationData} />
+            ) : (
+              <button
+                onClick={handleMixMeClick}
+                className="mix-button"
+                disabled={loading}
+              >
+                Find Recipes!
+              </button>
+            )}
+            {showRecipes && !loading && <RecipeList recipes={recipes} />}
           </div>
         </div>
       </div>
