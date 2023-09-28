@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.4% </span>
+                <span class="strong">69.42% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>83/125</span>
+                <span class='fraction'>84/121</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.4% </span>
+                <span class="strong">69.42% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>83/125</span>
+                <span class='fraction'>84/121</span>
             </div>
         
             
@@ -184,11 +184,8 @@
 <a name='L119'></a><a href='#L119'>119</a>
 <a name='L120'></a><a href='#L120'>120</a>
 <a name='L121'></a><a href='#L121'>121</a>
-<a name='L122'></a><a href='#L122'>122</a>
-<a name='L123'></a><a href='#L123'>123</a>
-<a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L122'></a><a href='#L122'>122</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -215,11 +212,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -317,7 +309,7 @@
 import Lottie from 'lottie-react'
 import animationData from '../../assets/cooking-ani.json'
 import form from '../../assets/formBg.png'
-import { Link } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 &nbsp;
 const Register = () =&gt; {
 &nbsp;
@@ -325,6 +317,7 @@ const Register = () =&gt; {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passConfirm, setPassConfirm] = useState('')
+  const navigate = useNavigate()
 &nbsp;
   const handleName = <span class="fstat-no" title="function not covered" >(e) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setName(e.target.value)</span>
@@ -343,14 +336,12 @@ const Register = () =&gt; {
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
 <span class="cstat-no" title="statement not covered" >  </span>
 <span class="cstat-no" title="statement not covered" >    if (!(password === passConfirm)) return;</span>
-<span class="cstat-no" title="statement not covered" >  </span>
 <span class="cstat-no" title="statement not covered" >    // Construct the payload</span>
 <span class="cstat-no" title="statement not covered" >    const data = {</span>
 <span class="cstat-no" title="statement not covered" >      username: name,</span>
 <span class="cstat-no" title="statement not covered" >      email: email,</span>
 <span class="cstat-no" title="statement not covered" >      password: password,</span>
 <span class="cstat-no" title="statement not covered" >    };</span>
-<span class="cstat-no" title="statement not covered" >  </span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      const response = await fetch('https://lap-4-server.onrender.com/register', {</span>
 <span class="cstat-no" title="statement not covered" >        method: 'POST',</span>
@@ -359,18 +350,15 @@ const Register = () =&gt; {
 <span class="cstat-no" title="statement not covered" >        },</span>
 <span class="cstat-no" title="statement not covered" >        body: JSON.stringify(data),</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
-<span class="cstat-no" title="statement not covered" >  </span>
-<span class="cstat-no" title="statement not covered" >     </span>
 <span class="cstat-no" title="statement not covered" >      if (response.ok) {</span>
 <span class="cstat-no" title="statement not covered" >       </span>
 <span class="cstat-no" title="statement not covered" >        console.log('Registration successful!', await response.json());</span>
-<span class="cstat-no" title="statement not covered" >        window.location.href = '/login';</span>
+<span class="cstat-no" title="statement not covered" >        return navigate("/login")</span>
 <span class="cstat-no" title="statement not covered" >      } else {</span>
 <span class="cstat-no" title="statement not covered" >        </span>
 <span class="cstat-no" title="statement not covered" >        console.error('Registration failed!', await response.text());</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >    } catch (error) {</span>
-<span class="cstat-no" title="statement not covered" >      </span>
 <span class="cstat-no" title="statement not covered" >      console.error('Network error:', error);</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
@@ -445,7 +433,7 @@ export default Register
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-28T14:00:25.275Z
+                at 2023-09-28T16:01:36.393Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
