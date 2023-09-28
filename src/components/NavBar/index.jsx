@@ -1,21 +1,22 @@
-
 import { NavLink, Outlet } from 'react-router-dom'
 import './NavBar.css'
 
 const NavBar = () => {
   return (
     <>
-    <nav className='navbar'>
-    <div className='navlinks' data-testid="navlinks">
-     <NavLink to='/' className='navlink'>Home</NavLink> 
-     <NavLink to='/profile' className='navlink'>My Profile</NavLink>
-     <NavLink to='/recipe' className='navlink'>Add Recipe</NavLink>
-     <NavLink to='/register' className='navlink'>Sign-Up</NavLink>
-     <NavLink to='/mixingbowl' className='navlink'>Mixing Bowl</NavLink>
-    </div>
-  </nav>    
-  <Outlet />
-  <footer className='footer'>SzndChef 2023</footer>
+      <div className="sidebar"> 
+        <nav className='navbar'>
+          <div className='navlinks' data-testid="navlinks">
+            <NavLink to='/' className='navlink'>HOME</NavLink> 
+            <NavLink to='/profile' className='navlink'>MY PROFILE</NavLink>
+            <NavLink to='/recipe' className='navlink'>ADD RECIPE</NavLink>
+            <NavLink to='/register' className='navlink'>SIGN UP</NavLink>
+            <NavLink to='/mixingbowl' className='navlink'>MIXING BOWL</NavLink>
+          </div>
+        </nav>    
+        <Outlet />
+        <footer className='footer'>SzndChef 2023</footer>
+      </div>
     </>
   )
 }
