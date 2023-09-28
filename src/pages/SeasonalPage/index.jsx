@@ -45,7 +45,7 @@ const SeasonalPage = () => {
   }
 
   useEffect(() => {
-    handleBG("blue")
+    handleBG("ivory")
     getIngredients()
     getRecipes()
   }, [])

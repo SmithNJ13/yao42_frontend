@@ -17,10 +17,6 @@ font-family: 'Montserrat', sans-serif;
   --BG_winter: #f9fcff;
   --SB_winter: #87ceeb;
 }
-#body {
-    background-color: blue;
-}
-
 .loading{
     font-size: 100px;
     font-weight: bold;
