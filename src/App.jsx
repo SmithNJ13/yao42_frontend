@@ -26,8 +26,8 @@ function App() {
         <Route path="/profile" element={<Profile/>}/>
         <Route path='/register' element={<RegisterPage />}/>
         <Route path='/login' element={<LoginPage />} />
-        <Route path="/:season" element={<SeasonalPage/>}>
-      </Route>
+        <Route path="/:season" element={<SeasonalPage/>}/>
+        <Route path="/:name" element={<ViewRecipe />}/>
     </Routes>
     </>
   )
