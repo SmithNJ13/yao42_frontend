@@ -24,10 +24,11 @@ function App() {
       </div>} />
         {/* If new pages are being added in, render them before /:season! */}
       <Route path='/register' element={<RegisterPage />}/>
-      <Route path='/login' element={<LoginPage />} />
+      <Route path='/login' element={<LoginPage />}/>
       <Route path="/profile" element={<Profile/>}/>
-      <Route path='/recipe' element={<RecipePage />} />
+      <Route path='/recipe' element={<RecipePage />}/>
       <Route path="/:season" element={<SeasonalPage/>}/>
+      <Route path="/:name" element={<ViewRecipe />}/>
     </Routes>
     </>
   )
