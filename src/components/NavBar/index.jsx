@@ -15,7 +15,9 @@ const NavBar = () => {
           </div>
         </nav>    
         <Outlet />
-        <footer className='footer'>SzndChef 2023</footer>
+        <footer className='footer'>
+          <i className="fa-regular fa-copyright" style={{ color: '#181a1b' }}></i> SzndChef 2023
+        </footer>
       </div>
     </>
   )
