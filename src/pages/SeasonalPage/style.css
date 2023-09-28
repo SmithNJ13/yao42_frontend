@@ -1,77 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 /* 
 font-family: 'Dancing Script', cursive;
 font-family: 'Playfair Display', serif;
-font-family: 'Poppins', sans-serif; 
+font-family: 'Poppins', sans-serif;
+font-family: 'Montserrat', sans-serif;
 */
 #root {
-  max-width: 1080px;
   margin: 0 auto;
   padding: 1rem;
+  --BG_spring: #fafcf8;
+  --SB_spring: #badc83;
+  --BG_summer: #fffefa;
+  --SB_summer: #ffe448;
+  --BG_autumn: #fffcf8;
+  --SB_autumn: #ffa500;
+  --BG_winter: #f9fcff;
+  --SB_winter: #87ceeb;
+}
+#root.spring {
+    background-color: var(--BG_spring);
+}
+#root.summer {
+    background-color: var(--BG_summer);
+}
+#root.autumn {
+    background-color: var(--BG_autumn);
+}
+#root.winter {
+    background-color: var(--BG_winter);
 }
 .loading{
     font-size: 100px;
     font-weight: bold;
-}
-#Sidebanner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    min-width: 15vw;
-    z-index: -1;
 }
 #MainContent {
     text-align: center;
 }
 #Title {
     font-size: 75px;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    color: black;
 }
-#Title.spring {
-    color: lawngreen;
-}
-#Title.summer {
-    color: gold;
-}
-#Title.autumn {
-    color: sienna
-}
-#Title.winter {
-    color: skyblue
+#Sidebanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 120%;
+    min-width: 15vw;
+    z-index: 0;
 }
 #Sidebanner.spring {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    min-width: 15vw;
-    background-color: lawngreen;
+    background-color: var(--SB_spring);
 }
 #Sidebanner.summer{
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    min-width: 15vw;
-    background-color: gold;
+    background-color: var(--SB_summer);
 }
 #Sidebanner.autumn{
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    min-width: 15vw;
-    background-color: sienna;
+    background-color: var(--SB_autumn);
 }
 #Sidebanner.winter{
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    min-width: 15vw;
-    background-color: skyblue;
+    background-color: var(--SB_winter);
 }
 #Carousel {
     padding-top: 2.5rem;
@@ -81,6 +71,7 @@ font-family: 'Poppins', sans-serif;
     flex-direction: row;
     flex-wrap: wrap;
     padding-top: 2.5rem;
+    margin-left: 17.5vw;
     gap: 42.5px;
 }
 

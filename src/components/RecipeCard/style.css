@@ -1,3 +1,21 @@
+:root {
+    --RC_spring: #edf6e0;
+    --RC_summer: #fff8d2;
+    --RC_autumn: #ffe8c0;
+    --RC_winter: #e1f2fa;
+}
 .button {
     --bs-btn-color: black;
+}
+.spring .card {
+    background-color: var(--RC_spring);
+}
+.summer .card {
+    background-color: var(--RC_summer);
+}
+.autumn .card {
+    background-color: var(--RC_autumn);
+}
+.winter .card {
+    background-color: var(--RC_winter);
 }
