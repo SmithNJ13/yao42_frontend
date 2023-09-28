@@ -7,7 +7,6 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Montserrat', sans-serif;
 */
 #root {
-  margin: 0 auto;
   /* padding: 1rem; */
   --BG_spring: #fafcf8;
   --SB_spring: #badc83;
@@ -18,18 +17,10 @@ font-family: 'Montserrat', sans-serif;
   --BG_winter: #f9fcff;
   --SB_winter: #87ceeb;
 }
-#root.spring {
-    background-color: var(--BG_spring);
+#body {
+    background-color: blue;
 }
-#root.summer {
-    background-color: var(--BG_summer);
-}
-#root.autumn {
-    background-color: var(--BG_autumn);
-}
-#root.winter {
-    background-color: var(--BG_winter);
-}
+
 .loading{
     font-size: 100px;
     font-weight: bold;

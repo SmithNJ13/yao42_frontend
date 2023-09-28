@@ -15,7 +15,6 @@ function App() {
     <Routes>
       {/* NotFound page logic is being handled here, we don't need to do "*" endpoint anymore */}
       <Route path="/notfound" element={<NotFound />}></Route>
-      <Route path="/mixingbowl" element={<MixingBowl />}></Route>
       <Route path="/" element={<LandingPage />} />
       
       {/* element={<div>
@@ -28,7 +27,9 @@ function App() {
       <Route path='/register' element={<RegisterPage />}/>
       <Route path='/login' element={<LoginPage />}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/mixingbowl" element={<MixingBowl />}></Route>
       <Route path='/recipe' element={<RecipePage />}/>
+      <Route path="/recipe/:name" element={<ViewRecipe />} />
       <Route path="/:season" element={<SeasonalPage/>}/>
     </Routes>
     </>

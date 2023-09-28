@@ -10,7 +10,7 @@ const RecipeCard = ({recipe, season}) => {
   const navigate = useNavigate()
   const name = recipe.name
   function handleClick() {
-    navigate(`/${name}`)
+    navigate(`/recipe/${name}`)
   }
 
   return (
