@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faUser, faFileLines } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
 
 import { Comments} from '../../components'
 import CommentBox from '../../components/CommentBox';
@@ -12,6 +13,20 @@ const Profile = () => {
 const [username, setUsername] = useState('');
 const [email, setEmail] = useState('');
 const [recipes, setRecipes] = useState([])
+
+useEffect(() => {
+   async function fetchData(){
+    try { 
+        const localId = localStorage.getItem('user_id')
+        const response = await axios.get('https://lap-4-server.onrender.com/recipes')
+        console.log(response.data)
+        setRecipes(response.data.recipes.filter((r) => r.user_id == localId ))
+    } catch (error) {   
+        console.log(error)
+    } };
+    fetchData();
+
+}, [])
 
 useEffect(() => {
     const storedUsername = localStorage.getItem('username');
@@ -95,8 +110,10 @@ useEffect(() => {
                                 </div>
                                 <ul className="tw-list-inside tw-space-y-2">
                                     <li>
-                                        <div className="tw-text-teal-600">My Recipe 1.</div>
-                                        <div className="tw-text-gray-500 text-xs">My Recipe 1</div>
+                                        {recipes.map((x) => {return <>
+                                        <div className="tw-text-teal-600">{x.name}</div>
+                                        <div className="tw-text-gray-500 text-xs">{x.description}</div>
+                                        </>})}
                                     </li>
                                 </ul>
                             </div>
