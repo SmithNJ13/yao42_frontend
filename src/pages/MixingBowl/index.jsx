@@ -85,28 +85,31 @@ const MixingBowl = () => {
   };
 
   return (
-    <div className="mixing-bowl-container">
-      <h1>Mixing Bowl</h1>
-      <div className="mixing-bowl">
-        <div className="left-column">
-          <RecipeSearch
-            searchInput={searchInput}
-            setSearchInput={setSearchInput}
-            handleAddIngredient={handleAddIngredient}
-          />
-          <IngredientList
-            selectedIngredients={selectedIngredients}
-            handleRemoveIngredient={handleRemoveIngredient}
-          />
-        </div>
-        <div className="right-column">
-          <button 
-            onClick={handleMixMeClick}
-            className="mix-button"
-          >
-            Mix Me!
-          </button>
-          {showRecipes && <RecipeList recipes={recipes} />}
+    <div className="container">
+      <div id="Sidebanner"></div>
+      <div className="mixing-bowl-container">
+        <h1>Mixing Bowl</h1>
+        <div className="mixing-bowl">
+          <div className="left-column">
+            <RecipeSearch
+              searchInput={searchInput}
+              setSearchInput={setSearchInput}
+              handleAddIngredient={handleAddIngredient}
+            />
+            <IngredientList
+              selectedIngredients={selectedIngredients}
+              handleRemoveIngredient={handleRemoveIngredient}
+            />
+          </div>
+          <div className="right-column">
+            <button
+              onClick={handleMixMeClick}
+              className="mix-button"
+            >
+              Mix Me!
+            </button>
+            {showRecipes && <RecipeList recipes={recipes} />}
+          </div>
         </div>
       </div>
     </div>

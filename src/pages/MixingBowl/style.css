@@ -1,11 +1,14 @@
 .mixing-bowl-container {
     text-align: center;
-  }
+}
   
-  .mixing-bowl {
+.mixing-bowl {
     display: flex;
-    justify-content: space-between;
-  }
+}
+
+#Sidebanner {
+    background-color: #D296EE;
+}
   
 .left-column {
     margin-left: 20px;
