@@ -72,7 +72,7 @@ const MixingBowl = () => {
       }
 
       setLoading(false);
-    }, 1000);
+    }, 2000);
   };
 
   const handleAddIngredient = () => {
@@ -112,7 +112,10 @@ const MixingBowl = () => {
           </div>
           <div className="right-column">
             {loading ? (
-              <Lottie animationData={animationData} />
+              <Lottie 
+              className="animation"
+                animationData={animationData}
+              />
             ) : (
               <button
                 onClick={handleMixMeClick}

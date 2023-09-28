@@ -50,4 +50,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-  
+
+.animation {
+    width: 500px;
+    height: 500px;
+}
