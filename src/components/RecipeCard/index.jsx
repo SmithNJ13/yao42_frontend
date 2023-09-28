@@ -4,12 +4,13 @@ import Card from "react-bootstrap/Card"
 import "./style.css"
 import ViewRecipe from '../../pages/ViewRecipe'
 import { useNavigate } from 'react-router-dom'
+import {Routes, Route} from "react-router-dom"
 
 const RecipeCard = ({recipe, season}) => {
   const navigate = useNavigate()
   const name = recipe.name
   function handleClick() {
-    navigate("/"+name)
+    navigate(`/${name}`)
   }
 
   return (
