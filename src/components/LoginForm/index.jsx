@@ -40,7 +40,7 @@ const Login = () => {
         localStorage.setItem('token', result.token);
         localStorage.setItem('user_id', result.id);
         localStorage.setItem('email', result.email);
-        window.location.href = '/';
+        window.location.href = '/profile';
       } else {
         console.error('Login failed!', await response.json());
       }
