@@ -2,12 +2,13 @@ import { React, useRef, useState } from 'react'
 import Lottie from 'lottie-react'
 import animationData from '../../assets/cooking-ani.json'
 import form from '../../assets/formBg.png'
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Login = () => {
 
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   const handleName = (e) => {
     setName(e.target.value)
@@ -41,7 +42,7 @@ const Login = () => {
         localStorage.setItem('user_id', result.id);
         localStorage.setItem('email', result.email);
         localStorage.setItem('username', result.username);
-        window.location.href = '/profile';
+        return navigate("/profile")
       } else {
         console.error('Login failed!', await response.json());
       }

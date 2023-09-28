@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {Routes, Route, Link, useLocation} from "react-router-dom"
 import {NavBar} from './components'
 import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage, RecipePage, ViewRecipe } from "./pages" 
-
 import './App.css'
 
 function App() {
@@ -24,12 +23,11 @@ function App() {
         <Link to="/winter">Winter</Link>
       </div>} />
         {/* If new pages are being added in, render them before /:season! */}
-        <Route path="/profile" element={<Profile/>}/>
-        <Route path='/register' element={<RegisterPage />}/>
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/recipe' element={<RecipePage />} />
-        <Route path="/:season" element={<SeasonalPage/>}/>
-        <Route path="/:name" element={<ViewRecipe />}/>
+      <Route path='/register' element={<RegisterPage />}/>
+      <Route path='/login' element={<LoginPage />} />
+      <Route path="/profile" element={<Profile/>}/>
+      <Route path='/recipe' element={<RecipePage />} />
+      <Route path="/:season" element={<SeasonalPage/>}/>
     </Routes>
     </>
   )
