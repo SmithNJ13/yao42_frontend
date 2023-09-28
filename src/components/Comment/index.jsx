@@ -4,6 +4,7 @@ import LikeButton from '../LikeButton'
 
 
 
+
 const Comment = ({comment, user_id}) => {
     return (
         <div>
