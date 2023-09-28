@@ -31,7 +31,7 @@ function App() {
         <Route path="/:season" element={<SeasonalPage/>}/>
         <Route path="/:name" element={<ViewRecipe />}/>
     </Routes>
-    </>
+    </> 
   )
 }
 
