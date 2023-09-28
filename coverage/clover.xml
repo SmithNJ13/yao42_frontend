@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695902201241" clover="3.2.0">
-  <project timestamp="1695902201241" name="All files">
-    <metrics statements="1068" coveredstatements="590" conditionals="38" coveredconditionals="23" methods="36" coveredmethods="15" elements="1142" coveredelements="628" complexity="0" loc="1068" ncloc="1068" packages="18" files="19" classes="19"/>
+<coverage generated="1695909625360" clover="3.2.0">
+  <project timestamp="1695909625361" name="All files">
+    <metrics statements="1068" coveredstatements="590" conditionals="39" coveredconditionals="24" methods="36" coveredmethods="15" elements="1143" coveredelements="629" complexity="0" loc="1068" ncloc="1068" packages="18" files="19" classes="19"/>
     <package name="components">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.jsx" path="C:\Users\balra\Desktop\LfaLaps\LAP 4\Project\yao42_frontend\src\components\index.jsx">
@@ -72,15 +72,15 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="5" type="stmt"/>
-        <line num="10" count="5" type="stmt"/>
-        <line num="11" count="5" type="stmt"/>
-        <line num="12" count="5" type="stmt"/>
-        <line num="13" count="5" type="stmt"/>
-        <line num="14" count="5" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="16" count="5" type="stmt"/>
-        <line num="17" count="5" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
@@ -237,9 +237,9 @@
       </file>
     </package>
     <package name="components.Comments">
-      <metrics statements="75" coveredstatements="51" conditionals="7" coveredconditionals="6" methods="4" coveredmethods="2"/>
+      <metrics statements="75" coveredstatements="51" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="2"/>
       <file name="index.jsx" path="C:\Users\balra\Desktop\LfaLaps\LAP 4\Project\yao42_frontend\src\components\Comments\index.jsx">
-        <metrics statements="75" coveredstatements="51" conditionals="7" coveredconditionals="6" methods="4" coveredmethods="2"/>
+        <metrics statements="75" coveredstatements="51" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -253,7 +253,7 @@
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="13" count="4" type="stmt"/>
-        <line num="14" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="15" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="17" count="2" type="cond" truecount="0" falsecount="1"/>
@@ -301,12 +301,12 @@
         <line num="59" count="3" type="stmt"/>
         <line num="60" count="3" type="stmt"/>
         <line num="61" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="62" count="3" type="stmt"/>
-        <line num="63" count="3" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
-        <line num="65" count="3" type="stmt"/>
-        <line num="66" count="3" type="stmt"/>
-        <line num="67" count="3" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
         <line num="68" count="3" type="stmt"/>
         <line num="69" count="3" type="stmt"/>
         <line num="70" count="3" type="stmt"/>
@@ -327,20 +327,20 @@
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
       </file>
@@ -382,21 +382,21 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="10" type="stmt"/>
-        <line num="10" count="10" type="stmt"/>
-        <line num="11" count="10" type="stmt"/>
-        <line num="12" count="10" type="stmt"/>
-        <line num="13" count="10" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="10" type="stmt"/>
-        <line num="15" count="10" type="cond" truecount="0" falsecount="1"/>
-        <line num="16" count="10" type="stmt"/>
-        <line num="17" count="10" type="stmt"/>
-        <line num="18" count="10" type="stmt"/>
-        <line num="19" count="10" type="stmt"/>
-        <line num="20" count="10" type="stmt"/>
-        <line num="21" count="10" type="stmt"/>
-        <line num="22" count="10" type="cond" truecount="1" falsecount="0"/>
-        <line num="23" count="10" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="10" count="8" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="13" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="cond" truecount="0" falsecount="1"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="8" type="cond" truecount="0" falsecount="2"/>
         <line num="24" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
@@ -417,10 +417,10 @@
         <line num="41" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="44" count="10" type="stmt"/>
-        <line num="45" count="10" type="stmt"/>
-        <line num="46" count="10" type="stmt"/>
-        <line num="47" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="44" count="8" type="stmt"/>
+        <line num="45" count="8" type="stmt"/>
+        <line num="46" count="8" type="stmt"/>
+        <line num="47" count="8" type="cond" truecount="1" falsecount="0"/>
         <line num="48" count="2" type="stmt"/>
         <line num="49" count="2" type="cond" truecount="0" falsecount="2"/>
         <line num="50" count="0" type="stmt"/>
@@ -469,16 +469,16 @@
         <line num="93" count="0" type="stmt"/>
         <line num="94" count="0" type="stmt"/>
         <line num="95" count="2" type="stmt"/>
-        <line num="96" count="10" type="stmt"/>
-        <line num="97" count="10" type="stmt"/>
-        <line num="98" count="10" type="stmt"/>
-        <line num="99" count="10" type="stmt"/>
-        <line num="100" count="10" type="cond" truecount="0" falsecount="2"/>
-        <line num="101" count="10" type="stmt"/>
-        <line num="102" count="10" type="stmt"/>
-        <line num="103" count="10" type="stmt"/>
-        <line num="104" count="10" type="stmt"/>
-        <line num="105" count="10" type="stmt"/>
+        <line num="96" count="8" type="stmt"/>
+        <line num="97" count="8" type="stmt"/>
+        <line num="98" count="8" type="stmt"/>
+        <line num="99" count="8" type="stmt"/>
+        <line num="100" count="8" type="cond" truecount="0" falsecount="2"/>
+        <line num="101" count="8" type="stmt"/>
+        <line num="102" count="8" type="stmt"/>
+        <line num="103" count="8" type="stmt"/>
+        <line num="104" count="8" type="stmt"/>
+        <line num="105" count="8" type="stmt"/>
         <line num="106" count="1" type="stmt"/>
         <line num="107" count="1" type="stmt"/>
         <line num="108" count="1" type="stmt"/>
