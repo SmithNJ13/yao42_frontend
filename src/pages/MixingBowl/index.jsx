@@ -7,6 +7,7 @@ const MixingBowl = () => {
   const [searchInput, setSearchInput] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [showRecipes, setShowRecipes] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const fetchIngredients = async () => {
     try {
@@ -28,42 +29,48 @@ const MixingBowl = () => {
   };
 
   const fetchRecipes = async () => {
-    const allRecipes = await fetchIngredients();
-    if (selectedIngredients.length > 0 || searchInput.trim() !== '') {
-      const filteredRecipes = allRecipes.filter((recipe) => {
-        const recipeIngredients = recipe.ingredients
-          .split(',')
-          .map((ingredient) => ingredient.trim().toLowerCase());
-        const searchWords = searchInput
-          .toLowerCase()
-          .split(' ')
-          .filter((word) => word);
+    setLoading(true);
+    
+    setTimeout(async () => {
+      const allRecipes = await fetchIngredients();
+      if (selectedIngredients.length > 0 || searchInput.trim() !== '') {
+        const filteredRecipes = allRecipes.filter((recipe) => {
+          const recipeIngredients = recipe.ingredients
+            .split(',')
+            .map((ingredient) => ingredient.trim().toLowerCase());
+          const searchWords = searchInput
+            .toLowerCase()
+            .split(' ')
+            .filter((word) => word);
 
-        const selectedIngredientsIncluded =
-          selectedIngredients.length === 0 ||
-          selectedIngredients.every((selectedIngredient) =>
-            recipeIngredients.some((recipeIngredient) =>
-              recipeIngredient.includes(selectedIngredient.toLowerCase())
-            )
-          );
+          const selectedIngredientsIncluded =
+            selectedIngredients.length === 0 ||
+            selectedIngredients.every((selectedIngredient) =>
+              recipeIngredients.some((recipeIngredient) =>
+                recipeIngredient.includes(selectedIngredient.toLowerCase())
+              )
+            );
 
-        const searchInputMatched =
-          searchWords.length === 0 ||
-          searchWords.some((searchWord) =>
-            recipeIngredients.some((recipeIngredient) =>
-              recipeIngredient.includes(searchWord)
-            )
-          );
+          const searchInputMatched =
+            searchWords.length === 0 ||
+            searchWords.some((searchWord) =>
+              recipeIngredients.some((recipeIngredient) =>
+                recipeIngredient.includes(searchWord)
+              )
+            );
 
-        return selectedIngredientsIncluded && searchInputMatched;
-      });
+          return selectedIngredientsIncluded && searchInputMatched;
+        });
 
-      setRecipes(filteredRecipes);
-      setShowRecipes(true);
-    } else {
-      setRecipes([]);
-      setShowRecipes(false);
-    }
+        setRecipes(filteredRecipes);
+        setShowRecipes(true);
+      } else {
+        setRecipes([]);
+        setShowRecipes(false);
+      }
+
+      setLoading(false);
+    }, 1000);
   };
 
   const handleAddIngredient = () => {
@@ -105,8 +112,9 @@ const MixingBowl = () => {
             <button
               onClick={handleMixMeClick}
               className="mix-button"
+              disabled={loading}
             >
-              Find Recipes!
+              {loading ? 'Loading...' : 'Find Recipes!'}
             </button>
             {showRecipes && <RecipeList recipes={recipes} />}
           </div>
