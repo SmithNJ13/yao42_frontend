@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faUser, faFileLines } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faFileLines} from '@fortawesome/free-solid-svg-icons'
+import form from '../../assets/formBg.png'
+import { faFacebook, faInstagram, faPinterest, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios';
+import LikeButton from '../../components/LikeButton/index.jsx';
 
-import { Comments} from '../../components'
-import CommentBox from '../../components/CommentBox';
 
 
 
@@ -13,17 +14,25 @@ const Profile = () => {
 const [username, setUsername] = useState('');
 const [email, setEmail] = useState('');
 const [recipes, setRecipes] = useState([])
+const [likedRecipes, setLikedRecipes] = useState([]);
+const [likedRecipesToShow, setLikedRecipesToShow] = useState([]);
+const [currentPageRecipes, setCurrentPageRecipes] = useState(1);
+const [currentPageLikedRecipes, setCurrentPageLikedRecipes] = useState(1);
 
 useEffect(() => {
    async function fetchData(){
     try { 
         const localId = localStorage.getItem('user_id')
-        const response = await axios.get('https://lap-4-server.onrender.com/recipes')
-        console.log(response.data)
-        setRecipes(response.data.recipes.filter((r) => r.user_id == localId ))
+        const recipesresponse= await axios.get('https://lap-4-server.onrender.com/recipes')
+        console.log(recipesresponse.data)
+        setRecipes(recipesresponse.data.recipes.filter((r) => r.user_id == localId ))
+      
+        const likesresponse = await axios.get('https://lap-4-server.onrender.com/likes')
+        console.log(likesresponse.data)
+        setLikedRecipes(likesresponse.data.likes.filter((l) => l.user_id == localId ))
     } catch (error) {   
         console.log(error)
-    } };
+    } }
     fetchData();
 
 }, [])
@@ -41,66 +50,116 @@ useEffect(() => {
     }
   }, []);
 
+  const loadMoreRecipes = () => {
+    setCurrentPageRecipes(currentPageRecipes + 1);
+  };
+
+  const goBackRecipes = () => {
+    if (currentPageRecipes > 1) {
+      setCurrentPageRecipes(currentPageRecipes - 1);
+    }
+  };
+
+  const startIndexRecipes = (currentPageRecipes - 1) * 4;
+  const endIndexRecipes = startIndexRecipes + 4;
+  const recipesToShow = recipes.slice(startIndexRecipes, endIndexRecipes);
+
+
+
+ const loadMoreLikedRecipes = () => {
+    setCurrentPageLikedRecipes(currentPageLikedRecipes + 1);
+  };
+
+    const goBackLikedRecipes = () => {
+    if (currentPageLikedRecipes > 1) {
+      setCurrentPageLikedRecipes(currentPageLikedRecipes - 1);
+    }
+    }
+
+    const startIndexLikedRecipes = (currentPageLikedRecipes - 1) * 4;
+    const endIndexLikedRecipes = startIndexLikedRecipes + 4;
+
+  useEffect(() => {   
+    const startIndexLikedRecipes = (currentPageLikedRecipes - 1) * 4;
+    const endIndexLikedRecipes = startIndexLikedRecipes + 4;
+    const likedRecipesToDisplay = likedRecipes.slice(startIndexLikedRecipes, endIndexLikedRecipes);
+    setLikedRecipesToShow(likedRecipesToDisplay);
+  }, [currentPageLikedRecipes, likedRecipes]);
+
+
   return (
     <>
    
 <div className="tw-h-screen tw-overflow-hidden tw-flex tw-items-center tw-justify-center">
 
-    <div className="tw-bg-orange-200">
+    <div style= {{ backgroundImage: `url(${form})`}}  className='backgroundimage'>
     
-        <div className="tw-container tw-mx-auto tw-my-40 tw-p-8">
-            <div className="tw-md:flex tw-no-wrap tw-md:-mx-2 ">
+        <div className="tw-container tw-w-full tw-px-20 about tw-h-screen">
+            <div className="tw-md:flex tw-no-wrap">
                 {/* <!-- Left Side --> */}
-                <div className="tw-w-full tw-md:w-3/12 tw-md:mx-2">
+                <div className="tw-w-full tw-h-full">
                     {/* <!-- Profile Card --> */}
                     <div className="tw-bg-white tw-p-3 tw-border-t-4 tw-border-green-400">
                         <div className="tw-text-center tw-my-2">
-                            <img className="tw-h-16 tw-w-16 tw-rounded-full tw-mx-auto"
+                            <img className="tw-h-32 tw-w-32 tw-rounded-full tw-mx-auto profile"
                                 src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-                                alt=""/>
+                                alt="Mark's profile picture"/>
                         </div>
-                        <h1 className="tw-text-gray-900 tw-font-bold tw-text-xl tw-leading-8 tw-my-1 tw-text-center">{username}</h1>
+                        <h1 className="tw-text-gray-900 tw-font-bold tw-text-xl tw-leading-8 tw-text-center">{username}</h1>
+                        <h3 className="tw-text-gray-600 tw-font-lg tw-text-semibold tw-leading-6 tw-text-center">Member since October 2023</h3>
+                        <div className='tw-flex tw-text-center tw-mt-4 tw-mb-4 tw-justify-around'>
+
+
+  <div className='tw-flex tw-text-center tw-mt-4 tw-mb-4 tw-justify-around tw-w-1/2'>
+  <div className='tw-border-2 tw-border-green-500 tw-rounded-lg tw-w-1/2 tw-mx-auto tw-min-w-fit'>
+    <div className="tw-grid tw-grid-cols-2 tw-text-base">
+      <div className="tw-text-center">
+        <span className="tw-font-semibold tw-text-gray-700">Likes</span>
+        <br />
+        <span className="tw-font-semibold tw-text-gray-700">{likedRecipes.length}</span>
+      </div>
+      <div className="tw-text-center">
+        <span className="tw-font-semibold tw-text-gray-700">Recipes</span>
+        <br />
+        <span className="tw-font-semibold tw-text-gray-700">{recipes.length}</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+                        <div className="tw-flex tw-justify-around tw-text-base">
+                        <FontAwesomeIcon icon={faFacebook} className='tw-text-green-500 social' />
+                        <FontAwesomeIcon icon={faInstagram} className='tw-text-green-500 social' />
+                        <FontAwesomeIcon icon={faTwitter} className='tw-text-green-500 social' />
+                        <FontAwesomeIcon icon={faPinterest} className='tw-text-green-500 social'/>
+                        </div>
+                        <div className="tw-flex tw-justify-center email">
+                                    <div className="tw-px-4 tw-py-2 tw-font-semibold ">Email Address</div>
+                                    <div className="tw-py-2">
+                                        <a className="tw-text-green-800" >{email}</a>
+                                    </div>
+                                </div>
+                            
                     </div>
                     {/* <!-- End of profile card --> */}
-                    <div className="tw-my-4"></div>
+              
                
                 </div>
                 {/* <!-- Right Side --> */}
                 <div className="tw-w-full tw-md:w-9/12 tw-mx-2 tw-h-64">
-                    {/* <!-- Profile tab -->
-                    <!-- About Section --> */}
+                    {/* <!-- Profile tab --> */}
+    
+             
+                    
+{/* <!-- My recipes --> */}
 
                     <div className="tw-bg-white tw-p-3 tw-shadow-sm tw-rounded-sm">
-                        <div className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-900 tw-leading-8">
-                            <span className="tw-text-green-500">
-                                <FontAwesomeIcon icon={faUser} />
-                            </span>
-                            <span className="tw-tracking-wide">Profile</span>
-                        </div>
-                        <div className="tw-text-gray-700">
-                            <div className="tw-grid tw-md:grid-cols-2 tw-text-sm">
-                                <div className="tw-grid tw-grid-cols-2">
-                                    <div className="tw-px-4 tw-py-2 tw-font-semibold">Username</div>
-                                    <div className="tw-px-4 tw-py-2">{username}</div>
-                                </div>
-                                <div className="tw-grid tw-grid-cols-2">
-                                    <div className="tw-px-4 tw-py-2 tw-font-semibold">Email Address</div>
-                                    <div className="tw-py-2">
-                                        <a className="tw-text-blue-800">{email}</a>
-                                    </div>
-                                </div>
     
-                            </div>
-                        </div>
-                    </div>
-                    {/* <!-- End of about section --> */}
-    
-                    <div className="tw-my-4"></div>
-{/*     
-                    <!-- My recipes --> */}
-                    <div className="tw-bg-white tw-p-3 tw-shadow-sm tw-rounded-sm">
-    
-                        <div className="tw-grid tw-grid-cols-2">
+                        <div className="tw-grid tw-grid-cols-1">
                             <div>
                                 <div className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-900 tw-leading-8 tw-mb-3">
                                     <span className="tw-text-green-500">
@@ -108,42 +167,101 @@ useEffect(() => {
                                     </span>
                                     <span className="tw-tracking-wide">My Recipes</span>
                                 </div>
-                                <ul className="tw-list-inside tw-space-y-2">
-                                    <li>
-                                        {recipes.map((x) => {return <>
-                                        <div className="tw-text-teal-600">{x.name}</div>
-                                        <div className="tw-text-gray-500 text-xs">{x.description}</div>
-                                        </>})}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        
+                                <div className="tw-flex tw-flex-wrap tw-justify-between">
+  {recipesToShow.map((x) => (
+    <div key={x.id} className="tw-w-1/5 tw-mb-4 tw-mx-2 tw-text-center">
+      <div className="tw-text-green-500 tw-font-semibold">{x.name}</div>
+      <img className="tw-h-20 tw-w-20 tw-rounded-full tw-mx-auto recipes" src={x.image} alt={x.name} />
+    </div>
+  ))}
+</div>
+
+
+            <div className="tw-flex tw-justify-between tw-mt-2">
+              {startIndexRecipes > 0 && ( 
+                <button
+                  onClick={goBackRecipes}
+                  className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
+                >
+                  Back
+                </button>
+              )}
+              {endIndexRecipes < recipes.length && ( 
+                <button
+                  onClick={loadMoreRecipes}
+                  className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
+                >
+                  See More Recipes
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
                         {/* <!-- End of My recipes --> */}
                     </div>
     
                     <div className="tw-my-4"></div>
     
                     {/* <!-- Liked recipes --> */}
-                    <div className="tw-bg-white tw-p-3 tw-shadow-sm tw-rounded-sm">
-    
-                        <div className="tw-grid tw-grid-cols-2">
-                            <div>
-                                <div className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-900 tw-leading-8 tw-mb-3">
-                                    <span className="tw-text-green-500">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </span>
-                                    <span className="tw-tracking-wide"> Liked Recipes</span>
+                    <div className="tw-bg-white tw-p-3 tw-shadow-sm tw-rounded-sm  tw-border-b-4 tw-border-green-400">
+    <div className="tw-grid tw-grid-cols-1">
+        <div>
+            <div className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-900 tw-leading-8 tw-mb-3 ">
+                <span className="tw-text-green-500">
+                    <FontAwesomeIcon icon={faHeart} />
+                </span>
+                <span className="tw-tracking-wide"> Liked Recipes</span>
+            </div>
+            <ul className="tw-list-inside tw-space-y-2">
+                <li>
+                    {likedRecipesToShow.map((like) => {
+                        const recipe = recipes.find((r) => r.id === like.recipe_id);
+                        if (recipe) {
+                            return (
+                                <div key={recipe.id} className="tw-w-1/5 tw-mb-4 tw-mx-2 tw-text-center">
+                                    <div className="tw-text-green-500 tw-font-semibold">{recipe.name}</div>
+                                    <img className="tw-h-20 tw-w-20  tw-rounded-full tw-mx-auto recipes" src={recipe.image} alt={recipe.name} />
+                                    <LikeButton recipeId={recipe.id} />
                                 </div>
-                                <ul className="tw-list-inside tw-space-y-2">
-                                    <li>
-                                        <div className="tw-text-teal-600">My Recipe 1.</div>
-                                        <div className="tw-text-gray-500 tw-text-xs">My Recipe 1</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        
+                            );
+                        }
+                        return null;
+                    })}
+                </li>
+            </ul>
+
+            {likedRecipes.length > 4 && likedRecipesToShow.length < likedRecipes.length && ( 
+                <button
+                    onClick={loadMoreLikedRecipes}
+                    className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
+                >
+                    More Liked Recipes
+                </button>
+            )}
+
+    
+         
+
+            <div className="tw-flex tw-justify-between tw-mt-2">
+                {startIndexLikedRecipes > 0 && (
+                    <button
+                        onClick={goBackLikedRecipes}
+                        className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
+                    >
+                        Back
+                    </button>
+                )}
+                {endIndexLikedRecipes < likedRecipes.length && (
+                    <button
+                        onClick={loadMoreLikedRecipes}
+                        className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
+                    >
+                        See More Liked Recipes
+                    </button>
+                )}
+            </div>
+        </div>
+    </div>
                         {/* <!-- End of Liked recipes --> */}
                     </div>
                     
@@ -153,9 +271,6 @@ useEffect(() => {
         </div>
     </div>
     </div>
-    <Comments>
-    <CommentBox  />
-    </Comments>
     </>
   )
 }
