@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Routes, Route, Link, useLocation} from "react-router-dom"
 import {NavBar} from './components'
-import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage, RecipePage, ViewRecipe } from "./pages" 
+import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage, RecipePage, ViewRecipe, LandingPage } from "./pages" 
 import './App.css'
 
 function App() {
@@ -16,12 +16,14 @@ function App() {
       {/* NotFound page logic is being handled here, we don't need to do "*" endpoint anymore */}
       <Route path="/notfound" element={<NotFound />}></Route>
       <Route path="/mixingbowl" element={<MixingBowl />}></Route>
-      <Route path="/" element={<div>
+      <Route path="/" element={<LandingPage />} />
+      
+      {/* element={<div>
         <Link to="/spring">Spring</Link>
         <Link to="/summer">Summer</Link>
         <Link to="/autumn">Autumn</Link>
         <Link to="/winter">Winter</Link>
-      </div>} />
+      </div>}  */}
         {/* If new pages are being added in, render them before /:season! */}
       <Route path='/register' element={<RegisterPage />}/>
       <Route path='/login' element={<LoginPage />} />

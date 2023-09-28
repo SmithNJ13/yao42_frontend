@@ -15,7 +15,7 @@ const RecipeSearch = ({ searchInput, setSearchInput, handleAddIngredient }) => {
         onClick={handleAddIngredient}
         className="search-button"
       >
-        Add Ingredient
+        Add
       </button>
     </div>
   );
