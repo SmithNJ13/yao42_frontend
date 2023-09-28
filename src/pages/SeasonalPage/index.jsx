@@ -8,13 +8,13 @@ const seasons = ["spring", "summer", "autumn", "winter"]
 
 const SeasonalPage = () => {
   const {season} = useParams()
+  const [recipes,setRecipes] = useState()
+  const [ingredients, setIngredients] = useState()
   const displaySeason = season.toUpperCase()
   // Logic for if the current page paramater doesn't match any of the seasons 
   if(!seasons.includes(season)) {
     return <Navigate replace={true} to="/notfound" />
   }
-  const [recipes,setRecipes] = useState()
-  const [ingredients, setIngredients] = useState()
 
   // Fetching recipes from backend
   async function getRecipes() {
@@ -64,7 +64,8 @@ const SeasonalPage = () => {
       </div>
     </div>
     <div id="RecipeInfo">
-      {recipes.map((recipe, index) => (
+      {recipes.filter((r) => r.season.toLowerCase().includes(season))
+      .map((recipe, index) => (
         <div key={index+1} id="card">
           <RecipeCard recipe={recipe} season={season}/>
         </div>
