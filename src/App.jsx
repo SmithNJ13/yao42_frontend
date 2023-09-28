@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Routes, Route, Link, useLocation} from "react-router-dom"
 import {NavBar} from './components'
-import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage } from "./pages" 
+import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage, ViewRecipe } from "./pages" 
 import './App.css'
 
 function App() {
