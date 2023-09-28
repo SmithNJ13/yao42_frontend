@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+.Recipe_Form {
+    margin: 20px;
+    padding: 40px;
+    border: 2px solid black;
+    text-align: left;
+}
+
+.input_recipe,
+#recipe_name,
+#recipe_description,
+#recipe_ingredients,
+#recipe_season,
+#recipe_image {
+  border: 2px solid black;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.RecipePage_Container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.recipe_label {
+    display: inline-block;
+    width: 150px; 
+    padding: 20px;
+    text-align: right;
+} 
+
+.button_container {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+
+#button {
+    padding: 20px;
+    margin: 20px;
+    border: 10px;
+} 
