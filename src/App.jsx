@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {Routes, Route, Link, useLocation} from "react-router-dom"
 import {NavBar} from './components'
-import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage, ViewRecipe } from "./pages" 
+import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage, RecipePage, ViewRecipe } from "./pages" 
+
 import './App.css'
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path="/:season" element={<SeasonalPage/>}/>
         <Route path="/:name" element={<ViewRecipe />}/>
+        <Route path='/recipe' element={<RecipePage />} />
+        <Route path="/:season" element={<SeasonalPage/>}>
+      </Route>
     </Routes>
     </>
   )
