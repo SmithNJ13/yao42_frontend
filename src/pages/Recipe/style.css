@@ -1,10 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&display=swap');
+
+body {
+    background-color: #FCFAFC;
+    color: #181A1B;
+    font-family: 'Poppins', sans-serif;
+}
+
+#Sidebanner {
+    background-color: #F5C6C6;
+    min-height: 100vh;
+}
 
 .Recipe_Form {
-    margin: 20px;
+    background-color: #FCFAFC;
+    width: 500px;
+    margin: 20px auto;
     padding: 40px;
-    border: 2px solid black;
+    border: 1px solid black;
     text-align: left;
 }
 
@@ -14,16 +26,10 @@
 #recipe_ingredients,
 #recipe_season,
 #recipe_image {
-  border: 2px solid black;
-  padding: 5px;
-  margin-top: 5px;
+    border: 1px solid black;
+    padding: 5px;
 }
 
-.RecipePage_Container {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
 
 .recipe_label {
     display: inline-block;
@@ -33,13 +39,13 @@
 } 
 
 .button_container {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
+    text-align: center;
 }
 
 
 #button {
+    background-color: #F5C6C6;
+    color: #181A1B;
     padding: 20px;
     margin: 20px;
     border: 10px;
