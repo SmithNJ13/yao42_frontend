@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { IngredientList, RecipeList, RecipeSearch } from "../../components"
+import Lottie from 'lottie-react'
+import animationData from '../../assets/mixing-bowl.json'
 import './style.css'
 
 const MixingBowl = () => {
@@ -109,6 +111,8 @@ const MixingBowl = () => {
             />
           </div>
           <div className="right-column">
+          <Lottie onComplete={() => {
+            }} animationData={animationData} className='tw-w-full tw-h-full tw-object-cover tw-relative tw-pt-11'/>
             <button
               onClick={handleMixMeClick}
               className="mix-button"
