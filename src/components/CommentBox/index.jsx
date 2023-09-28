@@ -7,8 +7,17 @@ import useDynamicHeightField from './useDynamicHeightField';
 
 const initialHeight = 46;
 
-const CommentBox = ({user_id}) => {
+const CommentBox = ({recipe_id}) => {
 
+  const getUserIdFromLocalStorage = () => {
+    const userId = localStorage.getItem('user_id');
+    return userId ? parseInt(userId, 10) : null;
+  };
+  
+
+  
+  const recipeId = recipe_id;
+  const userId = getUserIdFromLocalStorage();
 
 const [isExpanded, setIsExpanded] = useState(false);
 const [commentValue, setCommentValue] = useState('');
@@ -39,8 +48,7 @@ setIsExpanded(true);
       const onSubmit = async (e) => {
         e.preventDefault();
         console.log('commentValue:', commentValue)
-        const recipeId = localStorage.getItem('recipe_id');
-        const userId = localStorage.getItem('user_id');
+       
         const newComment = {
           comment: commentValue,
           recipe_id: recipeId, 
@@ -51,6 +59,8 @@ setIsExpanded(true);
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': `Bearer ${localStorage.getItem('token')}`,
+              
             },
             body: JSON.stringify(newComment),
           });
@@ -83,10 +93,9 @@ setIsExpanded(true);
         >
           <div className="header">
             <div className="user">
-              <span>User Id: {user_id}</span> 
             </div>
           </div>
-          <label htmlFor="comment">What are your thoughts?</label>
+          <label htmlFor="comment">User Id: {userId}</label>
           <textarea
             ref={textRef}
             onClick={onExpand}
