@@ -1,6 +1,6 @@
 import React from 'react'
 import { PostRecipe } from '../../components'
-import './style.css'
+import './Recipe.css'
 
 
 const RecipePage = () => {
