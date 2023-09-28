@@ -88,7 +88,7 @@ const MixingBowl = () => {
     <div className="container">
       <div id="Sidebanner"></div>
       <div className="mixing-bowl-container">
-        <h1>Mixing Bowl</h1>
+        <h1 id="title">Mixing Bowl</h1>
         <div className="mixing-bowl">
           <div className="left-column">
             <RecipeSearch
@@ -106,7 +106,7 @@ const MixingBowl = () => {
               onClick={handleMixMeClick}
               className="mix-button"
             >
-              Mix Me!
+              Find Recipes!
             </button>
             {showRecipes && <RecipeList recipes={recipes} />}
           </div>
