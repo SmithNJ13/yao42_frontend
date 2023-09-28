@@ -2,7 +2,7 @@ import { React, useRef, useState } from 'react'
 import Lottie from 'lottie-react'
 import animationData from '../../assets/cooking-ani.json'
 import form from '../../assets/formBg.png'
-import { Link } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 const Register = () => {
 
@@ -10,6 +10,7 @@ const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passConfirm, setPassConfirm] = useState('')
+  const navigate = useNavigate()
 
   const handleName = (e) => {
     setName(e.target.value)
@@ -28,14 +29,12 @@ const Register = () => {
     e.preventDefault();
   
     if (!(password === passConfirm)) return;
-  
     // Construct the payload
     const data = {
       username: name,
       email: email,
       password: password,
     };
-  
     try {
       const response = await fetch('https://lap-4-server.onrender.com/register', {
         method: 'POST',
@@ -44,18 +43,15 @@ const Register = () => {
         },
         body: JSON.stringify(data),
       });
-  
-     
       if (response.ok) {
        
         console.log('Registration successful!', await response.json());
-        window.location.href = '/login';
+        return navigate("/login")
       } else {
         
         console.error('Registration failed!', await response.text());
       }
     } catch (error) {
-      
       console.error('Network error:', error);
     }
   };

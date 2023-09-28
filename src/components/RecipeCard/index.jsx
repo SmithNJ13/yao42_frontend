@@ -3,9 +3,10 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import "./style.css"
 import ViewRecipe from '../../pages/ViewRecipe'
+import { Link } from 'react-router-dom'
 
 const RecipeCard = ({recipe, season}) => {
-  const id = recipe.id
+  const name = recipe.name
   // console.log(recipe.name)
 
   return (
@@ -15,7 +16,7 @@ const RecipeCard = ({recipe, season}) => {
         <Card.Body>
           <Card.Title>{recipe.name}</Card.Title>
           <Card.Text>{recipe.description}</Card.Text>
-          <Button className="button" onClick={<ViewRecipe/>}>View recipe</Button>
+          <Button className="button">View recipe</Button>
         </Card.Body>
     </Card>
     </>
