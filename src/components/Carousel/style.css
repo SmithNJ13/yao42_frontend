@@ -6,21 +6,25 @@ p {
 }
 .carousel-inner {
     position: sticky;
-    object-fit: cover;
     width: 760px;
     height: 380px;
 }
 .carousel-item {
-    align-items: center;
-    align-self: center;
     position: sticky;
-    object-fit: cover;
-    background-size: cover;
-    width: 960px;
-    height: 480px;
+    width: 760px;
+    height: 380px;
 }
 .carousel-caption {
     position: sticky;
+}
+.carousel-caption > h3 {
+    font-size: 40px;
+    font-weight: bold;
+}
+.carousel-caption > p {
+    text-align: center;
+    width: 500px;
+    margin-left: 8rem;
 }
 .spring .carousel-control-prev, .spring .carousel-control-next {
     background-color: #badc83;
@@ -33,4 +37,16 @@ p {
 }
 .winter .carousel-control-prev, .winter .carousel-control-next {
     background-color: #87ceeb;
+}
+.spring .carousel-caption > h3 {
+    color: #badc83;
+}
+.summer .carousel-caption > h3 {
+    color: #ffe448;
+}
+.autumn .carousel-caption > h3 {
+    color: #ffa500;
+}
+.winter .carousel-caption > h3 {
+    color: #87ceeb;
 }
