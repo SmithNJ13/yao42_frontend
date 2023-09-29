@@ -1,9 +1,12 @@
+/* eslint-disable react/no-unknown-property */
 import React, { useState } from 'react';
 
 const PostRecipe = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [ingredients, setIngredients] = useState('');
+  const [budget, setBudget] = useState('');
+  const [instructions, setInstructions] = useState('');
   const [season, setSeason] = useState('');
   const [image, setImage] = useState('');
   
@@ -33,6 +36,8 @@ const PostRecipe = () => {
           name,
           description,
           ingredients,
+          budget,
+          instructions,
           season,
           image,
           user_id: userId,
@@ -49,6 +54,8 @@ const PostRecipe = () => {
       setName('');
       setDescription('');
       setIngredients('');
+      setInstructions('');
+      setBudget('');
       setSeason('');
       setImage('');
       
@@ -94,6 +101,17 @@ const PostRecipe = () => {
         />
       </div>
       <div>
+        <label htmlFor="instructions" class="recipe_label">Instructions:</label>
+        <input
+          type="text"
+          id="recipe_instructions"
+          value={instructions}
+          onChange={(e) => setInstructions(e.target.value)}
+          placeholder="Step 1. Afford a home"
+          required
+        />
+      </div>
+      <div>
         <label class="recipe_label" htmlFor="season">Season:</label>
         <select
           id="recipe_season"
@@ -106,6 +124,20 @@ const PostRecipe = () => {
           <option value="Summer">Summer</option>
           <option value="Autumn">Autumn</option>
           <option value="Winter">Winter</option>
+        </select>
+      </div>
+      <div>
+        <label class="recipe_label" htmlFor="budget">Budget:</label>
+        <select
+          id="recipe_budget"
+          value={budget}
+          onChange={(e) => setBudget(e.target.value)}
+          required
+        >
+          <option value="" disabled>Select a budget</option>
+          <option value="£">£</option>
+          <option value="££">££</option>
+          <option value="£££">£££</option>
         </select>
       </div>
       <div>

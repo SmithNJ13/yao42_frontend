@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&display=swap');
 
-body {
-    background-color: #FCFAFC;
-    color: #181A1B;
-    font-family: 'Poppins', sans-serif;
-}
+
 
 #title {
     font-size: 75px;
@@ -13,30 +9,33 @@ body {
 }
 
 .Recipe_Form {
-    background-color: #FCF4F6;
-    width: 500px;
+    
+    background-color: #D296EE;
+    width: 80%;
     margin: 20px auto;
     padding: 40px;
-    border: 1px solid black;
-    text-align: left;
 }
+
 
 .input_recipe,
 #recipe_name,
 #recipe_description,
+#recipe_instructions,
 #recipe_ingredients,
+#recipe_budget,
 #recipe_season,
 #recipe_image {
     border: 1px solid black;
+    width: 80%;
     padding: 5px;
 }
 
 
 .recipe_label {
     display: inline-block;
-    width: 150px; 
+    width: 80%; 
     padding: 20px;
-    text-align: right;
+    text-align: left;
 } 
 
 .button_container {
@@ -45,9 +44,18 @@ body {
 
 
 #button {
-    background-color: #F5C6C6;
+    background-color: #A17CD6;
     color: #181A1B;
     padding: 20px;
     margin: 20px;
-    border: 10px;
+    border-radius: 10px;
 } 
+
+#button:hover {
+    background-color: white;
+    color: #181A1B;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 2px solid #A17CD6;
+}

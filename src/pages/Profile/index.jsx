@@ -132,10 +132,10 @@ useEffect(() => {
 
 
                         <div className="tw-flex tw-justify-around tw-text-base">
-                        <FontAwesomeIcon icon={faFacebook} className='tw-text-green-500 social' />
-                        <FontAwesomeIcon icon={faInstagram} className='tw-text-green-500 social' />
-                        <FontAwesomeIcon icon={faTwitter} className='tw-text-green-500 social' />
-                        <FontAwesomeIcon icon={faPinterest} className='tw-text-green-500 social'/>
+                        <FontAwesomeIcon icon={faFacebook} className=' social' />
+                        <FontAwesomeIcon icon={faInstagram} className=' social' />
+                        <FontAwesomeIcon icon={faTwitter} className=' social' />
+                        <FontAwesomeIcon icon={faPinterest} className='social'/>
                         </div>
                         <div className="tw-flex tw-justify-center email">
                                     <div className="tw-px-4 tw-py-2 tw-font-semibold ">Email Address</div>

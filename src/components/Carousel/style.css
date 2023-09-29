@@ -1,53 +1,52 @@
 p {
     color: black;
 }
-#Carousel {
-    position: relative;
-    min-width: 600px;
-    max-width: 1200px;
-    margin-left: 15vw;
+.carousel-indicators {
+    scale: 120%;
 }
-#CarouselItems img {
-    position: relative;
-    left: 450px;
-    max-width: 400px;
-    max-height: 350px;
-    min-width: 400px;
-    min-height: 350px;
+.carousel-inner {
+    position: sticky;
+    width: 760px;
+    height: 380px;
+}
+.carousel-item {
+    position: sticky;
+    width: 760px;
+    height: 380px;
 }
 .carousel-caption {
-    position: relative;
-    left: 50px;
+    position: sticky;
 }
-/* Spring Styling  */
-.spring h3 {
-    color: lawngreen;
+.carousel-caption > h3 {
     font-size: 40px;
+    font-weight: bold;
 }
-.spring span {
-    background-color: lawngreen;
+.carousel-caption > p {
+    text-align: center;
+    width: 500px;
+    margin-left: 8rem;
 }
-/* Summer Styling  */
-.summer h3 {
-    font-size: 40px;
-    color: gold;
+.spring .carousel-control-prev, .spring .carousel-control-next {
+    background-color: #badc83;
 }
-.summer span {
-    background-color: gold;
+.summer .carousel-control-prev, .summer .carousel-control-next {
+    background-color: #ffe448;
 }
-/* Autumn Styling  */
-.autumn h3 {
-    font-size: 40px;
-    color: sienna;
+.autumn .carousel-control-prev, .autumn .carousel-control-next {
+    background-color: #ffa500;
 }
-.autumn span {
-    background-color: sienna;
+.winter .carousel-control-prev, .winter .carousel-control-next {
+    background-color: #87ceeb;
 }
-/* Winter Styling  */
-.winter h3 {
-    color: skyblue;
-    font-size: 40px;
+.spring .carousel-caption > h3 {
+    color: #badc83;
 }
-.winter span {
-    background-color: skyblue;
+.summer .carousel-caption > h3 {
+    color: #ffe448;
+}
+.autumn .carousel-caption > h3 {
+    color: #ffa500;
+}
+.winter .carousel-caption > h3 {
+    color: #87ceeb;
 }

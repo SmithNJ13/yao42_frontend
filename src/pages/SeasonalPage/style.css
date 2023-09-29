@@ -7,7 +7,6 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Montserrat', sans-serif;
 */
 #root {
-  /* padding: 1rem; */
   --BG_spring: #fafcf8;
   --SB_spring: #badc83;
   --BG_summer: #fffefa;
@@ -19,46 +18,35 @@ font-family: 'Montserrat', sans-serif;
 }
 .loading{
     font-size: 100px;
+    margin-left: 240px;
+    text-align: center;
     font-weight: bold;
 }
 #MainContent {
     text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1rem;
 }
 #Title {
     font-size: 75px;
+    margin-left: 240px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: black;
 }
-#Sidebanner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-height: 110%;
-    min-width: 260px;
-    z-index: 0;
-}
-#Sidebanner.spring {
-    background-color: var(--SB_spring);
-}
-#Sidebanner.summer{
-    background-color: var(--SB_summer);
-}
-#Sidebanner.autumn{
-    background-color: var(--SB_autumn);
-}
-#Sidebanner.winter{
-    background-color: var(--SB_winter);
-}
 #Carousel {
     padding-top: 2.5rem;
+    margin-left: 240px;
+    padding-bottom: 2.5rem;
 }
 #RecipeInfo {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-top: 2.5rem;
-    margin-left: 17.5vw;
-    gap: 50px;
+    display: grid;
+    width: 1080px;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 60px;
+    margin-left: 220px;
 }
 
