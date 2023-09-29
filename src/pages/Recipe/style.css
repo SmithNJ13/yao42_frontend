@@ -24,7 +24,9 @@ body {
 .input_recipe,
 #recipe_name,
 #recipe_description,
+#recipe_instructions,
 #recipe_ingredients,
+#recipe_budget,
 #recipe_season,
 #recipe_image {
     border: 1px solid black;

@@ -6,32 +6,23 @@ import { useNavigate } from 'react-router-dom'
 
 
 const parent = {
-    initial: {
-        opacity: 0,
-    },
     animate: {
-        opacity: 1,
-        transition: {
-            duration: 1,
-            staggerChildren: 0.15,
-            when: "beforeChildren"
-        },
-    },
-};
+        opacity: [1, 1]
+    }
+}
+
 
 const child = {
-    initial: { 
-        y: "-100%",
-    },
+    // initial: { 
+    //     width: 10,
+    //     y: ["-100%", 0]
+    // },
     animate: {
-        y: 0,
-        transition: {
-            // type: "inertia",
-            // velocity: 125,
-            duration: 0.8
-        }
-    },
-};
+        width: ['2%', '2%', '2%', '25%'],
+        y: ['-100%', '0%', '0%', '0%']
+    }
+}
+
 
 
 
@@ -47,33 +38,37 @@ const navWinter = () => navigate("/winter")
 
 
   return (
-    <motion.div className='tw-flex tw-h-screen tw-w-full tw-bg-FFE448'
+    <motion.div className='tw-flex tw-h-screen tw-w-full tw-bg-slate-500'
         variants={parent}
-        initial="initial"
         animate="animate"
+        transition= {{ duration: 1, staggerChildren: 0.15, when: "beforeChildren" }}
     >
         <motion.div 
-            className='tw-bg-yellow-400 tw-h-full tw-w-[25%]'
+            className='tw-bg-yellow-400 tw-h-full'
             onClick={navSpring}
             variants={child}
+            transition={{ ease: "easeInOut", duration: 1.6 }}
         />
 
          <motion.div 
-            className='tw-bg-green-400 tw-h-full tw-w-[25%]'
+            className='tw-bg-green-400 tw-h-full'
             onClick={navSummer}
             variants={child}
+            transition={{ ease: "easeInOut", duration: 1.6 }}
         />
 
          <motion.div
-            className='tw-bg-amber-500 tw-h-full tw-w-[25%]'
+            className='tw-bg-amber-500 tw-h-full'
             onClick={navAutumn}
             variants={child}
+            transition={{ ease: "easeInOut", duration: 1.6 }}
         />
 
          <motion.div
-            className='tw-bg-teal-500 tw-h-full tw-w-[25%]'
+            className='tw-bg-teal-500 tw-h-full'
             onClick={navWinter}
             variants={child}
+            transition={{ ease: "easeInOut", duration: 1.6 }}
         />
         
     </motion.div>
