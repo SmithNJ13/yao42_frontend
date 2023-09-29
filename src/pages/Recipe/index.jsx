@@ -5,9 +5,10 @@ import './style.css'
 
 const RecipePage = () => {
   return (
-    <div className="RecipePage_Container">
-        <PostRecipe />
-    </div>
+    <>
+      <h1 id="title">Add a Recipe</h1>
+      <PostRecipe />
+    </>
   )
 }
 
