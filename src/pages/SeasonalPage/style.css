@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+/* 
+font-family: 'Dancing Script', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Montserrat', sans-serif;
+*/
+#root {
+  --BG_spring: #fafcf8;
+  --SB_spring: #badc83;
+  --BG_summer: #fffefa;
+  --SB_summer: #ffe448;
+  --BG_autumn: #fffcf8;
+  --SB_autumn: #ffa500;
+  --BG_winter: #f9fcff;
+  --SB_winter: #87ceeb;
+}
+.loading{
+    font-size: 100px;
+    margin-left: 240px;
+    text-align: center;
+    font-weight: bold;
+}
+#MainContent {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+#Title {
+    font-size: 75px;
+    margin-left: 240px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+#Carousel {
+    padding-top: 2.5rem;
+    margin-left: 240px;
+    padding-bottom: 2.5rem;
+}
+#RecipeInfo {
+    display: grid;
+    width: 1080px;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 60px;
+    margin-left: 220px;
+}
+

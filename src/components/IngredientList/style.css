@@ -1,0 +1,12 @@
+.ingredients {
+    margin-top: 20px;
+}
+
+.ingredients li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #181A1B;
+    padding-bottom: 5px;
+}

@@ -1,6 +1,19 @@
-#root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dancing-script-font {
+  font-family: 'Dancing Script', cursive;
+  /* Add any other styles you want for this class */
+}
+
+.poppins-font {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+} */

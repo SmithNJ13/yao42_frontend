@@ -1,0 +1,25 @@
+.Sidebanner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 110%;
+    min-width: 260px;
+    z-index: 0;
+    background-color: #D296EE;
+}
+#Information {
+    position: relative;
+    max-width: 680px;
+    max-height: 800px;
+    min-width: 680px;
+    min-height: 800px;
+    margin-left: 360px;
+    margin-top: 10vh;
+    background-color: #F0E3FB;
+}
+#Heading {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    gap: 75px;
+}

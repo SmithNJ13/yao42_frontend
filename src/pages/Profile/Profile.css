@@ -1,0 +1,46 @@
+
+
+.social{
+    height: 2rem;
+    width: 2rem;
+    color: #FFA500;
+
+}
+
+.social:hover{
+
+color: #22C55E;
+
+}
+
+
+
+.about{
+    position: relative;
+    top: 4.5px;
+}
+
+.profilebutton{
+    background-color: #FFA500;
+    
+}
+
+.profilebutton:hover{
+    background-color: white;
+    color: #FFA500;
+    border: solid 2px #FFA500;
+   
+}
+
+.email{
+    position: relative;
+    top: 10px;
+}
+
+.backgroundimage{
+    width: 70%;
+}
+
+.recipes{
+transition: 0.5s;
+}

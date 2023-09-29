@@ -1,0 +1,78 @@
+:root {
+    --RC_spring: #edf6e0;
+    --RC_summer: #fff8d2;
+    --RC_autumn: #ffe8c0;
+    --RC_winter: #e1f2fa;
+}
+.card-img-top {
+    width: 19.9rem;
+    height: 16rem;
+    image-rendering: crisp-edges;
+    object-fit: cover;
+}
+.card-title {
+    font-weight: bold;
+    text-decoration: underline;
+    padding-bottom: 1rem;
+}
+.card-text {
+    width: 18rem;
+    height: 10rem;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+#card ::-webkit-scrollbar {
+    width: 4px;
+}
+#card ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    height: 40px; 
+}
+.spring .card-text {
+    border-radius: 10%;
+    background-color: #fafcf8;
+}
+#card .spring ::-webkit-scrollbar-thumb {
+    background: #badc83;
+}
+.summer .card-text {
+    border-radius: 10%;
+    background-color: #fffefa;
+}
+#card .summer ::-webkit-scrollbar-thumb {
+    background: #ffe448;
+}
+.autumn .card-text {
+    border-radius: 10%;
+    background-color: #fffcf8;
+}
+#card .autumn ::-webkit-scrollbar-thumb {
+    background: #ffa500;
+}
+.winter .card-text {
+    border-radius: 10%;
+    background-color: #f9fcff;
+}
+#card .winter ::-webkit-scrollbar-thumb {
+    background: #87ceeb;
+}
+#card .spring {
+    border: solid #badc83 3px;
+    border-radius: 3%;
+}
+#card .summer {
+    border: solid #ffe448 3px;
+    border-radius: 3%;
+}
+#card .autumn {
+    border: solid #ffa500 3px;
+    border-radius: 3%;
+}
+#card .winter {
+    border: solid #87ceeb 3px;
+    border-radius: 3%;
+}
+#card button {
+    margin-top: 1rem;
+    --bs-btn-color: black;
+}
