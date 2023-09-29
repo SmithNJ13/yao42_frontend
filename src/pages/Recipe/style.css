@@ -6,13 +6,19 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+#title {
+    font-size: 75px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
 #Sidebanner {
     background-color: #F5C6C6;
     min-height: 100vh;
 }
 
 .Recipe_Form {
-    background-color: #FCFAFC;
+    background-color: #FCF4F6;
     width: 500px;
     margin: 20px auto;
     padding: 40px;
