@@ -15,6 +15,7 @@ const SeasonalPage = () => {
   const displaySeason = season.toUpperCase()
   const dispatch = useDispatch()
   const BGColour = useSelector((state) => state.BGColour)
+  // Style variables 
   const BGStyle = {
     backgroundColor: BGColour,
   }
@@ -70,10 +71,6 @@ const SeasonalPage = () => {
   return (
     <>
     <body style={BGStyle}>
-      <div id="Sidebanner" className={season}>
-        <div className="Content">
-        </div>
-      </div>
       <div id="MainContent">
         <div id="Title" className={season}>
           {displaySeason}
@@ -81,14 +78,14 @@ const SeasonalPage = () => {
         <div id="Carousel" className={season}>
           <CarouselComponent ingredients={ingredients} season={season}/>
         </div>
-      </div>
-      <div id="RecipeInfo">
-        {recipes.filter((r) => r.season.toLowerCase().includes(season))
-        .map((recipe, index) => (
-          <div key={index+1} id="card">
-            <RecipeCard recipe={recipe} season={season}/>
-          </div>
-        ))}
+        <div id="RecipeInfo">
+          {recipes.filter((r) => r.season.toLowerCase().includes(season))
+          .map((recipe, index) => (
+            <div key={index+1} id="card">
+              <RecipeCard recipe={recipe} season={season}/>
+            </div>
+          ))}
+        </div>
       </div>
     </body>
     </>

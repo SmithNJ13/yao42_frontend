@@ -36,7 +36,6 @@ const ViewRecipe = () => {
   return (
     <>
     <body style={BGStyle}>
-      <div className="Sidebanner"/>
       {recipes.filter((r) => r.name.includes(name))
       .map((recipe, key) => (
         <div id="Information" key={key}>

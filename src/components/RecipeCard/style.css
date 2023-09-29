@@ -4,6 +4,22 @@
     --RC_autumn: #ffe8c0;
     --RC_winter: #e1f2fa;
 }
-.button {
+.card-img-top {
+    width: 20rem;
+    height: 16rem;
+    image-rendering: crisp-edges;
+}
+.card-title {
+    font-weight: bold;
+    text-decoration: underline;
+    padding-bottom: 1rem;
+}
+.card-text {
+    width: 18rem;
+    height: 10rem;
+    background-color: ivory;
+    overflow-y: scroll;
+}
+#card button {
     --bs-btn-color: black;
 }
