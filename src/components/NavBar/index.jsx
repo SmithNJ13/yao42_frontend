@@ -3,6 +3,7 @@ import './NavBar.css';
 
 const NavBar = () => {
   const location = useLocation();
+  
   const getNavbarColor = () => {
     switch (location.pathname) {
       case '/spring':
