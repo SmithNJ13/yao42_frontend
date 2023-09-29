@@ -15,11 +15,11 @@ const NavBar = () => {
       case '/winter':
         return '#87CEEB';
       case '/profile':
-        return '#87CEEB';
+        return '#D296EE';
       case '/recipe':
         return '#F5C6C6';
       case '/register':
-        return '#87CEEB';
+        return '#D296EE';
       case '/mixingbowl':
         return '#D296EE';
       case '/notfound':

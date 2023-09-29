@@ -1,16 +1,18 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faFileLines} from '@fortawesome/free-solid-svg-icons'
-import form from '../../assets/formBg.png'
+import form from '../../assets/addrecipeformbg.png'
 import { faFacebook, faInstagram, faPinterest, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios';
 import LikeButton from '../../components/LikeButton/index.jsx';
-
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Profile = () => {
+const navigate = useNavigate()
 const [username, setUsername] = useState('');
 const [email, setEmail] = useState('');
 const [recipes, setRecipes] = useState([])
@@ -18,6 +20,9 @@ const [likedRecipes, setLikedRecipes] = useState([]);
 const [likedRecipesToShow, setLikedRecipesToShow] = useState([]);
 const [currentPageRecipes, setCurrentPageRecipes] = useState(1);
 const [currentPageLikedRecipes, setCurrentPageLikedRecipes] = useState(1);
+
+
+
 
 useEffect(() => {
    async function fetchData(){
@@ -87,10 +92,12 @@ useEffect(() => {
   }, [currentPageLikedRecipes, likedRecipes]);
 
 
+  
+
   return (
     <>
    
-<div className="tw-h-screen tw-overflow-hidden tw-flex tw-items-center tw-justify-center">
+<div className="tw-h-screen tw-overflow-hidden tw-flex tw-items-center tw-justify-center bosscontainer">
 
     <div style= {{ backgroundImage: `url(${form})`}}  className='backgroundimage'>
     
@@ -99,7 +106,7 @@ useEffect(() => {
                 {/* <!-- Left Side --> */}
                 <div className="tw-w-full tw-h-full">
                     {/* <!-- Profile Card --> */}
-                    <div className="tw-bg-white tw-p-3 tw-border-t-4 tw-border-green-400">
+                    <div className="tw-bg-white tw-p-3 socialdiv">
                         <div className="tw-text-center tw-my-2">
                             <img className="tw-h-32 tw-w-32 tw-rounded-full tw-mx-auto profile"
                                 src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
@@ -111,7 +118,7 @@ useEffect(() => {
 
 
   <div className='tw-flex tw-text-center tw-mt-4 tw-mb-4 tw-justify-around tw-w-1/2'>
-  <div className='tw-border-2 tw-border-green-500 tw-rounded-lg tw-w-1/2 tw-mx-auto tw-min-w-fit'>
+  <div className='tw-w-1/2 tw-mx-auto tw-min-w-fit likesandrecipes'>
     <div className="tw-grid tw-grid-cols-2 tw-text-base">
       <div className="tw-text-center">
         <span className="tw-font-semibold tw-text-gray-700">Likes</span>
@@ -140,7 +147,7 @@ useEffect(() => {
                         <div className="tw-flex tw-justify-center email">
                                     <div className="tw-px-4 tw-py-2 tw-font-semibold ">Email Address</div>
                                     <div className="tw-py-2">
-                                        <a className="tw-text-green-800" >{email}</a>
+                                        <a>{email}</a>
                                     </div>
                                 </div>
                             
@@ -163,15 +170,17 @@ useEffect(() => {
                             <div>
                                 <div className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-900 tw-leading-8 tw-mb-3">
                                     <span className="tw-text-green-500">
-                                        <FontAwesomeIcon icon={faFileLines} />
+                                        <FontAwesomeIcon icon={faFileLines} className='fontawesome' />
                                     </span>
                                     <span className="tw-tracking-wide">My Recipes</span>
                                 </div>
                                 <div className="tw-flex tw-flex-wrap tw-justify-between">
   {recipesToShow.map((x) => (
     <div key={x.id} className="tw-w-1/5 tw-mb-4 tw-mx-2 tw-text-center">
-      <div className="tw-text-green-500 tw-font-semibold">{x.name}</div>
+      <button className='button' onClick={() => navigate(`/recipe/${x.name}`)}>
+      <div className="tw-font-semibold recipename">{x.name}</div>
       <img className="tw-h-20 tw-w-20 tw-rounded-full tw-mx-auto recipes" src={x.image} alt={x.name} />
+      </button>
     </div>
   ))}
 </div>
@@ -203,12 +212,12 @@ useEffect(() => {
                     <div className="tw-my-4"></div>
     
                     {/* <!-- Liked recipes --> */}
-                    <div className="tw-bg-white tw-p-3 tw-shadow-sm tw-rounded-sm  tw-border-b-4 tw-border-green-400">
+                    <div className="tw-bg-white tw-p-3 tw-shadow-sm tw-rounded-sm likesdiv">
     <div className="tw-grid tw-grid-cols-1">
         <div>
-            <div className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-900 tw-leading-8 tw-mb-3 ">
-                <span className="tw-text-green-500">
-                    <FontAwesomeIcon icon={faHeart} />
+            <div className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-900 tw-leading-8 tw-mb-3  ">
+                <span >
+                    <FontAwesomeIcon icon={faHeart} className='fontawesome' />
                 </span>
                 <span className="tw-tracking-wide"> Liked Recipes</span>
             </div>
@@ -218,11 +227,15 @@ useEffect(() => {
                         const recipe = recipes.find((r) => r.id === like.recipe_id);
                         if (recipe) {
                             return (
+                              
                                 <div key={recipe.id} className="tw-w-1/5 tw-mb-4 tw-mx-2 tw-text-center">
-                                    <div className="tw-text-green-500 tw-font-semibold">{recipe.name}</div>
+                                  <button className='button' onClick={() => navigate(`/recipe/${recipe.name}`)}>
+                                    <div className=" tw-font-semibold recipename">{recipe.name}</div>
                                     <img className="tw-h-20 tw-w-20  tw-rounded-full tw-mx-auto recipes" src={recipe.image} alt={recipe.name} />
                                     <LikeButton recipeId={recipe.id} />
+                                    </button>
                                 </div>
+                               
                             );
                         }
                         return null;
