@@ -8,7 +8,6 @@ import "./style.css"
 const CarouselComponent = ({ingredients, season}) => {
   return (
     <>
-    <div id="CarouselItems">
     <Carousel> {
       ingredients.filter((i) => i.season.toLowerCase().includes(season))
       .map((ingredient, index) => (
@@ -22,7 +21,6 @@ const CarouselComponent = ({ingredients, season}) => {
       ))
       }
     </Carousel>
-    </div>
     </>
   )
 }
