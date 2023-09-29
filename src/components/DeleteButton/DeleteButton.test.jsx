@@ -1,6 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { screen, render, cleanup, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import * as matchers from '@testing-library/jest-dom/matchers'
+expect.extend(matchers)
 
 import DeleteButton from '.';
 
@@ -22,17 +24,19 @@ describe('DeleteButton component', () => {
   });
 
   it('renders a delete button', () => {
-    const deleteButtons = screen.getAllByRole('button');
-    expect(deleteButtons.length).toBeGreaterThan(0);
+    const deleteButtons = screen.getByTestId('button');
+    console.log(deleteButtons)
+    expect(deleteButtons).toBeGreaterThan(0);
   
     // You can choose the button to interact with, e.g., the first one:
     const deleteButton = deleteButtons[0];
+    console.log(deleteButton)
     expect(deleteButton).toBeTruthy();
   });
   
 
   it('renders a delete button with a trash icon', () => {
-    const deleteButtons = screen.getAllByRole('button');
+    const deleteButtons = screen.getByTestId('button');
     expect(deleteButtons.length).toBeGreaterThan(0);
   
     // You can choose the button to interact with, e.g., the first one:
@@ -50,7 +54,7 @@ describe('DeleteButton component', () => {
       </MemoryRouter>
     );
 
-    const deleteButtons = screen.getAllByRole('button');
+    const deleteButtons = screen.getByTestId('button');
     const deleteButton = deleteButtons[0];
 
     fireEvent.click(deleteButton);

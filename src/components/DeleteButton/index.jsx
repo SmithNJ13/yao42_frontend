@@ -11,7 +11,7 @@ const DeleteButton = ({onDelete, comment}) => {
 
   return (
     <div>
-      <span className="trash" onClick={handleClick}>
+      <span className="trash" data-testid="button" onClick={handleClick} >
         <span></span>
         <i></i>
       </span>
