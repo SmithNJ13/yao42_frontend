@@ -3,18 +3,17 @@
 .social{
     height: 2rem;
     width: 2rem;
+    color: #FFA500;
+
 }
 
 .social:hover{
-color: #FFA500;
+
+color: #22C55E;
 
 }
 
-/* .profile{
-position: relative;
- top: 0px;
-    
-} */
+
 
 .about{
     position: relative;
