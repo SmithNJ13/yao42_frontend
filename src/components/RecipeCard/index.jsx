@@ -4,11 +4,15 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import "./style.css"
 import ViewRecipe from '../../pages/ViewRecipe'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import {Routes, Route} from "react-router-dom"
 
 const RecipeCard = ({recipe, season}) => {
+  const navigate = useNavigate()
   const name = recipe.name
-  // console.log(recipe.name)
+  function handleClick() {
+    navigate(`/recipe/${name}`)
+  }
 
   return (
     <>
@@ -17,7 +21,7 @@ const RecipeCard = ({recipe, season}) => {
         <Card.Body>
           <Card.Title>{recipe.name}</Card.Title>
           <Card.Text>{recipe.description}</Card.Text>
-          <Button className="button">View recipe</Button>
+          <Button className="button" onClick={handleClick}>View recipe</Button>
         </Card.Body>
     </Card>
     </>
