@@ -19,11 +19,6 @@ body {
 .mixing-bowl {
     display: flex;
 }
-
-#Sidebanner {
-    background-color: #D296EE;
-    min-height: 100vh;
-}
   
 .left-column {
     margin-left: 20px;

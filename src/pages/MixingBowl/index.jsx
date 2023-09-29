@@ -95,7 +95,6 @@ const MixingBowl = () => {
 
   return (
     <div className="container">
-      <div id="Sidebanner"></div>
       <div className="mixing-bowl-container">
         <h1 id="title">Mixing Bowl</h1>
         <div className="mixing-bowl">
