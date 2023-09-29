@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import {CarouselComponent, RecipeCard} from "../../components"
+import { useDispatch, useSelector } from "react-redux"
+import { changeBGColour } from '../../actions/bgActions'
 import axios from "axios"
 import "./style.css"
 // Declaring seasons for useParams comparison
@@ -11,6 +13,16 @@ const SeasonalPage = () => {
   const [recipes,setRecipes] = useState()
   const [ingredients, setIngredients] = useState()
   const displaySeason = season.toUpperCase()
+  const dispatch = useDispatch()
+  const BGColour = useSelector((state) => state.BGColour)
+
+  const BGStyle = {
+    backgroundColor: BGColour,
+  }
+
+  const handleBG = (colour) => {
+    dispatch(changeBGColour(colour))
+  }
   // Logic for if the current page paramater doesn't match any of the seasons 
   if(!seasons.includes(season)) {
     return <Navigate replace={true} to="/notfound" />
@@ -31,46 +43,42 @@ const SeasonalPage = () => {
         setIngredients(data)
       })
   }
-  function setRootClass() {
-    const root = document.getElementById("root")
-    if(root) {
-      root.className = season
-    }
-  }
 
   useEffect(() => {
+    handleBG("ivory")
     getIngredients()
     getRecipes()
   }, [])
   // Loading logic 
   if(!recipes || !ingredients) {
-    setRootClass()
     return <div className="loading">Loading page!</div>
   }
 
 
   return (
     <>
-    <div id="Sidebanner" className={season}>
-      <div className="Content">
-      </div>
-    </div>
-    <div id="MainContent">
-      <div id="Title" className={season}>
-        {displaySeason}
-      </div>
-      <div id="Carousel" className={season}>
-        <CarouselComponent ingredients={ingredients} season={season}/>
-      </div>
-    </div>
-    <div id="RecipeInfo">
-      {recipes.filter((r) => r.season.toLowerCase().includes(season))
-      .map((recipe, index) => (
-        <div key={index+1} id="card">
-          <RecipeCard recipe={recipe} season={season}/>
+    <body style={BGStyle}>
+      <div id="Sidebanner" className={season}>
+        <div className="Content">
         </div>
-      ))}
-    </div>
+      </div>
+      <div id="MainContent">
+        <div id="Title" className={season}>
+          {displaySeason}
+        </div>
+        <div id="Carousel" className={season}>
+          <CarouselComponent ingredients={ingredients} season={season}/>
+        </div>
+      </div>
+      <div id="RecipeInfo">
+        {recipes.filter((r) => r.season.toLowerCase().includes(season))
+        .map((recipe, index) => (
+          <div key={index+1} id="card">
+            <RecipeCard recipe={recipe} season={season}/>
+          </div>
+        ))}
+      </div>
+    </body>
     </>
   )
 }

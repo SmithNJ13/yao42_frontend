@@ -7,7 +7,6 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Montserrat', sans-serif;
 */
 #root {
-  margin: 0 auto;
   /* padding: 1rem; */
   --BG_spring: #fafcf8;
   --SB_spring: #badc83;
@@ -17,18 +16,6 @@ font-family: 'Montserrat', sans-serif;
   --SB_autumn: #ffa500;
   --BG_winter: #f9fcff;
   --SB_winter: #87ceeb;
-}
-#root.spring {
-    background-color: var(--BG_spring);
-}
-#root.summer {
-    background-color: var(--BG_summer);
-}
-#root.autumn {
-    background-color: var(--BG_autumn);
-}
-#root.winter {
-    background-color: var(--BG_winter);
 }
 .loading{
     font-size: 100px;
@@ -44,11 +31,11 @@ font-family: 'Montserrat', sans-serif;
     color: black;
 }
 #Sidebanner {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    min-height: 120%;
-    min-width: 15vw;
+    min-height: 110%;
+    min-width: 260px;
     z-index: 0;
 }
 #Sidebanner.spring {
