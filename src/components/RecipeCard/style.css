@@ -7,15 +7,3 @@
 .button {
     --bs-btn-color: black;
 }
-.spring .card {
-    background-color: var(--RC_spring);
-}
-.summer .card {
-    background-color: var(--RC_summer);
-}
-.autumn .card {
-    background-color: var(--RC_autumn);
-}
-.winter .card {
-    background-color: var(--RC_winter);
-}

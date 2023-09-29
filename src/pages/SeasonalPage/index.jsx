@@ -15,7 +15,6 @@ const SeasonalPage = () => {
   const displaySeason = season.toUpperCase()
   const dispatch = useDispatch()
   const BGColour = useSelector((state) => state.BGColour)
-
   const BGStyle = {
     backgroundColor: BGColour,
   }
@@ -45,12 +44,25 @@ const SeasonalPage = () => {
   }
 
   useEffect(() => {
-    handleBG("ivory")
     getIngredients()
     getRecipes()
   }, [])
   // Loading logic 
   if(!recipes || !ingredients) {
+    switch(season) {
+      case "spring":
+        handleBG("#fafcf8")
+        break;
+      case "summer":
+        handleBG("#fffefa")
+        break;
+      case "autumn":
+        handleBG("#fffcf8")
+        break;
+      case "winter":
+        handleBG("#f9fcff")
+        break;
+    }
     return <div className="loading">Loading page!</div>
   }
 
