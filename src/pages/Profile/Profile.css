@@ -1,18 +1,33 @@
 
+.bosscontainer{
+margin-left: 240px;
+}
 
 .social{
     height: 2rem;
     width: 2rem;
-    color: #FFA500;
+    color: #badc83;
 
 }
 
 .social:hover{
 
-color: #22C55E;
+color: #A17CD6;
 
 }
 
+.socialdiv{
+    border-top: solid 6px #badc83;
+}
+
+.likesandrecipes{
+    border: solid 2px #badc83;
+    border-radius: 10px;
+}
+
+.fontawesome{
+    color: #badc83;
+}
 
 
 .about{
@@ -21,14 +36,13 @@ color: #22C55E;
 }
 
 .profilebutton{
-    background-color: #FFA500;
+    background-color: #badc83;
     
 }
 
 .profilebutton:hover{
-    background-color: white;
-    color: #FFA500;
-    border: solid 2px #FFA500;
+background-color: #A17CD6;  
+ 
    
 }
 
@@ -41,6 +55,14 @@ color: #22C55E;
     width: 70%;
 }
 
+.recipename{
+color: #badc83;
+}
+
 .recipes{
 transition: 0.5s;
+}
+
+.likesdiv{
+ border-bottom: solid 6px #badc83;
 }
