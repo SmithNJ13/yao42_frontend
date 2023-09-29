@@ -48,8 +48,12 @@ const ViewRecipe = () => {
             <p>{recipe.season}</p>
           </div>
           <div id="MainBody">
-            <h1>{recipe.description}</h1>
-            <h1>{recipe.ingredients}</h1>
+            <p>{recipe.description}</p>
+            <p>{recipe.ingredients}</p>
+          </div>
+          <h3>Instructions: </h3>
+          <div id="Instructions">
+            <p>{recipe.instructions}</p>
           </div>
         </div>
       ))}
