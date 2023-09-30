@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.69% </span>
+                <span class="strong">83.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>43/52</span>
+                <span class='fraction'>47/56</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.18% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/11</span>
+                <span class='fraction'>7/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.69% </span>
+                <span class="strong">83.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>43/52</span>
+                <span class='fraction'>47/56</span>
             </div>
         
             
@@ -115,10 +115,18 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -172,6 +180,10 @@ import './NavBar.css';
 &nbsp;
 const NavBar = () =&gt; {
   const location = useLocation();
+&nbsp;
+  let activeStyle = {
+    fontWeight: 'bold'};
+  
   const getNavbarColor = () =&gt; {
     switch (location.pathname) {
 <span class="branch-0 cbranch-no" title="branch not covered" >      case '/spring':</span>
@@ -183,11 +195,11 @@ const NavBar = () =&gt; {
 <span class="branch-0 cbranch-no" title="branch not covered" >      case '/winter':</span>
 <span class="cstat-no" title="statement not covered" >        return '#87CEEB';</span>
 <span class="branch-0 cbranch-no" title="branch not covered" >      case '/profile':</span>
-<span class="cstat-no" title="statement not covered" >        return '#87CEEB';</span>
+<span class="cstat-no" title="statement not covered" >        return '#D296EE';</span>
 <span class="branch-0 cbranch-no" title="branch not covered" >      case '/recipe':</span>
-<span class="cstat-no" title="statement not covered" >        return '#F5C6C6';</span>
+<span class="cstat-no" title="statement not covered" >        return '#D296EE';</span>
 <span class="branch-0 cbranch-no" title="branch not covered" >      case '/register':</span>
-<span class="cstat-no" title="statement not covered" >        return '#87CEEB';</span>
+<span class="cstat-no" title="statement not covered" >        return '#D296EE';</span>
 <span class="branch-0 cbranch-no" title="branch not covered" >      case '/mixingbowl':</span>
 <span class="cstat-no" title="statement not covered" >        return '#D296EE';</span>
 <span class="branch-0 cbranch-no" title="branch not covered" >      case '/notfound':</span>
@@ -202,11 +214,11 @@ const NavBar = () =&gt; {
       &lt;div className="sidebar" style={{ backgroundColor: getNavbarColor() }}&gt;
         &lt;nav className='navbar'&gt;
           &lt;div className='navlinks' data-testid="navlinks"&gt;
-            &lt;NavLink to='/' className='navlink'&gt;HOME&lt;/NavLink&gt; 
-            &lt;NavLink to='/profile' className='navlink'&gt;MY PROFILE&lt;/NavLink&gt;
-            &lt;NavLink to='/recipe' className='navlink'&gt;ADD RECIPE&lt;/NavLink&gt;
-            &lt;NavLink to='/register' className='navlink'&gt;SIGN UP&lt;/NavLink&gt;
-            &lt;NavLink to='/mixingbowl' className='navlink'&gt;MIXING BOWL&lt;/NavLink&gt;
+            &lt;NavLink to='/' className='navlink' style={({isActive}) =&gt; (isActive ? <span class="branch-0 cbranch-no" title="branch not covered" >activeStyle : undefined)}&gt;H</span>OME&lt;/NavLink&gt; 
+            &lt;NavLink to='/profile' className='navlink' style={({isActive}) =&gt; (<span class="branch-0 cbranch-no" title="branch not covered" >isActive ? activeStyle : u</span>ndefined)}&gt;MY PROFILE&lt;/NavLink&gt;
+            &lt;NavLink to='/recipe' className='navlink' style={({isActive}) =&gt; (<span class="branch-0 cbranch-no" title="branch not covered" >isActive ? activeStyle : u</span>ndefined)}&gt;ADD RECIPE&lt;/NavLink&gt;
+            &lt;NavLink to='/register' className='navlink' style={({isActive}) =&gt; (<span class="branch-0 cbranch-no" title="branch not covered" >isActive ? activeStyle : u</span>ndefined)}&gt;SIGN UP&lt;/NavLink&gt;
+            &lt;NavLink to='/mixingbowl' className='navlink' style={({isActive}) =&gt; (<span class="branch-0 cbranch-no" title="branch not covered" >isActive ? activeStyle : u</span>ndefined)}&gt;MIXING BOWL&lt;/NavLink&gt;
           &lt;/div&gt;
         &lt;/nav&gt;    
         &lt;Outlet /&gt;
@@ -226,7 +238,7 @@ export default NavBar;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-30T14:09:50.153Z
+                at 2023-09-30T19:22:00.597Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

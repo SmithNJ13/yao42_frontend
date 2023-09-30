@@ -44,20 +44,25 @@ describe('DeleteButton component', () => {
   });
   
 
-  // it('clicking the delete button calls the onDelete function', () => {
-  //   const onDeleteMock = vi.fn();
+  it('clicking the delete button calls the onDelete function', async () => {
+    const onDeleteMock = vi.fn()
+    const mockDelete = {
+      onDelete: () => 100
+    }
+   
 
-  //   render(
-  //     <MemoryRouter initialEntries={['/profile']}>
-  //       <DeleteButton onDelete={onDeleteMock} comment="Test Comment" />
-  //     </MemoryRouter>
-  //   );
+    vi.spyOn(mockDelete, 'onDelete')
 
-  //   const deleteButton = screen.getByTestId('button', {index: 0});
-  //   console.log(deleteButton)
+    render(
+      <MemoryRouter initialEntries={['/profile']}>
+        <DeleteButton onDelete={onDeleteMock()} comment="Test Comment" />
+      </MemoryRouter>
+    );
 
-  //   fireEvent.click(deleteButton);  
+    const deleteButton = screen.getAllByTestId('button');
+    fireEvent.click(deleteButton[0]);  
 
-  //   expect(onDeleteMock).toHaveBeenCalledOnce()
-  // });
+    expect(onDeleteMock).toHaveBeenCalled()
+    //expect(onDeleteMock).toHaveReturnedWith(12)
+  });
 });
