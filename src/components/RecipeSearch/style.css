@@ -1,13 +1,14 @@
 .recipe-search {
     align-items: center;
     margin-top: 10px;
+    width: 400px;
 }
   
 .search-input {
     border: 1px solid black; 
     padding: 5px;
     border-radius: 10px;
-    width: 300px;
+    width: 320px;
     height: 40px;
     margin-right: 20px;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React, { useState } from 'react';
 
 const PostRecipe = () => {
@@ -65,10 +66,11 @@ const PostRecipe = () => {
   
   return (
     <form onSubmit={handleSubmit} class="Recipe_Form">
-      <div>
-        <label class="recipe_label" htmlFor="name">Name:</label>
+      <div className='tw-flex tw-items-center tw-my-2 tw-pb-4 '>
+        
+        <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="name">Name</label>
         <input
-          class="input_recipe"
+          className="input_recipe tw-w-2/3 tw-py-2 tw-px-3 tw-border"
           type="text"
           id="recipe_name"
           value={name}
@@ -77,9 +79,10 @@ const PostRecipe = () => {
           required
         />
       </div>
-      <div>
-        <label class="recipe_label" htmlFor="description">Description:</label>
+      <div className='tw-flex tw-items-center tw-my-2 tw-pb-4'>
+        <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="description"> Description</label>
         <input
+        className="tw-w-2/3 tw-py-2 tw-px-3 tw-border"
           type="text"
           id="recipe_description"
           value={description}
@@ -88,9 +91,10 @@ const PostRecipe = () => {
           required
         />
       </div>
-      <div>
-        <label htmlFor="ingredients" class="recipe_label">Ingredients:</label>
+      <div className='tw-flex tw-items-center tw-my-2 tw-pb-4'>
+        <label htmlFor="ingredients" class="recipe_label tw-w-1/3 tw-text-right tw-pr-4">Ingredients</label>
         <input
+         className="tw-w-2/3 tw-py-2 tw-px-3 tw-border"
           type="text"
           id="recipe_ingredients"
           value={ingredients}
@@ -99,20 +103,22 @@ const PostRecipe = () => {
           required
         />
       </div>
-      <div>
-        <label htmlFor="instructions" class="recipe_label">Instructions:</label>
+      <div className='tw-flex tw-items-center tw-my-2 tw-pb-4'>
+        <label htmlFor="instructions" class="recipe_label tw-w-1/3 tw-text-right tw-pr-4">Instructions</label>
         <input
+         className="tw-w-1/2 tw-py-2 tw-px-3 tw-border"
           type="text"
           id="recipe_instructions"
           value={instructions}
           onChange={(e) => setInstructions(e.target.value)}
-          placeholder="Step 1. Afford a home"
+          placeholder="Step 1. ..."
           required
         />
       </div>
-      <div>
-        <label class="recipe_label" htmlFor="season">Season:</label>
+      <div className='tw-flex tw-items-center tw-pb-4'>
+        <label class="recipe_label tw-w-5/6 tw-text-right tw-pr-5" htmlFor="season"> Season</label>
         <select
+         className="tw-w-1/2 tw-py-2 tw-px-3 tw-border"
           id="recipe_season"
           value={season}
           onChange={(e) => setSeason(e.target.value)}
@@ -124,10 +130,10 @@ const PostRecipe = () => {
           <option value="Autumn">Autumn</option>
           <option value="Winter">Winter</option>
         </select>
-      </div>
-      <div>
-        <label class="recipe_label" htmlFor="budget">Budget:</label>
+      
+        <label class="recipe_label tw-w-2/5 tw-text-right tw-pr-4" htmlFor="budget">Budget</label>
         <select
+         className="tw-w-2/3 tw-py-2 tw-px-3 tw-border"
           id="recipe_budget"
           value={budget}
           onChange={(e) => setBudget(e.target.value)}
@@ -139,9 +145,11 @@ const PostRecipe = () => {
           <option value="£££">£££</option>
         </select>
       </div>
-      <div>
-        <label class="recipe_label" htmlFor="image">Image:</label>
+      
+      <div className='tw-flex tw-items-center tw-my-2'>
+        <label class="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="image">Image</label>
         <input
+         className="tw-w-2/3 tw-py-2 tw-px-3 tw-border"
           type="text"
           id="recipe_season"
           value={image}
