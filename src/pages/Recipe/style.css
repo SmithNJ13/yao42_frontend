@@ -6,14 +6,24 @@
     font-size: 75px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    margin: 35px auto;
+    margin-bottom : 50px;
+}
+
+
+.bodycontainer{
+    margin-left: 240px;
+}
+
+.formcontainer{
+    border-top: solid 6px #badc83;
+    border-bottom: solid 6px #badc83;
 }
 
 .Recipe_Form {
-    
-    background-color: #D296EE;
-    width: 80%;
     margin: 20px auto;
     padding: 40px;
+    width: 100%;   
 }
 
 
@@ -25,18 +35,17 @@
 #recipe_budget,
 #recipe_season,
 #recipe_image {
-    border: 1px solid black;
+    border: 1px solid #badc83;
     width: 80%;
     padding: 5px;
 }
 
 
-.recipe_label {
-    display: inline-block;
-    width: 80%; 
-    padding: 20px;
-    text-align: left;
-} 
+
+
+.recipe_label{
+    font-size: 30px;
+}
 
 .button_container {
     text-align: center;
@@ -52,10 +61,10 @@
 } 
 
 #button:hover {
-    background-color: white;
+    background-color: #D27CD6;
     color: #181A1B;
-    padding: 10px;
+    padding: 20px;
     margin: 20px;
     border-radius: 10px;
-    border: 2px solid #A17CD6;
+
 }

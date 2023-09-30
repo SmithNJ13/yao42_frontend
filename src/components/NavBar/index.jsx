@@ -3,6 +3,9 @@ import './NavBar.css';
 
 const NavBar = () => {
   const location = useLocation();
+
+  let activeStyle = {
+    fontWeight: 'bold'};
   
   const getNavbarColor = () => {
     switch (location.pathname) {
@@ -17,7 +20,7 @@ const NavBar = () => {
       case '/profile':
         return '#D296EE';
       case '/recipe':
-        return '#F5C6C6';
+        return '#D296EE';
       case '/register':
         return '#D296EE';
       case '/mixingbowl':
@@ -34,11 +37,11 @@ const NavBar = () => {
       <div className="sidebar" style={{ backgroundColor: getNavbarColor() }}>
         <nav className='navbar'>
           <div className='navlinks' data-testid="navlinks">
-            <NavLink to='/' className='navlink'>HOME</NavLink> 
-            <NavLink to='/profile' className='navlink'>MY PROFILE</NavLink>
-            <NavLink to='/recipe' className='navlink'>ADD RECIPE</NavLink>
-            <NavLink to='/register' className='navlink'>SIGN UP</NavLink>
-            <NavLink to='/mixingbowl' className='navlink'>MIXING BOWL</NavLink>
+            <NavLink to='/' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>HOME</NavLink> 
+            <NavLink to='/profile' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MY PROFILE</NavLink>
+            <NavLink to='/recipe' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>ADD RECIPE</NavLink>
+            <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
+            <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>
           </div>
         </nav>    
         <Outlet />
