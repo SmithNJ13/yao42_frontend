@@ -63,6 +63,5 @@ describe('DeleteButton component', () => {
     fireEvent.click(deleteButton[0]);  
 
     expect(onDeleteMock).toHaveBeenCalled()
-    //expect(onDeleteMock).toHaveReturnedWith(12)
   });
 });
