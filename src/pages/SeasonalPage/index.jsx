@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Navigate, useParams } from 'react-router-dom'
-import {CarouselComponent, RecipeCard} from "../../components"
+import { CarouselComponent, RecipeCard, Loading } from "../../components"
 import { useDispatch, useSelector } from "react-redux"
 import { changeBGColour } from '../../actions/bgActions'
 import axios from "axios"
@@ -64,7 +64,25 @@ const SeasonalPage = () => {
         handleBG("#f9fcff")
         break;
     }
-    return <div className="loading">Loading page!</div>
+    const getLoadingColor = () => {
+      switch (location.pathname) {
+        case '/spring':
+          return '#BADC83'; 
+        case '/summer':
+          return '#FFE448'; 
+        case '/autumn':
+          return '#FFA500';
+        case '/winter':
+          return '#87CEEB';
+        default:
+          return '#008080';
+      }
+    };
+    return ( 
+    <div style={{backgroundColor: getLoadingColor()}} className='loading'>
+       <Loading /> 
+    </div>
+     )
   }
 
 
