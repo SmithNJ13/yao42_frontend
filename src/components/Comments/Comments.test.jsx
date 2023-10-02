@@ -2,14 +2,19 @@ import React from 'react';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { render, cleanup, screen, waitFor } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers'
+import { MemoryRouter } from 'react-router-dom';
 import axios from 'axios';
 expect.extend(matchers)
 import Comments from '.';
 
 
 describe("Comments component", () => {
+    const postId = 1
     beforeEach(() => {
-        render(<Comments/>)
+        render( 
+        <MemoryRouter initialEntries={[`/profile/${postId}`]}>
+        <Comments />
+      </MemoryRouter>)
     })
 
     afterEach(() => {

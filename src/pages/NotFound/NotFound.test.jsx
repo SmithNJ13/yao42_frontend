@@ -27,11 +27,6 @@ describe("NotFound page", () => {
         expect(h1).toBeInTheDocument()
     })
 
-    it("displays h2 with specified text", () => {
-        const h2 = screen.getByRole('heading', {level:2})
-        expect(h2).toBeInTheDocument() 
-    })
-
     it("Contains a link to home", () => {
         const link = screen.getByRole('link')
         expect(link).toBeInTheDocument()

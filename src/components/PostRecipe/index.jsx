@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useState } from 'react';
+import PopUp from '../PopUp';
 
 const PostRecipe = () => {
   const [name, setName] = useState('');
@@ -9,6 +10,7 @@ const PostRecipe = () => {
   const [instructions, setInstructions] = useState('');
   const [season, setSeason] = useState('');
   const [image, setImage] = useState('');
+  const [openPopUp, SetOpenPopUp] = useState(false);
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,14 +60,15 @@ const PostRecipe = () => {
       setBudget('');
       setSeason('');
       setImage('');
-      
+      SetOpenPopUp(true);
     } catch (error) {
       console.error('Error submitting the recipe:', error);
     }
   };
   
   return (
-    <form onSubmit={handleSubmit} class="Recipe_Form">
+    <>
+    <form onSubmit={handleSubmit} className="Recipe_Form">
       <div className='tw-flex tw-items-center tw-my-2 tw-pb-4 '>
         
         <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="name">Name</label>
@@ -92,7 +95,7 @@ const PostRecipe = () => {
         />
       </div>
       <div className='tw-flex tw-items-center tw-my-2 tw-pb-4'>
-        <label htmlFor="ingredients" class="recipe_label tw-w-1/3 tw-text-right tw-pr-4">Ingredients</label>
+        <label htmlFor="ingredients" className="recipe_label tw-w-1/3 tw-text-right tw-pr-4">Ingredients</label>
         <input
          className="tw-w-2/3 tw-py-2 tw-px-3 tw-border"
           type="text"
@@ -104,7 +107,7 @@ const PostRecipe = () => {
         />
       </div>
       <div className='tw-flex tw-items-center tw-my-2 tw-pb-4'>
-        <label htmlFor="instructions" class="recipe_label tw-w-1/3 tw-text-right tw-pr-4">Instructions</label>
+        <label htmlFor="instructions" className="recipe_label tw-w-1/3 tw-text-right tw-pr-4">Instructions</label>
         <input
          className="tw-w-1/2 tw-py-2 tw-px-3 tw-border"
           type="text"
@@ -116,7 +119,7 @@ const PostRecipe = () => {
         />
       </div>
       <div className='tw-flex tw-items-center tw-pb-4'>
-        <label class="recipe_label tw-w-5/6 tw-text-right tw-pr-5" htmlFor="season"> Season</label>
+        <label className="recipe_label tw-w-5/6 tw-text-right tw-pr-5" htmlFor="season"> Season</label>
         <select
          className="tw-w-1/2 tw-py-2 tw-px-3 tw-border"
           id="recipe_season"
@@ -131,7 +134,7 @@ const PostRecipe = () => {
           <option value="Winter">Winter</option>
         </select>
       
-        <label class="recipe_label tw-w-2/5 tw-text-right tw-pr-4" htmlFor="budget">Budget</label>
+        <label className="recipe_label tw-w-2/5 tw-text-right tw-pr-4" htmlFor="budget">Budget</label>
         <select
          className="tw-w-2/3 tw-py-2 tw-px-3 tw-border"
           id="recipe_budget"
@@ -147,7 +150,7 @@ const PostRecipe = () => {
       </div>
       
       <div className='tw-flex tw-items-center tw-my-2'>
-        <label class="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="image">Image</label>
+        <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="image">Image</label>
         <input
          className="tw-w-2/3 tw-py-2 tw-px-3 tw-border"
           type="text"
@@ -158,10 +161,12 @@ const PostRecipe = () => {
           required
         />
       </div>
-      <div class="button_container">
+      <div className="button_container">
       <button id ="button" type="submit">Submit</button>
       </div>
     </form>
+    {openPopUp && <PopUp SetOpenPopUp={SetOpenPopUp}/>}
+    </>
   );
 };
 

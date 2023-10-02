@@ -30,18 +30,23 @@ describe("NavBar component", () => {
 
     it("Displays navigation links", () => {
         const navLinksContainer = screen.getByRole("navigation");
-        const homeLink = screen.getByText("Home");
-        const profileLink = screen.getByText("My Profile");
-        const addRecipeLink = screen.getByText("Add Recipe");
+        const homeLink = screen.getByText("HOME");
+        const profileLink = screen.getByText("MY PROFILE");
+        const addRecipeLink = screen.getByText("ADD RECIPE");
+        const signUpLink = screen.getByText("SIGN UP");
+        const mixingBowlLink = screen.getByText("MIXING BOWL")
+    
     
         expect(navLinksContainer).toBeInTheDocument();
         expect(homeLink).toBeInTheDocument();
         expect(profileLink).toBeInTheDocument();
         expect(addRecipeLink).toBeInTheDocument();
+        expect(signUpLink).toBeInTheDocument();
+        expect(mixingBowlLink).toBeInTheDocument()
       });
 
     it("Navigates to Home page when home link is clicked", () => {
-        const homeLink = screen.getByText("Home")
+        const homeLink = screen.getByText("HOME")
         userEvent.click(homeLink)
         expect(window.location.pathname).toBe('/')
 
