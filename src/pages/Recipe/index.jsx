@@ -1,7 +1,7 @@
 import React from 'react'
 import { PostRecipe } from '../../components'
 import './style.css'
-import form from '../../assets/addrecipeformbg.png'
+import form from '../../assets/form.png'
 
 
 const RecipePage = () => {

@@ -15,6 +15,14 @@ const SeasonalPage = () => {
   const displaySeason = season.toUpperCase()
   const dispatch = useDispatch()
   const BGColour = useSelector((state) => state.BGColour)
+  const queryParams = new URLSearchParams(location.search);
+  const selectedFilter = queryParams.get('filter'); 
+
+  useEffect(() => {
+    getIngredients()
+    getRecipes()
+  }, [])
+
   // Style variables 
   const BGStyle = {
     backgroundColor: BGColour,
@@ -44,10 +52,7 @@ const SeasonalPage = () => {
       })
   }
 
-  useEffect(() => {
-    getIngredients()
-    getRecipes()
-  }, [])
+ 
   // Loading logic 
   if(!recipes || !ingredients) {
     switch(season) {
@@ -85,6 +90,9 @@ const SeasonalPage = () => {
      )
   }
 
+  const filteredRecipes = selectedFilter
+  ? recipes.filter((r) => r.season.toLowerCase().includes(season) && r.budget === selectedFilter)
+  : recipes.filter((r) => r.season.toLowerCase().includes(season));
 
   return (
     <body style={BGStyle}>
@@ -96,12 +104,11 @@ const SeasonalPage = () => {
         <div id="Carousel" className={season}>
           <CarouselComponent ingredients={ingredients} season={season}/>
         </div>
-        <div id="RecipeInfo">
-          {recipes.filter((r) => r.season.toLowerCase().includes(season))
-          .map((recipe, index) => (
-            <div key={index+1} id="card">
-              <RecipeCard recipe={recipe} season={season}/>
-            </div>
+        <div id='RecipeInfo'>
+        {filteredRecipes.map((recipe, index) => (
+          <div key={index + 1} id='card'>
+            <RecipeCard recipe={recipe} season={season} />
+          </div>
           ))}
         </div>
       </div>
