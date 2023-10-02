@@ -1,13 +1,14 @@
 import React from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import navbar from '../../assets/default-navbar.png';
 import './NavBar.css';
 
 const NavBar = () => {
   const location = useLocation();
+  const navigate = useNavigate(); 
 
   const getNavbarStyle = () => {
-    if (location.pathname === '/spring' || location.pathname === '/summer' || location.pathname === '/autumn' || location.pathname === '/winter') {
+    if (['/spring', '/summer', '/autumn', '/winter'].includes(location.pathname)) {
       switch (location.pathname) {
         case '/spring':
           return {
@@ -41,6 +42,18 @@ const NavBar = () => {
     }
   };
 
+  const isLoggedIn = () => {
+    return localStorage.getItem('user_id') && localStorage.getItem('token') && localStorage.getItem('username') && localStorage.getItem('email');
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    navigate('/login'); 
+  };
+
   return (
     <>
       <div className="sidebar" style={getNavbarStyle()}>
@@ -50,7 +63,13 @@ const NavBar = () => {
             <NavLink to='/profile' className='navlink'>MY PROFILE</NavLink>
             <NavLink to='/recipe' className='navlink'>ADD RECIPE</NavLink>
             <NavLink to='/mixingbowl' className='navlink'>MIXING BOWL</NavLink>
-            <NavLink to='/register' className='navlink'>SIGN UP</NavLink>
+            
+            { isLoggedIn() ? (
+              <button onClick={handleLogout} className='navlink'>LOG OUT</button>
+            ) : (
+              <NavLink to='/register' className='navlink'>SIGN UP</NavLink>
+            )}
+            
           </div>
         </nav>    
         <Outlet />

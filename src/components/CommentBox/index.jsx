@@ -71,6 +71,7 @@ setIsExpanded(true);
             setIsExpanded(false);
           } else {
             console.error('Failed to post comment:', JSON.stringify(newComment));
+            alert('Please Login to post comments');
 
           }
         } catch (error) {

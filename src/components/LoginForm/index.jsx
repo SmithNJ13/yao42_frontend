@@ -47,6 +47,7 @@ const Login = () => {
         return navigate("/profile")
       } else {
         console.error('Login failed!', await response.json());
+        alert('Login failed! Please check your credentials and ensure you have registered');
       }
     } catch (error) {
       console.error('Network error:', error);
