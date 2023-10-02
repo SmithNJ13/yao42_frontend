@@ -17,13 +17,13 @@ const PostRecipe = () => {
     
     const userId = localStorage.getItem('user_id');
     if (!userId) {
-      alert('user_id not found in local storage!');
+      alert('You must be logged in to post recipes!');
       return;
     }
 
     const token = localStorage.getItem('token');
     if (!token) {
-      alert('token not found in local storage!');
+      alert('You must be logged in to post recipes!');
       return;
     }
     
