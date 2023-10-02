@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IngredientList, RecipeList, RecipeSearch } from "../../components"
 import Lottie from 'lottie-react'
 import animationData from '../../assets/mixing-bowl.json'
+import mixingBowlImage from '../../assets/mixing-bowl-still.png'
 import './style.css'
 
 const MixingBowl = () => {
@@ -137,13 +138,20 @@ const MixingBowl = () => {
                 animationData={animationData}
               />
             ) : (
-              <button
-                onClick={handleMixMeClick}
-                className="mix-button"
-                disabled={loading}
-              >
-                Find Recipes!
-              </button>
+              <>
+                <button
+                  onClick={handleMixMeClick}
+                  className="mix-button"
+                  disabled={loading}
+                >
+                  Find Recipes!
+                </button>
+                <img
+                  src={mixingBowlImage}
+                  alt="Mixing Bowl"
+                  className="mixing-bowl-still"
+                />
+              </>
             )}
             {showRecipes && !loading && <RecipeList recipes={recipes} />}
           </div>

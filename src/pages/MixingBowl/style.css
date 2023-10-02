@@ -51,6 +51,11 @@ body {
     height: 500px;
 }
 
+.mixing-bowl-still {
+    margin-top: 10px;
+    width: 170px;
+}
+
 .back-to-top {
     position: fixed;
     bottom: 20px;
