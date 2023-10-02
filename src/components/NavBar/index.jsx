@@ -11,6 +11,9 @@ const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate(); 
 
+  let activeStyle = {
+    fontWeight: 'bold'};
+
   const getNavbarStyle = () => {
     if (location.pathname === '/spring') {
       return {
@@ -66,15 +69,14 @@ const NavBar = () => {
       <div className="sidebar" style={getNavbarStyle()}>
         <nav className='navbar'>
           <div className='navlinks' data-testid="navlinks">
-            <NavLink to='/' className='navlink'>HOME</NavLink> 
-            <NavLink to='/profile' className='navlink'>MY PROFILE</NavLink>
-            <NavLink to='/recipe' className='navlink'>ADD RECIPE</NavLink>
-            <NavLink to='/mixingbowl' className='navlink'>MIXING BOWL</NavLink>
-            
+            <NavLink to='/' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>HOME</NavLink> 
+            <NavLink to='/profile' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MY PROFILE</NavLink>
+            <NavLink to='/recipe' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>ADD RECIPE</NavLink>
+            <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>            
             { isLoggedIn() ? (
               <button onClick={handleLogout} className='navlink'>LOG OUT</button>
             ) : (
-              <NavLink to='/register' className='navlink'>SIGN UP</NavLink>
+              <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
             )}
             
           </div>
