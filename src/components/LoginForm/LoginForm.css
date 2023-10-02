@@ -1,0 +1,49 @@
+
+
+.logo{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    position: relative;
+    top: -120px;
+    left: 20px;
+}
+
+.lottie{
+    height: 500px;
+     width: 500px;
+     position: relative;
+     bottom: 400px;
+     left: 100px;
+ }
+
+
+.leftsideform{
+    background-color: #A17CD6;
+}
+
+
+.formbutton{
+    background-color: #badc83;
+}
+
+.formbutton:hover{
+    background-color: #A17CD6;
+}
+
+
+.formlink{
+    color: #badc83; 
+}
+
+
+.formlink:hover{
+    color: #A17CD6;
+}
+
+#username:focus,
+#email:focus,
+#password:focus,
+#confirm:focus{
+    border: solid 2px #badc83;
+}
