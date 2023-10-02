@@ -1,6 +1,10 @@
 import React from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import navbar from '../../assets/default-navbar.png';
+import defaultNavbar from '../../assets/default-navbar.png';
+import springNavbar from '../../assets/spring-navbar.png';
+import summerNavbar from '../../assets/summer-navbar.png';
+import autumnNavbar from '../../assets/autumn-navbar.png';
+import winterNavbar from '../../assets/winter-navbar.png';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -8,36 +12,39 @@ const NavBar = () => {
   const navigate = useNavigate(); 
 
   const getNavbarStyle = () => {
-    if (['/spring', '/summer', '/autumn', '/winter'].includes(location.pathname)) {
-      switch (location.pathname) {
-        case '/spring':
-          return {
-            backgroundColor: '#BADC83',
-            color: '#181A1B'
-          };
-        case '/summer':
-          return {
-            backgroundColor: '#FFE448',
-            color: '#181A1B'
-          };
-        case '/autumn':
-          return {
-            backgroundColor: '#FFA500',
-            color: '#181A1B'
-          };
-        case '/winter':
-          return {
-            backgroundColor: '#87CEEB',
-            color: '#181A1B'
-          };
-        default:
-          return {};
-      }
-    } else {
+    if (location.pathname === '/spring') {
       return {
-        backgroundImage: `url(${navbar})`,
+        backgroundImage: `url(${springNavbar})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        color: '#181A1B'
+      };
+    } else if (location.pathname === '/summer') {
+      return {
+        backgroundImage: `url(${summerNavbar})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        color: '#181A1B'
+      };
+    } else if (location.pathname === '/autumn') {
+      return {
+        backgroundImage: `url(${autumnNavbar})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        color: '#181A1B'
+      };
+    } else if (location.pathname === '/winter') {
+      return {
+        backgroundImage: `url(${winterNavbar})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        color: '#181A1B'
+      };
+    } else {
+      return {
+        backgroundImage: `url(${defaultNavbar})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
       };
     }
   };
