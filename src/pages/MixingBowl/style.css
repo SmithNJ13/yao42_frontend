@@ -51,3 +51,14 @@ body {
     height: 500px;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #D296EE;
+    color: #181A1B;
+    border: 1px solid black;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
