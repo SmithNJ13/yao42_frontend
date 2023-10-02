@@ -146,14 +146,16 @@ const MixingBowl = () => {
                 >
                   Find Recipes!
                 </button>
-                <img
-                  src={mixingBowlImage}
-                  alt="Mixing Bowl"
-                  className="mixing-bowl-still"
-                />
+                {showRecipes && !loading && <RecipeList recipes={recipes} />}
+                {showRecipes && !loading ? null : (
+                  <img
+                    src={mixingBowlImage}
+                    alt="Mixing Bowl"
+                    className="mixing-bowl-still"
+                  />
+                )}
               </>
             )}
-            {showRecipes && !loading && <RecipeList recipes={recipes} />}
           </div>
         </div>
       </div>
