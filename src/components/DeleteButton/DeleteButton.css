@@ -1,17 +1,9 @@
-
-*{
-    cursor: pointer;
-}
-
 .trash {
 	background: #22C55E;
 	width: 10px;
 	height: 10px;
 	display: inline-block;
 	margin:0 auto;
-    
-    
-	
 	position: relative;
 	-webkit-border-bottom-right-radius: 6px;
 	-webkit-border-bottom-left-radius: 6px;
@@ -93,4 +85,7 @@
 .trash:hover span {
 	transform: rotate(-45deg);
 	transition: transform 250ms;
+}
+.trash:hover {
+	cursor: pointer;
 }

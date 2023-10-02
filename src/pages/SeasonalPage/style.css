@@ -12,7 +12,7 @@ font-family: 'Montserrat', sans-serif;
   --BG_summer: #fffefa;
   --SB_summer: #ffe448;
   --BG_autumn: #fffcf8;
-  --SB_autumn: #ffa500;
+  --SB_autumn: #FEBB40;
   --BG_winter: #f9fcff;
   --SB_winter: #87ceeb;
 }
@@ -53,5 +53,6 @@ font-family: 'Montserrat', sans-serif;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 60px;
     margin-left: 220px;
+    padding-top: 4rem;
 }
 
