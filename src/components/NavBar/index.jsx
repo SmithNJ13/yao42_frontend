@@ -22,7 +22,7 @@ const NavBar = () => {
           };
         case '/autumn':
           return {
-            backgroundColor: '#FFA500',
+            backgroundColor: '#FEBB40',
             color: '#181A1B'
           };
         case '/winter':
