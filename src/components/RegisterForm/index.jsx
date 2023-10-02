@@ -29,7 +29,6 @@ const Register = () => {
     e.preventDefault();
   
     if (!(password === passConfirm)) return;
-    // Construct the payload
     const data = {
       username: name,
       email: email,
@@ -50,6 +49,7 @@ const Register = () => {
       } else {
         
         console.error('Registration failed!', await response.text());
+        alert('Register Failed. This account already exists!');
       }
     } catch (error) {
       console.error('Network error:', error);

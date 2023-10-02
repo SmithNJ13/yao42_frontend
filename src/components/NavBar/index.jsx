@@ -1,12 +1,14 @@
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = () => {
   const location = useLocation();
+  const navigate = useNavigate(); 
 
   let activeStyle = {
-    fontWeight: 'bold'};
-  
+    fontWeight: 'bold'
+  };
+
   const getNavbarColor = () => {
     switch (location.pathname) {
       case '/spring':
@@ -32,6 +34,18 @@ const NavBar = () => {
     }
   };
 
+  const isLoggedIn = () => {
+    return localStorage.getItem('user_id') && localStorage.getItem('token') && localStorage.getItem('username') && localStorage.getItem('email');
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    navigate('/login'); 
+  };
+
   return (
     <>
       <div className="sidebar" style={{ backgroundColor: getNavbarColor() }}>
@@ -40,7 +54,13 @@ const NavBar = () => {
             <NavLink to='/' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>HOME</NavLink> 
             <NavLink to='/profile' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MY PROFILE</NavLink>
             <NavLink to='/recipe' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>ADD RECIPE</NavLink>
-            <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
+
+            { isLoggedIn() ? (
+              <button onClick={handleLogout} className='navlink'>LOG OUT</button>
+            ) : (
+              <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
+            )}
+            
             <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>
           </div>
         </nav>    
