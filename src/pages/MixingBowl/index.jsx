@@ -144,7 +144,7 @@ const MixingBowl = () => {
                   className="mix-button"
                   disabled={loading}
                 >
-                  Find Recipes!
+                  {showRecipes ? "Try Again?" : "Find Recipes!"}
                 </button>
                 {showRecipes && !loading && <RecipeList recipes={recipes} />}
                 {showRecipes && !loading ? null : (
