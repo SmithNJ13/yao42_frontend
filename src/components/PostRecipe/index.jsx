@@ -1,8 +1,8 @@
-/* eslint-disable react/no-unknown-property */
 import React, { useState } from 'react';
 import PopUp from '../PopUp';
 
 const PostRecipe = () => {
+  
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [ingredients, setIngredients] = useState('');
@@ -11,10 +11,40 @@ const PostRecipe = () => {
   const [season, setSeason] = useState('');
   const [image, setImage] = useState('');
   const [openPopUp, SetOpenPopUp] = useState(false);
-  
+
+  const validateInput = () => {
+    let isValid = true;
+
+    if (name.length > 100) {
+      alert('Name must be 100 characters or less.');
+      isValid = false;
+    }
+
+    if (description.length > 500) {
+      alert('Description must be 500 characters or less.');
+      isValid = false;
+    }
+
+    if (ingredients.length > 500) {
+      alert('Ingredients must be 500 characters or less.');
+      isValid = false;
+    }
+
+    if (instructions.length > 500) {
+      alert('Instructions must be 500 characters or less.');
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
+    if (!validateInput()) {
+      return;
+    }
+
     const userId = localStorage.getItem('user_id');
     if (!userId) {
       alert('You must be logged in to post recipes!');
