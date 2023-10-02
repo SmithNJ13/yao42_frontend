@@ -65,7 +65,7 @@ const MixingBowl = () => {
 
           const selectedIngredientsIncluded =
             selectedIngredients.length === 0 ||
-            selectedIngredients.every((selectedIngredient) =>
+            selectedIngredients.some((selectedIngredient) =>
               recipeIngredients.some((recipeIngredient) =>
                 recipeIngredient.includes(selectedIngredient.toLowerCase())
               )
