@@ -1,7 +1,7 @@
 import { React, useRef, useState } from 'react'
 import Lottie from 'lottie-react'
 import animationData from '../../assets/szndChef.json'
-import form from '../../assets/addrecipeformbg.png'
+import form from '../../assets/form.png'
 import logo from '../../assets/logo_color_transparent.png'
 import './RegisterForm.css'
 import { useNavigate, Link } from "react-router-dom"
