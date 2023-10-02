@@ -5,9 +5,9 @@
     --RC_winter: #e1f2fa;
 }
 .card-img-top {
+    position: relative;
     width: 19.9rem;
     height: 16rem;
-    image-rendering: crisp-edges;
     object-fit: cover;
     border-radius: 4%;
 }
@@ -48,7 +48,7 @@
     background-color: #fffcf8;
 }
 #card .autumn ::-webkit-scrollbar-thumb {
-    background: #ffa500;
+    background: #FEBB40;
 }
 .winter .card-text {
     border-radius: 10%;
@@ -66,14 +66,14 @@
     border-radius: 3%;
 }
 #card .autumn {
-    border: solid #ffa500 3px;
+    border: solid #FEBB40 3px;
     border-radius: 3%;
 }
 #card .winter {
     border: solid #87ceeb 3px;
     border-radius: 3%;
 }
-#card button {
+#card .button {
     margin-top: 1rem;
     --bs-btn-color: black;
 }

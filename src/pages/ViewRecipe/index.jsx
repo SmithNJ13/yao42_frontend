@@ -35,33 +35,52 @@ const ViewRecipe = () => {
   }
 
   return (
-    <body style={BGStyle} className="Recipe">
+    <body style={BGStyle} className="ViewRecipe">
     <>
       {recipes.filter((r) => r.name.includes(name))
       .map((recipe, key) => (
         <div id="Information" key={key}>
-          <div id="ImageBox">
-            <img className="tw-max-w-none image" src={recipe.image}/>
-          </div>
-          <div id="Heading">
-            <p>{name}</p>
-            <p>{recipe.season}</p>
+          <div className="top">
+            <div id="ImageBox">
+              <img className="tw-max-w-none image" src={recipe.image}/>
+            </div>
+            <div id="Headings">
+              <div className="one">
+                <p>{name}</p>
+              </div>
+              <div className="two">
+                <p>{recipe.season}</p>
+              </div>
+            </div>
           </div>
           <div id="MainBody">
-            <p>{recipe.description}</p>
-            <p>{recipe.ingredients}</p>
-          <h3><b>Instructions: </b></h3>
+            <div id="Description">
+              <h3><b>Description: </b></h3>
+              <p>{recipe.description}</p>
+            </div>
+            <div id="Ingredients">
+              <h3><b>Ingredients: </b></h3>
+              <p>{recipe.ingredients}</p>
+            </div>
             <div id="Instructions">
+              <h3><b>Instructions: </b></h3>
               <p>{recipe.instructions}</p>
             </div>
           </div>
-          <div id="LikeButton">
-            <LikeButton/>
+          <div className="bottom">
+            <div id="LikeButton">
+              <p>Like this recipe!</p>
+              <div className="heart">
+                <LikeButton/>
+              </div>
+            </div>
           </div>
         </div>
       ))}
-      <div id="Comments">
-        <Comments/>
+      <div id="SideInfo">
+        <div id="Comments">
+          <Comments/>
+        </div>
       </div>
     </>
     </body>
