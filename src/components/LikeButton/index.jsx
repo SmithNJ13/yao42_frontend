@@ -85,6 +85,7 @@ const handleClick = async () => {
             console.log('Like created:', data);
           } else {
             console.error('Failed to create like');
+            alert('You must be logged in to like recipes');
           }
         }
       }
