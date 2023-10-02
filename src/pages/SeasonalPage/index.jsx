@@ -69,8 +69,8 @@ const SeasonalPage = () => {
 
 
   return (
-    <>
     <body style={BGStyle}>
+    <>
       <div id="MainContent">
         <div id="Title" className={season}>
           {displaySeason}
@@ -87,8 +87,8 @@ const SeasonalPage = () => {
           ))}
         </div>
       </div>
-    </body>
     </>
+    </body>
   )
 }
 

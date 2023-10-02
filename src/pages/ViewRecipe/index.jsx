@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { changeBGColour } from '../../actions/bgActions'
+import { CommentBox, LikeButton } from '../../components'
 import axios from 'axios'
 import "./style.css"
 
@@ -34,8 +35,8 @@ const ViewRecipe = () => {
   }
 
   return (
-    <>
     <body style={BGStyle}>
+    <>
       {recipes.filter((r) => r.name.includes(name))
       .map((recipe, key) => (
         <div id="Information" key={key}>
@@ -54,10 +55,16 @@ const ViewRecipe = () => {
           <div id="Instructions">
             <p>{recipe.instructions}</p>
           </div>
+          <div id="LikeButton">
+            <LikeButton/>
+          </div>
         </div>
       ))}
-    </body>
+      <div id="Comments">
+        <CommentBox/>
+      </div>
     </>
+    </body>
   )
 }
 
