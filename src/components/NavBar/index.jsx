@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import defaultNavbar from '../../assets/default-navbar.png';
 import springNavbar from '../../assets/spring-navbar.png';
@@ -9,7 +9,11 @@ import './NavBar.css';
 
 const NavBar = () => {
   const location = useLocation();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const [selectedFilter, setSelectedFilter] = useState(null);
+
+  const isSeasonalPage = ['/spring', '/summer', '/autumn', '/winter'].includes(location.pathname);
+
 
   let activeStyle = {
     fontWeight: 'bold'};
@@ -64,6 +68,20 @@ const NavBar = () => {
     navigate('/login'); 
   };
 
+  const handleFilterChange = (filter) => {
+    if (filter === selectedFilter) {
+      clearFilter();
+    } else {
+      setSelectedFilter(filter);
+      navigate(`?filter=${filter}`);
+    }
+  };
+
+  const clearFilter = () => {
+    setSelectedFilter(null);
+    navigate(`/${location.pathname.split('/').pop()}`);
+  };
+
   return (
     <>
       <div className="sidebar" style={getNavbarStyle()}>
@@ -78,6 +96,36 @@ const NavBar = () => {
             ) : (
               <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
             )}
+
+{isSeasonalPage && (
+             <>
+             <br />
+             <h2> BUDGET FILTER:</h2>
+             <br />
+             {selectedFilter && (
+               <button onClick={clearFilter}>Clear Filter</button>
+             )}
+             <button
+               className={selectedFilter === '£' ? 'selected' : ''}
+               onClick={() => handleFilterChange('£')}
+             >
+               £
+             </button>
+             <button
+               className={selectedFilter === '££' ? 'selected' : ''}
+               onClick={() => handleFilterChange('££')}
+             >
+               ££
+             </button>
+             <button
+               className={selectedFilter === '£££' ? 'selected' : ''}
+               onClick={() => handleFilterChange('£££')}
+             >
+               £££
+             </button>
+           </>
+            )}
+
             
           </div>
         </nav>    
