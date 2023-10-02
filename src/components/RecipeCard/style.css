@@ -9,6 +9,7 @@
     height: 16rem;
     image-rendering: crisp-edges;
     object-fit: cover;
+    border-radius: 4%;
 }
 .card-title {
     font-weight: bold;

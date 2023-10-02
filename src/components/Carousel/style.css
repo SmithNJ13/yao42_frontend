@@ -1,6 +1,10 @@
 p {
     color: black;
 }
+.carousel {
+    padding-bottom: 4rem;
+    overflow: hidden;
+}
 .carousel-indicators {
     scale: 120%;
 }
@@ -8,6 +12,7 @@ p {
     position: sticky;
     width: 760px;
     height: 380px;
+    overflow: visible;
 }
 .carousel-item {
     position: sticky;
@@ -15,7 +20,7 @@ p {
     height: 380px;
 }
 .carousel-caption {
-    position: sticky;
+    top: 100%;
 }
 .carousel-caption > h3 {
     font-size: 40px;

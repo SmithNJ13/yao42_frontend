@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { changeBGColour } from '../../actions/bgActions'
-import { CommentBox, LikeButton } from '../../components'
+import { CommentBox, Comments, LikeButton, Loading } from '../../components'
 import axios from 'axios'
 import "./style.css"
 
@@ -31,17 +31,17 @@ const ViewRecipe = () => {
     handleBG("#F7F6FE")
   }, [])
   if(!recipes) {
-    return <div className="loading">LOADING!</div>
+    return <Loading /> 
   }
 
   return (
-    <body style={BGStyle}>
+    <body style={BGStyle} className="Recipe">
     <>
       {recipes.filter((r) => r.name.includes(name))
       .map((recipe, key) => (
         <div id="Information" key={key}>
           <div id="ImageBox">
-            <img src={recipe.image}/>
+            <img className="tw-max-w-none image" src={recipe.image}/>
           </div>
           <div id="Heading">
             <p>{name}</p>
@@ -50,10 +50,10 @@ const ViewRecipe = () => {
           <div id="MainBody">
             <p>{recipe.description}</p>
             <p>{recipe.ingredients}</p>
-          </div>
-          <h3>Instructions: </h3>
-          <div id="Instructions">
-            <p>{recipe.instructions}</p>
+          <h3><b>Instructions: </b></h3>
+            <div id="Instructions">
+              <p>{recipe.instructions}</p>
+            </div>
           </div>
           <div id="LikeButton">
             <LikeButton/>
@@ -61,7 +61,7 @@ const ViewRecipe = () => {
         </div>
       ))}
       <div id="Comments">
-        <CommentBox/>
+        <Comments/>
       </div>
     </>
     </body>

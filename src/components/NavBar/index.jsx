@@ -26,9 +26,9 @@ const NavBar = () => {
       case '/mixingbowl':
         return '#D296EE';
       case '/notfound':
-        return '#FF4500';
+        return '#D296EE';
       default:
-        return '#008080';
+        return '#D296EE';
     }
   };
 
