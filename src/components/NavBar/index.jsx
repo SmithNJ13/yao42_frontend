@@ -17,18 +17,8 @@ const NavBar = () => {
         return '#FFA500';
       case '/winter':
         return '#87CEEB';
-      case '/profile':
-        return '#D296EE';
-      case '/recipe':
-        return '#D296EE';
-      case '/register':
-        return '#D296EE';
-      case '/mixingbowl':
-        return '#D296EE';
-      case '/notfound':
-        return '#FF4500';
       default:
-        return '#008080';
+        return '#D296EE';
     }
   };
 
