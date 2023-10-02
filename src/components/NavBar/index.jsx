@@ -1,43 +1,53 @@
 import React from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import navbar from '../../assets/default-navbar.png';
+import defaultNavbar from '../../assets/default-navbar.png';
+import springNavbar from '../../assets/spring-navbar.png';
+import summerNavbar from '../../assets/summer-navbar.png';
+import autumnNavbar from '../../assets/autumn-navbar.png';
+import winterNavbar from '../../assets/winter-navbar.png';
 import './NavBar.css';
 
 const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate(); 
 
+  let activeStyle = {
+    fontWeight: 'bold'};
+
   const getNavbarStyle = () => {
-    if (['/spring', '/summer', '/autumn', '/winter'].includes(location.pathname)) {
-      switch (location.pathname) {
-        case '/spring':
-          return {
-            backgroundColor: '#BADC83',
-            color: '#181A1B'
-          };
-        case '/summer':
-          return {
-            backgroundColor: '#FFE448',
-            color: '#181A1B'
-          };
-        case '/autumn':
-          return {
-            backgroundColor: '#FEBB40',
-            color: '#181A1B'
-          };
-        case '/winter':
-          return {
-            backgroundColor: '#87CEEB',
-            color: '#181A1B'
-          };
-        default:
-          return {};
-      }
-    } else {
+    if (location.pathname === '/spring') {
       return {
-        backgroundImage: `url(${navbar})`,
+        backgroundImage: `url(${springNavbar})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        color: '#181A1B'
+      };
+    } else if (location.pathname === '/summer') {
+      return {
+        backgroundImage: `url(${summerNavbar})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        color: '#181A1B'
+      };
+    } else if (location.pathname === '/autumn') {
+      return {
+        backgroundImage: `url(${autumnNavbar})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        color: '#181A1B'
+      };
+    } else if (location.pathname === '/winter') {
+      return {
+        backgroundImage: `url(${winterNavbar})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        color: '#181A1B'
+      };
+    } else {
+      return {
+        backgroundImage: `url(${defaultNavbar})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
       };
     }
   };
@@ -59,15 +69,14 @@ const NavBar = () => {
       <div className="sidebar" style={getNavbarStyle()}>
         <nav className='navbar'>
           <div className='navlinks' data-testid="navlinks">
-            <NavLink to='/' className='navlink'>HOME</NavLink> 
-            <NavLink to='/profile' className='navlink'>MY PROFILE</NavLink>
-            <NavLink to='/recipe' className='navlink'>ADD RECIPE</NavLink>
-            <NavLink to='/mixingbowl' className='navlink'>MIXING BOWL</NavLink>
-            
+            <NavLink to='/' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>HOME</NavLink> 
+            <NavLink to='/profile' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MY PROFILE</NavLink>
+            <NavLink to='/recipe' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>ADD RECIPE</NavLink>
+            <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>            
             { isLoggedIn() ? (
               <button onClick={handleLogout} className='navlink'>LOG OUT</button>
             ) : (
-              <NavLink to='/register' className='navlink'>SIGN UP</NavLink>
+              <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
             )}
             
           </div>

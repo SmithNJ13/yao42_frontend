@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faFileLines} from '@fortawesome/free-solid-svg-icons'
-import form from '../../assets/addrecipeformbg.png'
+import form from '../../assets/form.png'
 import { faFacebook, faInstagram, faPinterest, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios';
 import LikeButton from '../../components/LikeButton/index.jsx';
