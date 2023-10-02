@@ -8,25 +8,22 @@ import { faFacebook, faInstagram, faPinterest, faTwitter } from '@fortawesome/fr
 import axios from 'axios';
 import LikeButton from '../../components/LikeButton/index.jsx';
 import { useNavigate } from 'react-router-dom';
-
-
+import LoginPopUp from '../../components/LoginPopUp';
 
 const Profile = () => {
-const navigate = useNavigate()
-const [username, setUsername] = useState('');
-const [email, setEmail] = useState('');
-const [recipes, setRecipes] = useState([])
-const [likedRecipes, setLikedRecipes] = useState([]);
-const [likedRecipesToShow, setLikedRecipesToShow] = useState([]);
-const [currentPageRecipes, setCurrentPageRecipes] = useState(1);
-const [currentPageLikedRecipes, setCurrentPageLikedRecipes] = useState(1);
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [recipes, setRecipes] = useState([])
+  const [likedRecipes, setLikedRecipes] = useState([]);
+  const [likedRecipesToShow, setLikedRecipesToShow] = useState([]);
+  const [currentPageRecipes, setCurrentPageRecipes] = useState(1);
+  const [currentPageLikedRecipes, setCurrentPageLikedRecipes] = useState(1);
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
 
-
-
-
-useEffect(() => {
-   async function fetchData(){
-    try { 
+  useEffect(() => {
+    async function fetchData(){
+      try { 
         const localId = localStorage.getItem('user_id')
         const recipesresponse= await axios.get('https://lap-4-server.onrender.com/recipes')
         console.log(recipesresponse.data)
@@ -35,14 +32,14 @@ useEffect(() => {
         const likesresponse = await axios.get('https://lap-4-server.onrender.com/likes')
         console.log(likesresponse.data)
         setLikedRecipes(likesresponse.data.likes.filter((l) => l.user_id == localId ))
-    } catch (error) {   
+      } catch (error) {   
         console.log(error)
-    } }
+      } 
+    }
     fetchData();
+  }, [])
 
-}, [])
-
-useEffect(() => {
+  useEffect(() => {
     const storedUsername = localStorage.getItem('username');
     const storedEmail = localStorage.getItem('email');
 
@@ -53,7 +50,13 @@ useEffect(() => {
     if (storedEmail) {
       setEmail(storedEmail);
     }
+
+    if (!storedUsername || !storedEmail) {
+      setShowLoginPopup(true);
+    }
+
   }, []);
+
 
   const loadMoreRecipes = () => {
     setCurrentPageRecipes(currentPageRecipes + 1);
@@ -96,7 +99,7 @@ useEffect(() => {
 
   return (
     <>
-   
+    {showLoginPopup && <LoginPopUp onClose={() => setShowLoginPopup(false)} />}
 <div className="tw-h-screen tw-overflow-hidden tw-flex tw-items-center tw-justify-center bosscontainer">
 
     <div style= {{ backgroundImage: `url(${form})`}}  className='backgroundimage'>
