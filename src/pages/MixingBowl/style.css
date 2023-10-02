@@ -12,22 +12,16 @@ body {
     font-weight: bold;
 }
 
-.container {
-    margin-left: 450px;
-}
-
 .mixing-bowl-container {
     text-align: center;
+    margin-left: 250px;
 }
   
 .mixing-bowl {
     display: flex;
-    margin-top: 20px;
 }
   
 .left-column {
-    /* position: fixed; */
-    margin-left: 20px;
     text-align: center;
     padding: 10px;
     border: 1px solid black;
@@ -42,7 +36,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* padding-left: 600px; */
 }
 
 .mix-button {
