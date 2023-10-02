@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IngredientList, RecipeList, RecipeSearch } from "../../components"
 import Lottie from 'lottie-react'
 import animationData from '../../assets/mixing-bowl.json'
+import mixingBowlImage from '../../assets/mixing-bowl-still.png'
 import './style.css'
 
 const MixingBowl = () => {
@@ -10,6 +11,23 @@ const MixingBowl = () => {
   const [recipes, setRecipes] = useState([]);
   const [showRecipes, setShowRecipes] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const fetchIngredients = async () => {
     try {
@@ -93,6 +111,10 @@ const MixingBowl = () => {
     fetchRecipes();
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="container">
       <div className="mixing-bowl-container">
@@ -112,22 +134,36 @@ const MixingBowl = () => {
           <div className="right-column">
             {loading ? (
               <Lottie 
-              className="animation"
+                className="animation"
                 animationData={animationData}
               />
             ) : (
-              <button
-                onClick={handleMixMeClick}
-                className="mix-button"
-                disabled={loading}
-              >
-                Find Recipes!
-              </button>
+              <>
+                <button
+                  onClick={handleMixMeClick}
+                  className="mix-button"
+                  disabled={loading}
+                >
+                  {showRecipes ? "Try Again?" : "Find Recipes!"}
+                </button>
+                {showRecipes && !loading && <RecipeList recipes={recipes} />}
+                {showRecipes && !loading ? null : (
+                  <img
+                    src={mixingBowlImage}
+                    alt="Mixing Bowl"
+                    className="mixing-bowl-still"
+                  />
+                )}
+              </>
             )}
-            {showRecipes && !loading && <RecipeList recipes={recipes} />}
           </div>
         </div>
       </div>
+      {showBackToTop && (
+        <button className="back-to-top" onClick={scrollToTop}>
+          Back to Top
+        </button>
+      )}
     </div>
   );
 };

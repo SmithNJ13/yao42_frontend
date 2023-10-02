@@ -6,7 +6,5 @@
 }
 
 .recipe-cards .card {
-    width: 25rem !important;
     background-color: #F0E3FB;
-    /* height: 300px; */
 }
