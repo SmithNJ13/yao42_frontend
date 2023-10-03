@@ -8,23 +8,34 @@ p {
     position: sticky;
     width: 760px;
     height: 380px;
+    background-size: cover;
 }
 .carousel-item {
     position: sticky;
     width: 760px;
     height: 380px;
+    background-size: cover;
 }
-.carousel-caption {
-    position: sticky;
+
+.ingredient-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
+
 .carousel-caption > h3 {
     font-size: 40px;
     font-weight: bold;
+    text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000;
 }
 .carousel-caption > p {
     text-align: center;
     width: 500px;
-    margin-left: 8rem;
 }
 .spring .carousel-control-prev, .spring .carousel-control-next {
     background-color: #badc83;
@@ -33,7 +44,7 @@ p {
     background-color: #ffe448;
 }
 .autumn .carousel-control-prev, .autumn .carousel-control-next {
-    background-color: #ffa500;
+    background-color: #FEBB40;
 }
 .winter .carousel-control-prev, .winter .carousel-control-next {
     background-color: #87ceeb;
@@ -45,8 +56,22 @@ p {
     color: #ffe448;
 }
 .autumn .carousel-caption > h3 {
-    color: #ffa500;
+    color: #FEBB40;
 }
 .winter .carousel-caption > h3 {
     color: #87ceeb;
+}
+
+.spring .carousel-caption > p {
+ background-color: #badc83;
+
+}
+.summer .carousel-caption > p {
+background-color: #ffe448;
+}
+.autumn .carousel-caption > p {
+background-color: #FEBB40;
+}
+.winter .carousel-caption > p {
+background-color: #87ceeb;
 }
