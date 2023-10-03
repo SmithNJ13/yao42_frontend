@@ -10,7 +10,7 @@ function userLikesRecipe(data, user_id, recipe_id) {
   const like = data.find((li) => li.user_id == user_id && li.recipe_id == recipe_id)
   return like
 }
-const LikeButton = ({recipe_id}) => {
+const LikeButton = ({comment_id, recipe_id}) => {
 const [like, setLike] = useState(null);
 const uID = localStorage.getItem("user_id")
 
