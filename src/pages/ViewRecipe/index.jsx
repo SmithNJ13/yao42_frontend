@@ -56,6 +56,41 @@ const ViewRecipe = () => {
     return <Loading />;
   }
 
+
+  const handleRemoveFromList = async (recipeIngredients) => {
+    const token = localStorage.getItem('token');
+    
+    try {
+        
+        const listsResponse = await axios.get('https://lap-4-server.onrender.com/lists', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        
+        const listItemToDelete = listsResponse.data.lists.find(listItem => 
+            listItem.items === recipeIngredients
+        );
+
+        if (listItemToDelete) {
+            
+            await axios.delete(`https://lap-4-server.onrender.com/lists/${listItemToDelete.id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            alert('Recipe ingredients removed from your shopping list!');
+        } else {
+            alert('Ingredient not found in your shopping list!');
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while trying to remove ingredients from the shopping list.');
+    }
+};
+
   return (
     <div style={BGStyle} className="ViewRecipe">
       <>
@@ -75,7 +110,9 @@ const ViewRecipe = () => {
                   </div>
                   <div>
                   <button id ="shopping_button" onClick={() => handleAddToList(recipe.ingredients)}>Add to my Shopping List</button>
+                  <button id="shopping_button" onClick={() => handleRemoveFromList(recipe.ingredients)}>Remove from my Shopping List</button>
                   </div>
+                  
                 </div>
               </div>
               <div id="MainBody">
