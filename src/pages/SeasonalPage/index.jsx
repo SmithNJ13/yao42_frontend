@@ -17,11 +17,36 @@ const SeasonalPage = () => {
   const BGColour = useSelector(state => state.BGColour);
   const queryParams = new URLSearchParams(location.search);
   const selectedFilter = queryParams.get('filter'); 
+  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     getIngredients();
     getRecipes();
+
+    // Event listener for scroll
+    function handleScroll() {
+      if (window.scrollY > 100) {
+        setShowButton(true); // Show the button when scrolled down more than 100 pixels
+      } else {
+        setShowButton(false); // Hide the button when scrolled back to the top
+      }
+    }
+
+    // Attach the event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   const BGStyle = {
     backgroundColor: BGColour,
@@ -135,6 +160,27 @@ const SeasonalPage = () => {
           )}
         </div>
       </div>
+      {showButton && (
+        <div id="BackToTopButton">
+          <button
+            style={{
+              backgroundColor:
+                season === "spring"
+                  ? "#BADC83"
+                  : season === "summer"
+                  ? "#FFE448"
+                  : season === "autumn"
+                  ? "#FEBB40"
+                  : season === "winter"
+                  ? "#87CEEB"
+                  : "#D296EE",
+            }}
+            onClick={handleScrollToTop}
+          >
+            Back to Top
+          </button>
+        </div>
+      )}
     </body>
   );
 }
