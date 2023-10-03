@@ -1,13 +1,29 @@
-import React from 'react'
-import { PostRecipe } from '../../components'
-import './style.css'
-import form from '../../assets/form.png'
-
+import React, { useState, useEffect } from 'react'; 
+import { PostRecipe } from '../../components';
+import './style.css';
+import form from '../../assets/form.png';
+import LoginPopUp from '../../components/LoginPopUp';
 
 const RecipePage = () => {
+  const [showPopUp, setShowPopUp] = useState(false);  
+
+  useEffect(() => {
+ 
+    const userId = localStorage.getItem('user_id');
+
+    if (!userId) {
+      setShowPopUp(true);  
+    }
+  }, []);  
+  const closePopUp = () => {
+    setShowPopUp(false);  
+  };
+
   return (
     <>
       <div className="tw-h-screen tw-overflow-hidden tw-flex tw-items-center tw-justify-center bodycontainer">
+
+        {showPopUp && <LoginPopUp onClose={closePopUp} />}  
 
         <div style={{ backgroundImage: `url(${form})` }} className='backgroundimage'>
 
@@ -29,7 +45,6 @@ const RecipePage = () => {
 
                 </div>
 
-
               </div>
 
             </div>
@@ -41,4 +56,4 @@ const RecipePage = () => {
   )
 }
 
-export default RecipePage
+export default RecipePage;

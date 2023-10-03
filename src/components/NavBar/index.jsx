@@ -11,9 +11,13 @@ const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [selectedFilter, setSelectedFilter] = useState(null);
+  const [showSeasonsMenu, setShowSeasonsMenu] = useState(false);
 
   const isSeasonalPage = ['/spring', '/summer', '/autumn', '/winter'].includes(location.pathname);
 
+  const toggleSeasonsMenu = () => {
+    setShowSeasonsMenu(!showSeasonsMenu);
+  };
 
   let activeStyle = {
     fontWeight: 'bold'};
@@ -90,12 +94,31 @@ const NavBar = () => {
             <NavLink to='/' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>HOME</NavLink> 
             <NavLink to='/profile' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MY PROFILE</NavLink>
             <NavLink to='/recipe' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>ADD RECIPE</NavLink>
-            <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>            
+            <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>
+            <NavLink to='/shopping' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SHOPPING LIST</NavLink>           
             { isLoggedIn() ? (
               <button onClick={handleLogout} className='navlink'>LOG OUT</button>
             ) : (
               <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
             )}
+
+            <div className="collapsible-menu">
+              <button 
+                onClick={toggleSeasonsMenu}
+                className="collapsible-button"
+              >
+                SEASONS
+                <i className={`fas fa-chevron-${showSeasonsMenu ? 'up' : 'down'}`}></i>
+              </button>
+              {showSeasonsMenu && (
+                <div className="collapsible-content">
+                  <NavLink to='/spring' className='seasonsDrop' style={({isActive}) => (isActive ? activeStyle : undefined)}>SPRING</NavLink>
+                  <NavLink to='/summer' className='seasonsDrop' style={({isActive}) => (isActive ? activeStyle : undefined)}>SUMMER</NavLink>
+                  <NavLink to='/autumn' className='seasonsDrop' style={({isActive}) => (isActive ? activeStyle : undefined)}>AUTUMN</NavLink>
+                  <NavLink to='/winter' className='seasonsDrop' style={({isActive}) => (isActive ? activeStyle : undefined)}>WINTER</NavLink>
+                </div>
+              )}
+            </div>
 
 {isSeasonalPage && (
              <>

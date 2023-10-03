@@ -37,14 +37,14 @@ font-family: 'Montserrat', sans-serif;
 }
 #Title {
     font-size: 75px;
-    margin-left: 240px;
+    margin-left: 250px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: black;
 }
 #Carousel {
     padding-top: 2.5rem;
-    margin-left: 240px;
+    margin-left: 250px;
     padding-bottom: 2.5rem;
 }
 #RecipeInfo {
@@ -52,15 +52,24 @@ font-family: 'Montserrat', sans-serif;
     width: 1080px;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 60px;
-    margin-left: 220px;
+    margin-left: 250px;
     padding-top: 4rem;
 }
 
 
 #User_Admin_Recipe_Heading {
+    /* padding-top: 4rem; */
+    font-size: 50px;
+    margin-left: 250px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+#Community_Recipes_Heading {
     padding-top: 4rem;
     font-size: 50px;
-    margin-left: 240px;
+    margin-left: 250px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: black;

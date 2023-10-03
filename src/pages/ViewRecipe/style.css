@@ -89,3 +89,12 @@ body .ViewRecipe {
     padding-top: 10px;
     scale: 200%;
 }
+
+#shopping_button {
+    margin: 10px;
+    background-color: rgb(210, 150, 238);
+    color: white;
+    border-radius: 8px; 
+    padding: 8px 16px; 
+    font-size: 22px;
+}
