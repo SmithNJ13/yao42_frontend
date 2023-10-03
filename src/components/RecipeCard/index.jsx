@@ -45,7 +45,7 @@ const RecipeCard = ({ recipe, season }) => {
 
   return (
     <>
-      <Card style={{ width: '20rem', backgroundColor: cardColour }} className={season}>
+      <Card style={{ width: '20rem', height: '35rem', backgroundColor: cardColour }} className={season}>
         <Card.Img variant="top" src={recipe.image} />
         <Card.Body>
           <Card.Title>{recipe.name}</Card.Title>
