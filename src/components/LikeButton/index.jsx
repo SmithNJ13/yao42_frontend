@@ -3,12 +3,29 @@ import React, {useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'
 import {faHeart as regularHeart} from '@fortawesome/free-regular-svg-icons'
+import axios from "axios";
 import './LikeButton.css'
 
 const LikeButton = ({recipe_id}) => {
 
 const [like, setLike] = useState(false);
 const [likeId, setLikeId] = useState(null);
+const uID = localStorage.getItem("user_id")
+const userLikes = []
+
+
+async function getLikes() {
+  await axios.get("https://lap-4-server.onrender.com/likes")
+    .then(resp => {
+      const data = resp.data.likes
+      userLikes.push(data)
+    })
+}
+function filterLikes() {
+  userLikes.filter((like) => like.user_id.includes(uID))
+  .map(console.log("This matches a userID"))
+}
+getLikes()
 
 const getUserIdFromLocalStorage = () => {
   const userId = localStorage.getItem('user_id');
@@ -32,6 +49,8 @@ useEffect(() => {
       .then((data) => {
         if ( data.likes && data.likes.length > 0) {
         console.log("There's a like!", data)
+        console.log("recipe", recipeId)
+        console.log("user:", userId)
           setLike(true);
           setLikeId(data.likes[0].id);
         } else {
@@ -41,6 +60,7 @@ useEffect(() => {
         console.error('Error fetching user like:', error);
       });
   }
+  filterLikes()
 }, [userId, recipeId]);
 
 
