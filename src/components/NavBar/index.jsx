@@ -94,7 +94,8 @@ const NavBar = () => {
             <NavLink to='/' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>HOME</NavLink> 
             <NavLink to='/profile' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MY PROFILE</NavLink>
             <NavLink to='/recipe' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>ADD RECIPE</NavLink>
-            <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>            
+            <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>
+            <NavLink to='/shopping' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SHOPPING LIST</NavLink>           
             { isLoggedIn() ? (
               <button onClick={handleLogout} className='navlink'>LOG OUT</button>
             ) : (

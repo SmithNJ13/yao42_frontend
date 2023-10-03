@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Routes, Route, Link, useLocation} from "react-router-dom"
 import {NavBar} from './components'
-import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage, RecipePage, ViewRecipe, LandingPage } from "./pages" 
+import { NotFound, RegisterPage, Profile, SeasonalPage, MixingBowl, LoginPage, RecipePage, ViewRecipe, LandingPage, ShoppingPage } from "./pages" 
 import './App.css'
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
       <Route path='/register' element={<RegisterPage />}/>
       <Route path='/login' element={<LoginPage />}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/shopping" element={<ShoppingPage/>}/>
       <Route path="/mixingbowl" element={<MixingBowl />}></Route>
       <Route path='/recipe' element={<RecipePage />}/>
       <Route path="/recipe/:name" element={<ViewRecipe />} />
