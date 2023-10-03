@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { changeBGColour } from '../../actions/bgActions'
-import { CommentBox, Comments, LikeButton, Loading } from '../../components'
+import { Comments, LikeButton, Loading } from '../../components'
 import axios from 'axios'
 import "./style.css"
 
 const ViewRecipe = () => {
   const { name } = useParams()
   const [recipes, setRecipes] = useState()
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const dispatch = useDispatch()
   const BGColour = useSelector((state) => state.BGColour)
   const BGStyle = {
@@ -27,6 +29,19 @@ const ViewRecipe = () => {
       })
   }
   useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    const storedEmail = localStorage.getItem('email');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+
+    if (storedEmail) {
+      setEmail(storedEmail);
+    }
+
+    if (!storedUsername || !storedEmail) {
+      setShowLoginPopup(true);
+    }
     getRecipes()
     handleBG("#F7F6FE")
   }, [])
@@ -71,7 +86,7 @@ const ViewRecipe = () => {
             <div id="LikeButton">
               <p>Like this recipe!</p>
               <div className="heart">
-                <LikeButton/>
+                <LikeButton recipe_id={recipe.id}/>
               </div>
             </div>
           </div>

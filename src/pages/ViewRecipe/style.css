@@ -61,6 +61,15 @@ body .ViewRecipe {
     text-decoration: underline;
     text-align: center;
 }
+.usercomment {
+    padding: 1rem;
+    background-color: white;
+    border: solid #D296EE 3px;
+    border-radius: 3%;
+}
+.trash {
+    display: flex;
+}
 .bottom {
     display: flex;
     justify-content: center;
