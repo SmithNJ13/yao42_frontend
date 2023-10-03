@@ -55,3 +55,13 @@ font-family: 'Montserrat', sans-serif;
     margin-left: 220px;
     padding-top: 4rem;
 }
+
+
+#User_Admin_Recipe_Heading {
+    padding-top: 4rem;
+    font-size: 50px;
+    margin-left: 240px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+}
