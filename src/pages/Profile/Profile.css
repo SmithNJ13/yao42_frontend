@@ -18,6 +18,7 @@ color: #A17CD6;
 
 .socialdiv{
     border-top: solid 6px #badc83;
+    margin: 20px;
 }
 
 .likesandrecipes{
@@ -29,6 +30,10 @@ color: #A17CD6;
     color: #badc83;
 }
 
+.fauser{
+    height: 4rem;
+    width: 4rem;
+}
 
 .about{
     position: relative;
