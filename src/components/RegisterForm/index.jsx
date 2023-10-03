@@ -95,7 +95,7 @@ const Register = () => {
           <div className='tw-flex tw-flex-col tw-py-3 tw-text-xl'>
             <label htmlFor='password'>Password</label>
             <input className='tw-border-2 tw-rounded-lg focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm' 
-              type='text' 
+              type='password' 
               placeholder='Please enter your password...'
               value={password}
               onChange={handlePassword}
@@ -105,7 +105,7 @@ const Register = () => {
           <div className='tw-flex tw-flex-col tw-py-3 tw-text-xl'>
             <label htmlFor='confirm'>Confirm Password</label>
             <input className='tw-border-2 tw-rounded-lg focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm'
-              type='text'  
+              type='password'  
               placeholder='Please re-enter your password...' 
               value={passConfirm}
               onChange={handlePassConfirm}
