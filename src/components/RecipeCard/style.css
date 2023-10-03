@@ -76,4 +76,10 @@
 #card .button {
     margin-top: 1rem;
     --bs-btn-color: black;
+    border: none;
+    outline: none;
+}
+
+#card .button:hover {
+    color: black;
 }
