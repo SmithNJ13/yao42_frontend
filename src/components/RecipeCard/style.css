@@ -9,11 +9,11 @@
     width: 19.9rem;
     height: 16rem;
     object-fit: cover;
-    border-radius: 4%;
+    border-radius: 10px;
 }
 .card-title {
     font-weight: bold;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     padding-bottom: 1rem;
 }
 .card-text {
@@ -26,32 +26,32 @@
     width: 4px;
 }
 #card ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
+    border-radius: 10px;
     height: 40px; 
 }
 .spring .card-text {
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: #fafcf8;
 }
 #card .spring ::-webkit-scrollbar-thumb {
     background: #badc83;
 }
 .summer .card-text {
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: #fffefa;
 }
 #card .summer ::-webkit-scrollbar-thumb {
     background: #ffe448;
 }
 .autumn .card-text {
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: #fffcf8;
 }
 #card .autumn ::-webkit-scrollbar-thumb {
     background: #FEBB40;
 }
 .winter .card-text {
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: #f9fcff;
 }
 #card .winter ::-webkit-scrollbar-thumb {
@@ -59,20 +59,21 @@
 }
 #card .spring {
     border: solid #badc83 3px;
-    border-radius: 3%;
+    border-radius: 10px;
 }
 #card .summer {
     border: solid #ffe448 3px;
-    border-radius: 3%;
+    border-radius: 10px;
 }
 #card .autumn {
     border: solid #FEBB40 3px;
-    border-radius: 3%;
+    border-radius: 10px;
 }
 #card .winter {
     border: solid #87ceeb 3px;
-    border-radius: 3%;
+    border-radius: 10px;
 }
+
 #card .button {
     margin-top: 1rem;
     --bs-btn-color: black;
