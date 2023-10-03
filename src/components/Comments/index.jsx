@@ -18,10 +18,6 @@ setComments(data.comments)
 console.error(error)
  }}
 
-useEffect(() => {
-    getComments();
-  }, [postId]);
-
 
   const handleDelete = async (commentToDelete) => {
     try {

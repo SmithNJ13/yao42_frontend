@@ -10,10 +10,12 @@
     border: solid #D296EE 2px;
     border-radius: 10%;
 }
-body .ViewRecipe {
+.ViewRecipe {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    height: 100%;
+    width: 100%;
     gap: 5vw;
 }
 #MainBody {

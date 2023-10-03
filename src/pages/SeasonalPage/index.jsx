@@ -95,7 +95,7 @@ const SeasonalPage = () => {
   const userCreatedRecipes = filteredRecipes.filter(recipe => recipe.user_id !== 1);
 
   return (
-    <body style={BGStyle}>
+    <div style={BGStyle} className="SeasonalPage">
       <div id="MainContent">
         <div id="Title" className={season}>
           {displaySeason}
@@ -135,7 +135,7 @@ const SeasonalPage = () => {
           )}
         </div>
       </div>
-    </body>
+    </div>
   );
 }
 
