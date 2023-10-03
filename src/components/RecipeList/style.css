@@ -6,5 +6,31 @@
 }
 
 .recipe-cards .card {
-    background-color: #F0E3FB;
+    border: solid #D296EE 3px;
+    border-radius: 10px;
+}
+
+.card-text {
+    border-radius: 10px;
+    background-color: #F7F6FE;
+}
+
+.card ::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card ::-webkit-scrollbar-thumb {
+    background: #D296EE;
+}
+
+.card .button {
+    margin-top: 1rem;
+    --bs-btn-color: black;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.card .button:hover {
+    color: black;
 }

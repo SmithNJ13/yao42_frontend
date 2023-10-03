@@ -79,6 +79,7 @@
     --bs-btn-color: black;
     border: none;
     outline: none;
+    border-radius: 5px;
 }
 
 #card .button:hover {
