@@ -19,7 +19,7 @@ describe("CommentBox component", () => {
     })
 
     it("renders correctly", () => {
-        console.log(document.body.innerHTM)
+        //console.log(document.body.innerHTM)
         const commentBoxElement = screen.getByTestId('comment-box');
         const textAreaElement = screen.getByPlaceholderText('What are your thoughts?');
         

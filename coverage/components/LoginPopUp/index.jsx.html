@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/Comment/index.jsx</title>
+    <title>Code coverage report for components/LoginPopUp/index.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/Comment</a> index.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/LoginPopUp</a> index.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">82.35% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>28/34</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">82.35% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>28/34</span>
             </div>
         
             
@@ -86,7 +86,27 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -94,44 +114,57 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable react/prop-types */
-import React from 'react'
-import LikeButton from '../LikeButton'
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useNavigate } from 'react-router-dom';
+import "../PopUp/PopUp.css"
 &nbsp;
+const LoginPopUp = ({ onClose }) =&gt; {
+    const navigate = useNavigate();
 &nbsp;
+    const handleBackgroundClick = <span class="fstat-no" title="function not covered" >(e) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        e.stopPropagation();</span>
+<span class="cstat-no" title="statement not covered" >        onClose(false);</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
 &nbsp;
-&nbsp;
-const Comment = ({comment, user_id}) =&gt; {
     return (
-        &lt;&gt;
-        &lt;div className="usercomment"&gt;
-            &lt;p&gt; User Id: {user_id}&lt;/p&gt;
-            &lt;p&gt;{comment}&lt;/p&gt;
+        &lt;div onClick={handleBackgroundClick} className="modalBackground"&gt;
+            &lt;div onClick={<span class="fstat-no" title="function not covered" >(e) =&gt; e.stopPropagation()} c</span>lassName="modalContainer"&gt;
+                &lt;div className="title"&gt;
+                    &lt;h1&gt;Access Denied&lt;/h1&gt;
+                &lt;/div&gt;
+                &lt;div className="body"&gt;
+                    &lt;p&gt;You must be logged in to view your profile details!&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div className="footer"&gt;
+                    &lt;button onClick={<span class="fstat-no" title="function not covered" >() =&gt; { </span>
+<span class="cstat-no" title="statement not covered" >                        onClose(false);</span>
+<span class="cstat-no" title="statement not covered" >                        navigate('/login');</span>
+<span class="cstat-no" title="statement not covered" >                    }}&gt;</span>
+                        Login Here
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-        &lt;LikeButton/&gt;
-        &lt;/&gt;
-    )
+    );
 }
 &nbsp;
-&nbsp;
-&nbsp;
-export default Comment;
-&nbsp;
+export default LoginPopUp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

@@ -32,7 +32,7 @@ describe("RecipeSearch component", () => {
     it("Changes text on input", () => {
         const inputBox = screen.getByPlaceholderText('Search for ingredients');
         fireEvent.change(inputBox, {target: {value:'ok'}})
-        expect(inputBox.value).toBe('ok')
+        expect(mockSetSearchInput).toHaveBeenCalledWith('ok');
     })
 
     it("Clicking button triggers function", () => {
@@ -50,6 +50,4 @@ describe("RecipeSearch component", () => {
       
           expect(mockHandleAddIngredient).toHaveBeenCalled()
     } )
-
-
 })

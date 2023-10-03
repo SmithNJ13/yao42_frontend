@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.22% </span>
+                <span class="strong">76.19% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>216/291</span>
+                <span class='fraction'>224/294</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">47.36% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>9/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.22% </span>
+                <span class="strong">76.19% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>216/291</span>
+                <span class='fraction'>224/294</span>
             </div>
         
             
@@ -354,8 +354,10 @@
 <a name='L289'></a><a href='#L289'>289</a>
 <a name='L290'></a><a href='#L290'>290</a>
 <a name='L291'></a><a href='#L291'>291</a>
-<a name='L292'></a><a href='#L292'>292</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L292'></a><a href='#L292'>292</a>
+<a name='L293'></a><a href='#L293'>293</a>
+<a name='L294'></a><a href='#L294'>294</a>
+<a name='L295'></a><a href='#L295'>295</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -378,6 +380,22 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -387,28 +405,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -650,46 +656,43 @@ import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faFileLines} from '@fortawesome/free-solid-svg-icons'
-import form from '../../assets/addrecipeformbg.png'
+import form from '../../assets/form.png'
 import { faFacebook, faInstagram, faPinterest, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios';
 import LikeButton from '../../components/LikeButton/index.jsx';
 import { useNavigate } from 'react-router-dom';
-&nbsp;
-&nbsp;
+import LoginPopUp from '../../components/LoginPopUp';
 &nbsp;
 const Profile = () =&gt; {
-const navigate = useNavigate()
-const [username, setUsername] = useState('');
-const [email, setEmail] = useState('');
-const [recipes, setRecipes] = useState([])
-const [likedRecipes, setLikedRecipes] = useState([]);
-const [likedRecipesToShow, setLikedRecipesToShow] = useState([]);
-const [currentPageRecipes, setCurrentPageRecipes] = useState(1);
-const [currentPageLikedRecipes, setCurrentPageLikedRecipes] = useState(1);
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [recipes, setRecipes] = useState([])
+  const [likedRecipes, setLikedRecipes] = useState([]);
+  const [likedRecipesToShow, setLikedRecipesToShow] = useState([]);
+  const [currentPageRecipes, setCurrentPageRecipes] = useState(1);
+  const [currentPageLikedRecipes, setCurrentPageLikedRecipes] = useState(1);
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-useEffect(() =&gt; {
-   async function fetchData(){
-    try { 
+  useEffect(() =&gt; {
+    async function fetchData(){
+      try { 
         const localId = localStorage.getItem('user_id')
         const recipesresponse= await axios.get('https://lap-4-server.onrender.com/recipes'<span class="branch-0 cbranch-no" title="branch not covered" >)</span>
-<span class="cstat-no" title="statement not covered" >        console.log(recipesresponse.data)</span>
-<span class="cstat-no" title="statement not covered" >        setRecipes(recipesresponse.data.recipes.filter((r) =&gt; r.user_id == localId ))</span>
-<span class="cstat-no" title="statement not covered" >      </span>
-<span class="cstat-no" title="statement not covered" >        const likesresponse = await axios.get('https://lap-4-server.onrender.com/likes')</span>
-<span class="cstat-no" title="statement not covered" >        console.log(likesresponse.data)</span>
-<span class="cstat-no" title="statement not covered" >        setLikedRecipes(likesresponse.data.likes.filter((l) =&gt; l.user_id == localId ))</span>
-<span class="cstat-no" title="statement not covered" >    } catch (error) {   </span>
+        console.log(recipesresponse.data)
+        setRecipes(recipesresponse.data.recipes.filter((r) =&gt; r.user_id == localId ))
+      
+        const likesresponse = await axios.get('https://lap-4-server.onrender.com/likes')
+        console.log(likesresponse.data)
+        setLikedRecipes(likesresponse.data.likes.filter((l) =&gt; l.user_id == localId ))
+<span class="cstat-no" title="statement not covered" >      } catch (error) {   </span>
 <span class="cstat-no" title="statement not covered" >        console.log(error)</span>
-    } }
+<span class="cstat-no" title="statement not covered" >      } </span>
+    }
     fetchData();
+  }, [])
 &nbsp;
-}, [])
-&nbsp;
-useEffect(() =&gt; {
+  useEffect(() =&gt; {
     const storedUsername = localStorage.getItem('username');
     const storedEmail = localStorage.getItem('email');
 &nbsp;
@@ -700,7 +703,13 @@ useEffect(() =&gt; {
     if (storedEmail) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >      setEmail(storedEmail);</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
+&nbsp;
+    if (!<span class="branch-0 cbranch-no" title="branch not covered" >storedUsername || !storedEmail) {</span>
+      setShowLoginPopup(true);
+    }
+&nbsp;
   }, []);
+&nbsp;
 &nbsp;
   const loadMoreRecipes = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setCurrentPageRecipes(currentPageRecipes + 1);</span>
@@ -743,7 +752,7 @@ useEffect(() =&gt; {
 &nbsp;
   return (
     &lt;&gt;
-   
+    {showLoginPopup &amp;&amp; &lt;LoginPopUp onClose={<span class="fstat-no" title="function not covered" >() =&gt; setShowLoginPopup(false)} /</span>&gt;}
 &lt;div className="tw-h-screen tw-overflow-hidden tw-flex tw-items-center tw-justify-center bosscontainer"&gt;
 &nbsp;
     &lt;div style= {{ backgroundImage: `url(${form})`}}  className='backgroundimage'&gt;
@@ -943,7 +952,7 @@ export default Profile
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-10-02T14:11:52.802Z
+                at 2023-10-03T09:32:02.304Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
