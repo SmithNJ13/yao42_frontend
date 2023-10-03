@@ -9,6 +9,7 @@ import axios from 'axios';
 import LikeButton from '../../components/LikeButton/index.jsx';
 import { useNavigate } from 'react-router-dom';
 import LoginPopUp from '../../components/LoginPopUp';
+import {Comments, CommentBox} from "../../components"
 
 const Profile = () => {
   const navigate = useNavigate()
@@ -287,6 +288,9 @@ const Profile = () => {
         </div>
     </div>
     </div>
+    <Comments>
+      <CommentBox/>
+    </Comments>
     </>
   )
 }

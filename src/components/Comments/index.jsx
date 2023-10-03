@@ -5,7 +5,7 @@ import CommentBox from '../CommentBox'
 import DeleteButton from '../DeleteButton';
 import { useParams } from 'react-router-dom';
 
-const Comments = () => {
+const Comments = ({recipe_id}) => {
     const [comments, setComments] = useState([]);
     const { postId } = useParams();
     
@@ -66,7 +66,7 @@ useEffect(() => {
       <DeleteButton comment={comment} onDelete={handleDelete}/> 
      </div>
       ))}
-    <CommentBox onCommentPosted={addCommentToState}/>
+    <CommentBox recipe_id={recipe_id} onCommentPosted={addCommentToState}/>
     </div>
     </>
   )
