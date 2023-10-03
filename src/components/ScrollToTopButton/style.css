@@ -1,0 +1,15 @@
+#BackToTopButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#BackToTopButton button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#BackToTopButton button:hover {
+    background-color: var(--hoverColor);
+}

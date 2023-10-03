@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { CarouselComponent, RecipeCard, Loading } from "../../components";
+import { CarouselComponent, RecipeCard, Loading, ScrollToTopButton } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { changeBGColour } from '../../actions/bgActions';
 import axios from "axios";
@@ -38,13 +38,6 @@ const SeasonalPage = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const hoverColor = {
-    spring: '#A3CB62',
-    summer: '#F0D013',
-    autumn: '#E99700',
-    winter: '#50B5DE',
-  };
 
   const handleScrollToTop = () => {
     window.scrollTo({
@@ -166,30 +159,12 @@ const SeasonalPage = () => {
         </div>
       </div>
       {showButton && (
-      <div id="BackToTopButton">
-        <button
-          style={{
-            backgroundColor:
-              season === 'spring'
-                ? '#BADC83'
-                : season === 'summer'
-                ? '#FFE448'
-                : season === 'autumn'
-                ? '#FEBB40'
-                : season === 'winter'
-                ? '#87CEEB'
-                : '#D296EE',
-            transition: 'background-color 0.3s',
-            ...(isHovered && { backgroundColor: hoverColor[season] }),
-          }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onClick={handleScrollToTop}
-        >
-          Back to Top
-        </button>
-      </div>
-    )}
+        <ScrollToTopButton
+          season={season}
+          handleScrollToTop={handleScrollToTop}
+          isHovered={isHovered}
+        />
+      )}
     </body>
   );
 }
