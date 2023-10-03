@@ -57,7 +57,7 @@ const ViewRecipe = () => {
   }
 
   return (
-    <body style={BGStyle} className="ViewRecipe">
+    <div style={BGStyle} className="ViewRecipe">
       <>
         {recipes.filter((r) => r.name.includes(name))
           .map((recipe, key) => (
@@ -109,7 +109,7 @@ const ViewRecipe = () => {
             </div>
           ))}
       </>
-    </body>
+    </div>
   );
 };
 
