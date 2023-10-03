@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faFileLines} from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faFileLines, faUser} from '@fortawesome/free-solid-svg-icons'
 import form from '../../assets/form.png'
 import { faFacebook, faInstagram, faPinterest, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios';
 import LikeButton from '../../components/LikeButton/index.jsx';
 import { useNavigate } from 'react-router-dom';
 import LoginPopUp from '../../components/LoginPopUp';
+import {Comments, CommentBox} from "../../components"
 
 const Profile = () => {
   const navigate = useNavigate()
@@ -110,13 +111,25 @@ const Profile = () => {
                 <div className="tw-w-full tw-h-full">
                     {/* <!-- Profile Card --> */}
                     <div className="tw-bg-white tw-p-3 socialdiv">
-                        <div className="tw-text-center tw-my-2">
-                            <img className="tw-h-32 tw-w-32 tw-rounded-full tw-mx-auto profile"
-                                src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-                                alt="Mark's profile picture"/>
-                        </div>
+                    <div className="tw-text-center tw-my-2">
+                    {localStorage.getItem('username') ? (
+                      <img className="tw-h-32 tw-w-32 tw-rounded-full tw-mx-auto profile"
+                        src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
+                        alt="Mark's profile picture" />
+                    ) : (
+                      <FontAwesomeIcon icon={faUser} className='fontawesome fauser' />
+                    )}
+                  </div>
                         <h1 className="tw-text-gray-900 tw-font-bold tw-text-xl tw-leading-8 tw-text-center">{username}</h1>
-                        <h3 className="tw-text-gray-600 tw-font-lg tw-text-semibold tw-leading-6 tw-text-center">Member since October 2023</h3>
+                       
+                        {localStorage.getItem('username') ? (
+                           <h3 className="tw-text-gray-600 tw-font-lg tw-text-semibold tw-leading-6 tw-text-center">
+                        Member since October 2023</h3>
+                    ) : (
+                      <h3 className="tw-text-gray-600 tw-font-lg tw-text-semibold tw-leading-6 tw-text-center"> Member since </h3>
+                    )}
+                          
+                          
                         <div className='tw-flex tw-text-center tw-mt-4 tw-mb-4 tw-justify-around'>
 
 

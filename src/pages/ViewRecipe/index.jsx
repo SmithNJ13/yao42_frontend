@@ -9,8 +9,6 @@ import "./style.css"
 const ViewRecipe = () => {
   const { name } = useParams()
   const [recipes, setRecipes] = useState()
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const dispatch = useDispatch()
   const BGColour = useSelector((state) => state.BGColour)
   const BGStyle = {
@@ -29,19 +27,6 @@ const ViewRecipe = () => {
       })
   }
   useEffect(() => {
-    const storedUsername = localStorage.getItem('username');
-    const storedEmail = localStorage.getItem('email');
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
-
-    if (storedEmail) {
-      setEmail(storedEmail);
-    }
-
-    if (!storedUsername || !storedEmail) {
-      setShowLoginPopup(true);
-    }
     getRecipes()
     handleBG("#F7F6FE")
   }, [])
@@ -90,13 +75,13 @@ const ViewRecipe = () => {
               </div>
             </div>
           </div>
+        <div id="SideInfo">
+          <div id="Comments">
+            <Comments recipe_id={recipe.id}/>
+          </div>
+        </div>
         </div>
       ))}
-      <div id="SideInfo">
-        <div id="Comments">
-          <Comments/>
-        </div>
-      </div>
     </>
     </body>
   )
