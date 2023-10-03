@@ -18,28 +18,33 @@ const SeasonalPage = () => {
   const queryParams = new URLSearchParams(location.search);
   const selectedFilter = queryParams.get('filter'); 
   const [showButton, setShowButton] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     getIngredients();
     getRecipes();
 
-    // Event listener for scroll
     function handleScroll() {
       if (window.scrollY > 100) {
-        setShowButton(true); // Show the button when scrolled down more than 100 pixels
+        setShowButton(true);
       } else {
-        setShowButton(false); // Hide the button when scrolled back to the top
+        setShowButton(false);
       }
     }
 
-    // Attach the event listener
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
-    // Clean up the event listener on component unmount
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const hoverColor = {
+    spring: '#A3CB62',
+    summer: '#F0D013',
+    autumn: '#E99700',
+    winter: '#50B5DE',
+  };
 
   const handleScrollToTop = () => {
     window.scrollTo({
@@ -161,26 +166,30 @@ const SeasonalPage = () => {
         </div>
       </div>
       {showButton && (
-        <div id="BackToTopButton">
-          <button
-            style={{
-              backgroundColor:
-                season === "spring"
-                  ? "#BADC83"
-                  : season === "summer"
-                  ? "#FFE448"
-                  : season === "autumn"
-                  ? "#FEBB40"
-                  : season === "winter"
-                  ? "#87CEEB"
-                  : "#D296EE",
-            }}
-            onClick={handleScrollToTop}
-          >
-            Back to Top
-          </button>
-        </div>
-      )}
+      <div id="BackToTopButton">
+        <button
+          style={{
+            backgroundColor:
+              season === 'spring'
+                ? '#BADC83'
+                : season === 'summer'
+                ? '#FFE448'
+                : season === 'autumn'
+                ? '#FEBB40'
+                : season === 'winter'
+                ? '#87CEEB'
+                : '#D296EE',
+            transition: 'background-color 0.3s',
+            ...(isHovered && { backgroundColor: hoverColor[season] }),
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onClick={handleScrollToTop}
+        >
+          Back to Top
+        </button>
+      </div>
+    )}
     </body>
   );
 }
