@@ -4,6 +4,8 @@ import PopUp from '../PopUp';
 const PostRecipe = () => {
   
   const [name, setName] = useState('');
+  const [vegetarian, setVegetarian] = useState(false);
+  const [vegan, setVegan] = useState(false);
   const [description, setDescription] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [budget, setBudget] = useState('');
@@ -66,6 +68,8 @@ const PostRecipe = () => {
         },
         body: JSON.stringify({
           name,
+          vegetarian,
+          vegan,
           description,
           ingredients,
           budget,
@@ -84,6 +88,8 @@ const PostRecipe = () => {
       console.log('Recipe submitted successfully:', data);
 
       setName('');
+      setVegetarian(false);
+      setVegan(false);
       setDescription('');
       setIngredients('');
       setInstructions('');
@@ -112,6 +118,12 @@ const PostRecipe = () => {
           required
         />
       </div>
+      <div className='tw-flex tw-items-center tw-my-2 tw-pb-4'>
+  <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4 tw-flex-1" htmlFor="vegetarian">Vegetarian</label>
+  <input checked={vegetarian} type="checkbox" id="recipe_vegetarian" onChange={(e) => setVegetarian(e.target.checked)} />
+  <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4 tw-flex-1" htmlFor="vegan">Vegan</label>
+  <input checked={vegan} type="checkbox" id="recipe_vegan" onChange={(e) => setVegan(e.target.checked)} />
+</div>
       <div className='tw-flex tw-items-center tw-my-2 tw-pb-4'>
         <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="description"> Description</label>
         <input
