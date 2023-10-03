@@ -11,9 +11,13 @@ const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [selectedFilter, setSelectedFilter] = useState(null);
+  const [showSeasonsMenu, setShowSeasonsMenu] = useState(false);
 
   const isSeasonalPage = ['/spring', '/summer', '/autumn', '/winter'].includes(location.pathname);
 
+  const toggleSeasonsMenu = () => {
+    setShowSeasonsMenu(!showSeasonsMenu);
+  };
 
   let activeStyle = {
     fontWeight: 'bold'};
@@ -96,6 +100,24 @@ const NavBar = () => {
             ) : (
               <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
             )}
+
+            <div className="collapsible-menu">
+              <button 
+                onClick={toggleSeasonsMenu}
+                className="collapsible-button"
+              >
+                SEASONS
+                <i className={`fas fa-chevron-${showSeasonsMenu ? 'up' : 'down'}`}></i>
+              </button>
+              {showSeasonsMenu && (
+                <div className="collapsible-content">
+                  <NavLink to='/spring' className='seasonsDrop' style={({isActive}) => (isActive ? activeStyle : undefined)}>SPRING</NavLink>
+                  <NavLink to='/summer' className='seasonsDrop' style={({isActive}) => (isActive ? activeStyle : undefined)}>SUMMER</NavLink>
+                  <NavLink to='/autumn' className='seasonsDrop' style={({isActive}) => (isActive ? activeStyle : undefined)}>AUTUMN</NavLink>
+                  <NavLink to='/winter' className='seasonsDrop' style={({isActive}) => (isActive ? activeStyle : undefined)}>WINTER</NavLink>
+                </div>
+              )}
+            </div>
 
 {isSeasonalPage && (
              <>

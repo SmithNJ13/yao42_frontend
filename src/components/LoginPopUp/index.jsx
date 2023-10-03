@@ -16,7 +16,7 @@ const LoginPopUp = ({ onClose }) => {
                     <h1>Access Denied</h1>
                 </div>
                 <div className="body">
-                    <p>You must be logged in to view your profile details!</p>
+                    <p>You must be logged in to view this page!</p>
                 </div>
                 <div className="footer">
                     <button onClick={() => { 
