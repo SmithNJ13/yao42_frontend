@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1696247001533" clover="3.2.0">
-  <project timestamp="1696247001533" name="All files">
-    <metrics statements="856" coveredstatements="606" conditionals="65" coveredconditionals="30" methods="38" coveredmethods="22" elements="959" coveredelements="658" complexity="0" loc="856" ncloc="856" packages="9" files="10" classes="10"/>
+<coverage generated="1696255912845" clover="3.2.0">
+  <project timestamp="1696255912845" name="All files">
+    <metrics statements="888" coveredstatements="614" conditionals="52" coveredconditionals="26" methods="35" coveredmethods="18" elements="975" coveredelements="658" complexity="0" loc="888" ncloc="888" packages="9" files="10" classes="10"/>
     <package name="components.Comment">
       <metrics statements="21" coveredstatements="21" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="index.jsx" path="C:\Users\balra\Desktop\LfaLaps\LAP 4\Project\yao42_frontend\src\components\Comment\index.jsx">
@@ -30,9 +30,9 @@
       </file>
     </package>
     <package name="components.CommentBox">
-      <metrics statements="140" coveredstatements="99" conditionals="7" coveredconditionals="4" methods="7" coveredmethods="3"/>
+      <metrics statements="141" coveredstatements="99" conditionals="7" coveredconditionals="4" methods="7" coveredmethods="3"/>
       <file name="index.jsx" path="C:\Users\balra\Desktop\LfaLaps\LAP 4\Project\yao42_frontend\src\components\CommentBox\index.jsx">
-        <metrics statements="122" coveredstatements="81" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="2"/>
+        <metrics statements="123" coveredstatements="81" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -112,7 +112,7 @@
         <line num="77" count="0" type="stmt"/>
         <line num="78" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
-        <line num="80" count="2" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
         <line num="81" count="2" type="stmt"/>
         <line num="82" count="2" type="stmt"/>
         <line num="83" count="2" type="stmt"/>
@@ -123,8 +123,8 @@
         <line num="88" count="2" type="stmt"/>
         <line num="89" count="2" type="stmt"/>
         <line num="90" count="2" type="stmt"/>
-        <line num="91" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="92" count="2" type="stmt"/>
+        <line num="91" count="2" type="stmt"/>
+        <line num="92" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="93" count="2" type="stmt"/>
         <line num="94" count="2" type="stmt"/>
         <line num="95" count="2" type="stmt"/>
@@ -153,8 +153,9 @@
         <line num="118" count="2" type="stmt"/>
         <line num="119" count="2" type="stmt"/>
         <line num="120" count="2" type="stmt"/>
-        <line num="121" count="1" type="stmt"/>
+        <line num="121" count="2" type="stmt"/>
         <line num="122" count="1" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
       </file>
       <file name="useDynamicHeightField.js" path="C:\Users\balra\Desktop\LfaLaps\LAP 4\Project\yao42_frontend\src\components\CommentBox\useDynamicHeightField.js">
         <metrics statements="18" coveredstatements="18" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -288,9 +289,9 @@
       </file>
     </package>
     <package name="components.LikeButton">
-      <metrics statements="108" coveredstatements="44" conditionals="12" coveredconditionals="4" methods="3" coveredmethods="3"/>
+      <metrics statements="109" coveredstatements="44" conditionals="12" coveredconditionals="4" methods="3" coveredmethods="3"/>
       <file name="index.jsx" path="C:\Users\balra\Desktop\LfaLaps\LAP 4\Project\yao42_frontend\src\components\LikeButton\index.jsx">
-        <metrics statements="108" coveredstatements="44" conditionals="12" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <metrics statements="109" coveredstatements="44" conditionals="12" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -382,121 +383,150 @@
         <line num="89" count="0" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
         <line num="91" count="0" type="stmt"/>
-        <line num="92" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="93" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="94" count="0" type="stmt"/>
-        <line num="95" count="2" type="stmt"/>
-        <line num="96" count="8" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="96" count="2" type="stmt"/>
         <line num="97" count="8" type="stmt"/>
         <line num="98" count="8" type="stmt"/>
         <line num="99" count="8" type="stmt"/>
-        <line num="100" count="8" type="cond" truecount="0" falsecount="2"/>
-        <line num="101" count="8" type="stmt"/>
+        <line num="100" count="8" type="stmt"/>
+        <line num="101" count="8" type="cond" truecount="0" falsecount="2"/>
         <line num="102" count="8" type="stmt"/>
         <line num="103" count="8" type="stmt"/>
         <line num="104" count="8" type="stmt"/>
         <line num="105" count="8" type="stmt"/>
-        <line num="106" count="1" type="stmt"/>
+        <line num="106" count="8" type="stmt"/>
         <line num="107" count="1" type="stmt"/>
         <line num="108" count="1" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.NavBar">
-      <metrics statements="56" coveredstatements="47" conditionals="21" coveredconditionals="7" methods="7" coveredmethods="7"/>
+      <metrics statements="84" coveredstatements="53" conditionals="8" coveredconditionals="3" methods="4" coveredmethods="3"/>
       <file name="index.jsx" path="C:\Users\balra\Desktop\LfaLaps\LAP 4\Project\yao42_frontend\src\components\NavBar\index.jsx">
-        <metrics statements="56" coveredstatements="47" conditionals="21" coveredconditionals="7" methods="7" coveredmethods="7"/>
+        <metrics statements="84" coveredstatements="53" conditionals="8" coveredconditionals="3" methods="4" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="7" count="4" type="stmt"/>
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
         <line num="10" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="12" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="11" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="14" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="16" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="18" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="20" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="22" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="24" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
-        <line num="26" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="28" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
-        <line num="31" count="4" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="35" count="4" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
         <line num="36" count="4" type="stmt"/>
         <line num="37" count="4" type="stmt"/>
         <line num="38" count="4" type="stmt"/>
         <line num="39" count="4" type="stmt"/>
-        <line num="40" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="41" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="42" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="43" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="44" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="4" type="stmt"/>
-        <line num="46" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="45" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="46" count="4" type="cond" truecount="0" falsecount="3"/>
         <line num="47" count="4" type="stmt"/>
         <line num="48" count="4" type="stmt"/>
         <line num="49" count="4" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
-        <line num="51" count="4" type="stmt"/>
-        <line num="52" count="4" type="stmt"/>
-        <line num="53" count="4" type="stmt"/>
-        <line num="54" count="4" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="4" type="stmt"/>
+        <line num="61" count="4" type="stmt"/>
+        <line num="62" count="4" type="stmt"/>
+        <line num="63" count="4" type="stmt"/>
+        <line num="64" count="4" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
+        <line num="66" count="4" type="stmt"/>
+        <line num="67" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="4" type="stmt"/>
+        <line num="70" count="4" type="stmt"/>
+        <line num="71" count="4" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
+        <line num="73" count="4" type="stmt"/>
+        <line num="74" count="4" type="stmt"/>
+        <line num="75" count="4" type="stmt"/>
+        <line num="76" count="4" type="stmt"/>
+        <line num="77" count="4" type="stmt"/>
+        <line num="78" count="4" type="stmt"/>
+        <line num="79" count="4" type="stmt"/>
+        <line num="80" count="4" type="stmt"/>
+        <line num="81" count="4" type="stmt"/>
+        <line num="82" count="4" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.RegisterForm">
-      <metrics statements="121" coveredstatements="84" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="1"/>
+      <metrics statements="123" coveredstatements="86" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="1"/>
       <file name="index.jsx" path="C:\Users\balra\Desktop\LfaLaps\LAP 4\Project\yao42_frontend\src\components\RegisterForm\index.jsx">
-        <metrics statements="121" coveredstatements="84" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="1"/>
+        <metrics statements="123" coveredstatements="86" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
@@ -524,8 +554,8 @@
         <line num="55" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
         <line num="57" count="0" type="stmt"/>
-        <line num="58" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
@@ -588,6 +618,8 @@
         <line num="119" count="1" type="stmt"/>
         <line num="120" count="1" type="stmt"/>
         <line num="121" count="1" type="stmt"/>
+        <line num="122" count="1" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
       </file>
     </package>
     <package name="pages.NotFound">

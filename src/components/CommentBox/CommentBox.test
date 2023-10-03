@@ -9,7 +9,9 @@ import CommentBox from '.'
 
 describe("CommentBox component", () => {
     beforeEach(() => {
-        <CommentBox user_id={1}/>
+        <MemoryRouter>
+        <CommentBox recipe_id={1}/>
+        </MemoryRouter>
     })
 
     afterEach(() => {
@@ -18,9 +20,12 @@ describe("CommentBox component", () => {
 
     it("renders correctly", () => {
         console.log(document.body.innerHTM)
-        expect(screen.getByLabelText("What are your thoughts?")).toBeInTheDocument();
-        expect(screen.getByText("Cancel")).toBeInTheDocument();
-        expect(screen.getByText("Comment")).toBeInTheDocument();
+        const commentBoxElement = screen.getByTestId('comment-box');
+        const textAreaElement = screen.getByPlaceholderText('What are your thoughts?');
+        
+        
+        expect(commentBoxElement).toBeInTheDocument();
+        expect(textAreaElement).toBeInTheDocument();
       });
       
 
