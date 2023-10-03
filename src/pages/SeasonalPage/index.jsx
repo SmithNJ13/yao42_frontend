@@ -119,7 +119,7 @@ const SeasonalPage = () => {
             </>
           )}
           </div>
-          <div id ='User_Admin_Recipe_Heading'>
+          <div id="Community_Recipes_Heading">
           <h2>Community Recipes</h2>
           </div>
           <div id='RecipeInfo'>
