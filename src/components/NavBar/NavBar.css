@@ -35,3 +35,10 @@ body {
     bottom: 0;
     padding: 10px;
 }
+.navlink:hover {
+    font-weight: bold;
+    scale: 110%;
+    transition: 0.1s ease-in;
+    text-shadow: 1px 1px 10px white,
+    2px 2px 20px snow;
+}

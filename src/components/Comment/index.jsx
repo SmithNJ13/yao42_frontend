@@ -7,12 +7,13 @@ import LikeButton from '../LikeButton'
 
 const Comment = ({comment, user_id}) => {
     return (
-        <div>
+        <>
+        <div className="usercomment">
             <p> User Id: {user_id}</p>
             <p>{comment}</p>
-            <LikeButton/>
-            
         </div>
+        <LikeButton/>
+        </>
     )
 }
 
