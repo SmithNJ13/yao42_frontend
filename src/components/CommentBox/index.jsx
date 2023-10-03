@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import './CommentBox.css'
-import React, {useState, useRef} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import cn from 'classnames';
 import useDynamicHeightField from './useDynamicHeightField';
 
@@ -21,6 +21,7 @@ const CommentBox = ({recipe_id}) => {
 
 const [isExpanded, setIsExpanded] = useState(false);
 const [commentValue, setCommentValue] = useState('');
+const [token, setToken] = useState("");
 
 const outerHeight = useRef(initialHeight);
 const textRef = useRef(null);
@@ -59,14 +60,17 @@ setIsExpanded(true);
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${localStorage.getItem('token')}`,
+              'Authorization': `Bearer ${token}`,
               
             },
             body: JSON.stringify(newComment),
           });
 
-          if (response.ok) {
+          if (response) {
             console.log('Comment posted successfully!');
+            console.log(localStorage.getItem("token"))
+            console.log(userId)
+            console.log(recipeId)
             setCommentValue('');
             setIsExpanded(false);
           } else {
@@ -78,6 +82,10 @@ setIsExpanded(true);
           console.error('Error:', error);
         }
       };
+
+      useEffect(() => {
+        setToken(localStorage.getItem("token"))
+      },[])
 
       return (
         <form
