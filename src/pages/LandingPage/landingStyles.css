@@ -1,3 +1,20 @@
 #root {
     margin: 0 auto;
 }
+.season-banner {
+    transition: width 0.4s ease-in-out;
+}
+
+.season-banner:hover {
+    width: 30% !important;
+    cursor: pointer;
+}
+
+.season-banner:hover h1 {
+    font-size: 3rem;
+}
+
+.season-banner h1 {
+    transition: font-size 0.3s ease-in-out;
+}
+
