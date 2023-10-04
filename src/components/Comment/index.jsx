@@ -8,7 +8,6 @@ const Comment = ({ comment, username }) => {
                 <p>{username}:</p>
                 <p>{comment}</p>
             </div>
-            <LikeButton />
         </>
     );
 };
