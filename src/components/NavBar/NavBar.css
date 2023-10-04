@@ -30,6 +30,15 @@ body {
 .navlink {
     text-decoration: none;
     margin-bottom: 20px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
 }
   
 .footer {
@@ -56,9 +65,31 @@ body {
     flex-direction: column;
     align-items: center;
     line-height: 2.5rem;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 
+.collapsible-button {
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.collapsible-content .drop {
+    text-decoration: none;
+    margin-bottom: 20px;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+}
 .drop:hover {
     font-weight: bold;
     scale: 110%;
