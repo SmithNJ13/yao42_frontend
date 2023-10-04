@@ -82,16 +82,7 @@ const NavBar = () => {
         <nav className='navbar'>
           <div className='navlinks' data-testid="navlinks">
             <NavLink to='/' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>HOME</NavLink> 
-            {/* <NavLink to='/profile' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MY PROFILE</NavLink> */}
-            <NavLink to='/recipe' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>ADD RECIPE</NavLink>
-            <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>
-            {/* <NavLink to='/shopping' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SHOPPING LIST</NavLink>             */}
-            { isLoggedIn() ? (
-              <button onClick={handleLogout} className='navlink'>LOG OUT</button>
-            ) : (
-              <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
-            )}
-
+            
             <div className="collapsible-menu">
               <button
                 onClick={toggleProfileMenu}
@@ -103,11 +94,12 @@ const NavBar = () => {
               {showProfileMenu && (
                 <div className="collapsible-content">
                   <NavLink to='/profile' className='drop' style={({isActive}) => (isActive ? activeStyle : undefined)}>MY PROFILE</NavLink>
+                  <NavLink to='/recipe' className='drop' style={({isActive}) => (isActive ? activeStyle : undefined)}>ADD RECIPE</NavLink>
                   <NavLink to='/shopping' className='drop' style={({isActive}) => (isActive ? activeStyle : undefined)}>SHOPPING LIST</NavLink>
                 </div>
               )}
             </div>
-
+            
             <div className="collapsible-menu">
               <button 
                 onClick={toggleSeasonsMenu}
@@ -125,6 +117,21 @@ const NavBar = () => {
                 </div>
               )}
             </div>
+
+            {/* <NavLink to='/profile' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MY PROFILE</NavLink> */}
+            {/* <NavLink to='/recipe' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>ADD RECIPE</NavLink> */}
+            <NavLink to='/mixingbowl' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>MIXING BOWL</NavLink>
+            {/* <NavLink to='/shopping' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SHOPPING LIST</NavLink>             */}
+            
+
+            
+
+
+            { isLoggedIn() ? (
+              <button onClick={handleLogout} className='navlink'>LOG OUT</button>
+            ) : (
+              <NavLink to='/register' className='navlink' style={({isActive}) => (isActive ? activeStyle : undefined)}>SIGN UP</NavLink>
+            )}
             
           </div>
         </nav>    
