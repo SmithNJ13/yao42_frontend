@@ -67,7 +67,9 @@ describe('ViewRecipe component', () => {
   
   it('renders recipe details when recipes are available', async () => {
     mockAxios.mockResolvedValue({ data: { recipes: mockRecipesData } });
-    vi.spyOn(React, 'useState').mockImplementation(() => [mockRecipesData, () => {}])
+    vi.spyOn(React, 'useState')
+      .mockImplementationOnce(() => [mockRecipesData, () => {}]) 
+      .mockImplementationOnce(() => [false, () => {}]); 
 
 
     render( <Provider store={store}>
