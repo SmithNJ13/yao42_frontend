@@ -6,30 +6,29 @@ import { faHeart, faFileLines, faUser} from '@fortawesome/free-solid-svg-icons'
 import form from '../../assets/form.png'
 import { faFacebook, faInstagram, faPinterest, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios';
-import LikeButton from '../../components/LikeButton/index.jsx';
 import { useNavigate} from 'react-router-dom';
 import LoginPopUp from '../../components/LoginPopUp';
+import Loading from "../../components/Loading"
 
 const Profile = () => {
   const navigate = useNavigate()
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [userRecipes, setUserRecipes] = useState([])
   const [recipes, setRecipes] = useState([])
-  const [likedRecipes, setLikedRecipes] = useState([]);
-  const [likedRecipesToShow, setLikedRecipesToShow] = useState([]);
+  const [likes, setLikes] = useState([])
   const [currentPageRecipes, setCurrentPageRecipes] = useState(1);
-  const [currentPageLikedRecipes, setCurrentPageLikedRecipes] = useState(1);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
 
   useEffect(() => {
     async function fetchData(){
       try { 
-        const localId = localStorage.getItem('user_id')
-        const recipesresponse= await axios.get('https://lap-4-server.onrender.com/recipes')
-        setRecipes(recipesresponse.data.recipes.filter((r) => r.user_id == localId ))
-      
-        const likesresponse = await axios.get('https://lap-4-server.onrender.com/likes')
-        setLikedRecipes(likesresponse.data.likes.filter((l) => l.user_id == localId ))
+        const uID = localStorage.getItem('user_id')
+        const allRecipes = await axios.get('https://lap-4-server.onrender.com/recipes')
+        const allLikes = await axios.get("https://lap-4-server.onrender.com/likes")
+        setRecipes(allRecipes.data.recipes)
+        setUserRecipes(allRecipes.data.recipes.filter((r) => r.user_id == uID ))
+        setLikes(allLikes.data.likes.filter((l) => l.user_id == uID))
       } catch (error) {   
         console.log(error)
       } 
@@ -54,6 +53,12 @@ const Profile = () => {
     }
 
   }, []);
+  if(!userRecipes || !likes) {
+    <Loading />
+  } else {
+    console.log("user_recipes: ", userRecipes)
+    console.log("user_likes: ", likes)
+  }
 
 
   const loadMoreRecipes = () => {
@@ -68,29 +73,8 @@ const Profile = () => {
 
   const startIndexRecipes = (currentPageRecipes - 1) * 4; 
   const endIndexRecipes = startIndexRecipes + 4;
-  const recipesToShow = recipes.slice(startIndexRecipes, endIndexRecipes);
+  const recipesToShow = userRecipes.slice(startIndexRecipes, endIndexRecipes);
 
-
-
- const loadMoreLikedRecipes = () => {
-    setCurrentPageLikedRecipes(currentPageLikedRecipes + 1);
-  };
-
-    const goBackLikedRecipes = () => {
-    if (currentPageLikedRecipes > 1) {
-      setCurrentPageLikedRecipes(currentPageLikedRecipes - 1);
-    }
-    }
-
-    const startIndexLikedRecipes = (currentPageLikedRecipes - 1) * 4;
-    const endIndexLikedRecipes = startIndexLikedRecipes + 4;
-
-  useEffect(() => {   
-    const startIndexLikedRecipes = (currentPageLikedRecipes - 1) * 4;
-    const endIndexLikedRecipes = startIndexLikedRecipes + 4;
-    const likedRecipesToDisplay = likedRecipes.slice(startIndexLikedRecipes, endIndexLikedRecipes);
-    setLikedRecipesToShow(likedRecipesToDisplay);
-  }, [currentPageLikedRecipes, likedRecipes]);
 
 
   
@@ -129,12 +113,12 @@ const Profile = () => {
                 <div className="tw-text-center">
                   <span className="tw-font-semibold tw-text-gray-700">Likes</span>
                   <br />
-                  <span className="tw-font-semibold tw-text-gray-700">{likedRecipes.length}</span>
+                  <span className="tw-font-semibold tw-text-gray-700">{likes.length}</span>
                 </div>
                 <div className="tw-text-center">
                   <span className="tw-font-semibold tw-text-gray-700">Recipes</span>
                   <br />
-                  <span className="tw-font-semibold tw-text-gray-700">{recipes.length}</span>
+                  <span className="tw-font-semibold tw-text-gray-700">{userRecipes.length}</span>
                 </div>
               </div>
             </div>
@@ -176,7 +160,7 @@ const Profile = () => {
               </span>
               <span className="tw-tracking-wide">My Recipes</span>
             </div>
-            <div className="tw-flex tw-flex-wrap tw-justify-between">
+            <div id="userRecipes" className="tw-flex tw-flex-wrap tw-justify-start">
               {recipesToShow.map((x) => (
               <div key={x.id} className="tw-w-1/5 tw-mb-4 tw-mx-2 tw-text-center">
                 <button className='button' onClick={() => navigate(`/recipe/${x.name}`)}>
@@ -193,7 +177,7 @@ const Profile = () => {
               className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
               >Back</button>
               )}
-              {endIndexRecipes < recipes.length && ( 
+              {endIndexRecipes < userRecipes.length && ( 
               <button 
               onClick={loadMoreRecipes}
               className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
@@ -215,44 +199,35 @@ const Profile = () => {
                 </span>
                 <span className="tw-tracking-wide"> Liked Recipes</span>
               </div>
-              <ul className="tw-list-inside tw-space-y-2">
-                <li>
-                  {likedRecipesToShow.map((like) => {
-                    const recipe = recipes.find((r) => r.id === like.recipe_id);
-                    if (recipe) {
-                      console.log(recipe)
-                      return (
-                        <div key={recipe.id} className="">
-                          <button className='button' onClick={() => navigate(`/recipe/${recipe.name}`)}>
-                            <div className=" tw-font-semibold recipename">{recipe.name}</div>
-                            <img className="tw-h-20 tw-w-20  tw-rounded-full tw-mx-auto recipes" src={recipe.image} alt={recipe.name} />
-                          </button> 
+              <ul id="likedRecipes" className="tw-list-inside tw-space-y-2">
+                {likes.map((like) => {
+                  const likedRecipe = recipes.find((recipe) => recipe.id === like.recipe_id);
+
+                  if (likedRecipe) {
+                    return (
+                      <li key={like.id}>
+                        <div>
+                          <button className='button' onClick={() => navigate(`/recipe/${likedRecipe.name}`)}>
+                            <div className="tw-font-semibold recipename">{likedRecipe.name}</div>
+                            <img className="tw-h-20 tw-w-20 tw-rounded-full tw-mx-auto recipes" src={likedRecipe.image} alt={likedRecipe.name} />
+                          </button>
                         </div>
-                        );
-                      }
-                      return null;
-                      })}
-                </li>
+                      </li>
+                    );
+                  }
+                  return null;
+                })}
               </ul>
-              {likedRecipes.length > 4 && likedRecipesToShow.length < likedRecipes.length && ( 
               <button
-              onClick={loadMoreLikedRecipes}
               className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
               >More Liked Recipes</button>
-              )}
               <div className="tw-flex tw-justify-between tw-mt-2">
-                {startIndexLikedRecipes > 0 && (
                 <button
-                onClick={goBackLikedRecipes}
                 className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
                 >Back</button>
-                )}
-                {endIndexLikedRecipes < likedRecipes.length && (
                 <button
-                onClick={loadMoreLikedRecipes}
                 className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
                 >See More Liked Recipes</button>
-                )}
                 </div>
               </div>
             </div>

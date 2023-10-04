@@ -82,3 +82,10 @@ transition: 0.5s;
 .likesdiv{
  border-bottom: solid 6px #badc83;
 }
+#likedRecipes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem
+}
