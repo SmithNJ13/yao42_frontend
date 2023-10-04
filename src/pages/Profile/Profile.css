@@ -86,7 +86,7 @@ transition: 0.5s;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2.5rem;
     padding: 1rem
 }
 #userImage img:hover{
