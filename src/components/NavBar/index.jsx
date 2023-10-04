@@ -74,11 +74,6 @@ const NavBar = () => {
     navigate('/login'); 
   };
 
-  const handleFilterChange = (filter) => {
-    setSelectedFilter(filter);
-    navigate(`?filter=${filter}&vegan=${selectedVegan}&vegetarian=${selectedVegetarian}`);
-  };
-
   const handleVeganFilterChange = () => {
     const newSelectedVegan = !selectedVegan;
     setSelectedVegan(newSelectedVegan);
@@ -93,11 +88,6 @@ const NavBar = () => {
     const queryParams = new URLSearchParams(location.search);
     queryParams.set('vegetarian', newSelectedVegetarian ? 'true' : 'false');
     navigate(`${location.pathname}?${queryParams.toString()}`);
-  };
-
-  const clearFilter = () => {
-    setSelectedFilter(null);
-    navigate(`/${location.pathname.split('/').pop()}`);
   };
 
   const handleClearVeganFilter = () => {
@@ -120,9 +110,6 @@ const NavBar = () => {
     setSelectedVegetarian(false);
     navigate(`/${location.pathname.split('/').pop()}`);
   };
-  
-
- 
 
   return (
     <>
@@ -157,36 +144,6 @@ const NavBar = () => {
                 </div>
               )}
             </div>
-
-{isSeasonalPage && (
-             <>
-              <br />
-            <h2> BUDGET FILTER:</h2>
-            <br />
-            {selectedFilter && (
-               <button onClick={clearFilter}>Clear Filter</button>
-             )}
-             
-            <button
-              className={`navlink ${selectedFilter === '£' ? 'selected' : ''}`}
-              onClick={() => handleFilterChange('£')}
-            >
-              £
-            </button>
-            <button
-              className={`navlink ${selectedFilter === '££' ? 'selected' : ''}`}
-              onClick={() => handleFilterChange('££')}
-            >
-              ££
-            </button>
-            <button
-              className={`navlink ${selectedFilter === '£££' ? 'selected' : ''}`}
-              onClick={() => handleFilterChange('£££')}
-            >
-              £££
-            </button>
-           </>
-            )}
 
 {isSeasonalPage && (
             <>
