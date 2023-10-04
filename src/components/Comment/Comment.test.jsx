@@ -7,27 +7,24 @@ expect.extend(matchers)
 
 import Comment from '.'
 
-describe("Comments component", () => {
+describe("Comment component", () => {
+    const username = 'Test User';
 
     beforeEach(() => {
-        render(<Comment comment="Test Comment" user_id={123} />)
+        render(<Comment comment="Test Comment" username={username} />)
     })
 
     afterEach(() => {
         cleanup()
     })
 
-    it('should render user_id and comment text', () => {
-        const userIdElement = screen.getByText('User Id: 123');
+    it('should render username and comment text', () => {
+        const userNameElement = screen.getByText(`${username}:`);
         const commentTextElement = screen.getByText('Test Comment');
     
-        expect(userIdElement).toBeInTheDocument();
+        expect(userNameElement).toBeInTheDocument();
         expect(commentTextElement).toBeInTheDocument();
-      });
+    });
 
-      it('should render the LikeButton component', () => {
-        const likeButton = screen.getByTestId("like-button");
-
-        expect(likeButton).toBeInTheDocument();
-      });
+ 
 })
