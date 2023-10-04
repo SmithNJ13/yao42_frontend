@@ -111,9 +111,8 @@ const ViewRecipe = () => {
                   </div>
                   <div>
                   <button id ="shopping_button" onClick={() => handleAddToList(recipe.ingredients)}>Add to my Shopping List</button>
-                  <button id="shopping_button" onClick={() => handleRemoveFromList(recipe.ingredients)}>Remove from my Shopping List</button>
                   </div>
-                  
+                  <button id="shopping_button" onClick={() => handleRemoveFromList(recipe.ingredients)}>Remove from my Shopping List</button>
                 </div>
               </div>
               <div id="MainBody">
