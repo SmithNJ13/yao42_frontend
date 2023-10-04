@@ -106,7 +106,7 @@ const veganRecipes = filteredRecipes.filter(recipe => recipe.vegan === true && !
 const vegetarianRecipes = filteredRecipes.filter(recipe => recipe.vegetarian === true && !ourRecipes.includes(recipe));
 
 return (
-  <body style={BGStyle}>
+  <div style={BGStyle} className="SeasonalPage">
     <div id="MainContent">
       <div id="Title" className={season}>
         {displaySeason}
@@ -165,7 +165,7 @@ return (
         )}
       </div>
     </div>
-  </body>
+  </div>
 );
 }
 

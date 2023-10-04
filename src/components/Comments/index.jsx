@@ -4,19 +4,29 @@ import Comment from '../Comment'
 import CommentBox from '../CommentBox'
 import DeleteButton from '../DeleteButton';
 import { useParams } from 'react-router-dom';
+import { Loading } from '..';
 
 const Comments = ({recipe_id}) => {
     const [comments, setComments] = useState([]);
     const { postId } = useParams();
     
  const getComments = async () => {
- try {
-const response = await fetch('https://lap-4-server.onrender.com/comments')
-const data = await response.json()
-setComments(data.comments)
- } catch (error) {
-console.error(error)
- }}
+  try {
+  const response = await fetch('https://lap-4-server.onrender.com/comments')
+  const data = await response.json()
+  setComments(data.comments)
+  } catch (error) {
+  console.error(error)
+  }
+}
+async function filterComments() {
+  const comm = comments.find((com) => com.recipe_id == recipe_id)
+  if(comm === undefined) {
+    console.log("no comment matches!")
+  } else {
+    return console.log(comm)
+  }
+}
 
 
   const handleDelete = async (commentToDelete) => {
@@ -48,6 +58,7 @@ console.error(error)
 
   useEffect(() => {
     getComments();
+    filterComments()
   }, [postId]);
 
   return (
