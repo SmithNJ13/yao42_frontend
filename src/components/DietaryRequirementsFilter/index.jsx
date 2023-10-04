@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const DietaryRequirementsFilter = () => {
+const DietaryFilter = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedVegan, setSelectedVegan] = useState(false);
@@ -18,44 +18,51 @@ const DietaryRequirementsFilter = () => {
   const handleVeganFilterChange = () => {
     const newSelectedVegan = !selectedVegan;
     setSelectedVegan(newSelectedVegan);
-    const queryParams = new URLSearchParams(location.search);
-    queryParams.set('vegan', newSelectedVegan ? 'true' : 'false');
-    queryParams.delete('vegetarian'); // Ensure only one dietary filter is active at a time
-    navigate(`${location.pathname}?${queryParams.toString()}`);
+    updateQueryParams(newSelectedVegan, selectedVegetarian);
   };
 
   const handleVegetarianFilterChange = () => {
     const newSelectedVegetarian = !selectedVegetarian;
     setSelectedVegetarian(newSelectedVegetarian);
-    const queryParams = new URLSearchParams(location.search);
-    queryParams.set('vegetarian', newSelectedVegetarian ? 'true' : 'false');
-    queryParams.delete('vegan'); // Ensure only one dietary filter is active at a time
-    navigate(`${location.pathname}?${queryParams.toString()}`);
+    updateQueryParams(selectedVegan, newSelectedVegetarian);
   };
 
-  const clearAllFilters = () => {
-    setSelectedVegan(false);
-    setSelectedVegetarian(false);
+  const updateQueryParams = (vegan, vegetarian) => {
     const queryParams = new URLSearchParams(location.search);
-    queryParams.delete('vegan');
-    queryParams.delete('vegetarian');
+    if (vegan) {
+      queryParams.set('vegan', 'true');
+    } else {
+      queryParams.delete('vegan');
+    }
+    if (vegetarian) {
+      queryParams.set('vegetarian', 'true');
+    } else {
+      queryParams.delete('vegetarian');
+    }
     navigate(`${location.pathname}?${queryParams.toString()}`);
   };
 
   return (
     <>
       <h2>DIETARY REQUIREMENT FILTER:</h2>
-      {selectedVegan && <button onClick={handleVeganFilterChange}>Clear Vegan Filter</button>}
-      <button className={`navlink ${selectedVegan ? 'selected' : ''}`} onClick={handleVeganFilterChange}>
+      <label>
         VEGAN
-      </button>
-      {selectedVegetarian && <button onClick={handleVegetarianFilterChange}>Clear Vegetarian Filter</button>}
-      <button className={`navlink ${selectedVegetarian ? 'selected' : ''}`} onClick={handleVegetarianFilterChange}>
+        <input 
+            type="checkbox" 
+            checked={selectedVegan} 
+            onChange={handleVeganFilterChange} 
+        />
+      </label>
+      <label>
         VEGETARIAN
-      </button>
-      {(selectedVegan || selectedVegetarian) && <button onClick={clearAllFilters}>Clear All Filters</button>}
+        <input 
+            type="checkbox" 
+            checked={selectedVegetarian} 
+            onChange={handleVegetarianFilterChange} 
+        />
+      </label>
     </>
   );
 };
 
-export default DietaryRequirementsFilter;
+export default DietaryFilter;
