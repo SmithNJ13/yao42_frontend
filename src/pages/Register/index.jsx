@@ -6,7 +6,9 @@ import './RegisterPage.css'
 const RegisterPage = () => {
   return (
     <div>
+      <div data-testid="Register">
         <RegisterForm />
+        </div>
     </div>
   )
 }

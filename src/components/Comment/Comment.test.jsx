@@ -8,20 +8,23 @@ expect.extend(matchers)
 import Comment from '.'
 
 describe("Comment component", () => {
+    const username = 'Test User';
 
     beforeEach(() => {
-        render(<Comment comment="Test Comment" username={'bob'} />)
+        render(<Comment comment="Test Comment" username={username} />)
     })
 
     afterEach(() => {
         cleanup()
     })
 
-    it('should render user_id and comment text', () => {
-        const userName = screen.getByText('bob:');
+    it('should render username and comment text', () => {
+        const userNameElement = screen.getByText(`${username}:`);
         const commentTextElement = screen.getByText('Test Comment');
     
-        expect(userName).toBeInTheDocument();
+        expect(userNameElement).toBeInTheDocument();
         expect(commentTextElement).toBeInTheDocument();
-      });
+    });
+
+ 
 })
