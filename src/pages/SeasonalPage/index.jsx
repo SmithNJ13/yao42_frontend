@@ -187,7 +187,15 @@ return (
           </>
         )}
       </div>
-    </body>
+      </div>
+        {showButton && (
+          <ScrollToTopButton
+            season={season}
+            handleScrollToTop={handleScrollToTop}
+            isHovered={isHovered}
+          />
+        )}
+      </div>
   );
 }
 
