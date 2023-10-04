@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.95% </span>
+                <span class="strong">2.79% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/203</span>
+                <span class='fraction'>6/215</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.95% </span>
+                <span class="strong">2.79% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/203</span>
+                <span class='fraction'>6/215</span>
             </div>
         
             
@@ -266,10 +266,34 @@
 <a name='L201'></a><a href='#L201'>201</a>
 <a name='L202'></a><a href='#L202'>202</a>
 <a name='L203'></a><a href='#L203'>203</a>
-<a name='L204'></a><a href='#L204'>204</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L204'></a><a href='#L204'>204</a>
+<a name='L205'></a><a href='#L205'>205</a>
+<a name='L206'></a><a href='#L206'>206</a>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a>
+<a name='L210'></a><a href='#L210'>210</a>
+<a name='L211'></a><a href='#L211'>211</a>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -475,6 +499,8 @@ import PopUp from '../PopUp';
 const PostRecipe = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  </span>
 <span class="cstat-no" title="statement not covered" >  const [name, setName] = useState('');</span>
+<span class="cstat-no" title="statement not covered" >  const [vegetarian, setVegetarian] = useState(false);</span>
+<span class="cstat-no" title="statement not covered" >  const [vegan, setVegan] = useState(false);</span>
 <span class="cstat-no" title="statement not covered" >  const [description, setDescription] = useState('');</span>
 <span class="cstat-no" title="statement not covered" >  const [ingredients, setIngredients] = useState('');</span>
 <span class="cstat-no" title="statement not covered" >  const [budget, setBudget] = useState('');</span>
@@ -537,6 +563,8 @@ const PostRecipe = <span class="fstat-no" title="function not covered" >() =&gt;
 <span class="cstat-no" title="statement not covered" >        },</span>
 <span class="cstat-no" title="statement not covered" >        body: JSON.stringify({</span>
 <span class="cstat-no" title="statement not covered" >          name,</span>
+<span class="cstat-no" title="statement not covered" >          vegetarian,</span>
+<span class="cstat-no" title="statement not covered" >          vegan,</span>
 <span class="cstat-no" title="statement not covered" >          description,</span>
 <span class="cstat-no" title="statement not covered" >          ingredients,</span>
 <span class="cstat-no" title="statement not covered" >          budget,</span>
@@ -555,6 +583,8 @@ const PostRecipe = <span class="fstat-no" title="function not covered" >() =&gt;
 <span class="cstat-no" title="statement not covered" >      console.log('Recipe submitted successfully:', data);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      setName('');</span>
+<span class="cstat-no" title="statement not covered" >      setVegetarian(false);</span>
+<span class="cstat-no" title="statement not covered" >      setVegan(false);</span>
 <span class="cstat-no" title="statement not covered" >      setDescription('');</span>
 <span class="cstat-no" title="statement not covered" >      setIngredients('');</span>
 <span class="cstat-no" title="statement not covered" >      setInstructions('');</span>
@@ -583,6 +613,12 @@ const PostRecipe = <span class="fstat-no" title="function not covered" >() =&gt;
 <span class="cstat-no" title="statement not covered" >          required</span>
 <span class="cstat-no" title="statement not covered" >        /&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className='tw-flex tw-items-center tw-my-2 tw-pb-4'&gt;</span>
+<span class="cstat-no" title="statement not covered" >  &lt;label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4 tw-flex-1" htmlFor="vegetarian"&gt;Vegetarian&lt;/label&gt;</span>
+<span class="cstat-no" title="statement not covered" >  &lt;input checked={vegetarian} type="checkbox" id="recipe_vegetarian" onChange={(e) =&gt; setVegetarian(e.target.checked)} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >  &lt;label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4 tw-flex-1" htmlFor="vegan"&gt;Vegan&lt;/label&gt;</span>
+<span class="cstat-no" title="statement not covered" >  &lt;input checked={vegan} type="checkbox" id="recipe_vegan" onChange={(e) =&gt; setVegan(e.target.checked)} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;div className='tw-flex tw-items-center tw-my-2 tw-pb-4'&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="description"&gt; Description&lt;/label&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;input</span>
@@ -679,7 +715,7 @@ export default PostRecipe;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-10-03T21:18:37.221Z
+                at 2023-10-04T08:25:24.623Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

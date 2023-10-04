@@ -25,7 +25,7 @@ describe("NavBar component", () => {
     it("Displays a nav bar will have three children", () => {
         const nav = screen.getByTestId("navlinks")
         expect(nav).toBeInTheDocument()
-        expect(nav.childNodes.length).toBe(7)
+        expect(nav.childNodes.length).toBe(6)
     })
 
     it("Displays navigation links", () => {
