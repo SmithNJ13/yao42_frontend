@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { CarouselComponent, RecipeCard, Loading } from "../../components";
+import { CarouselComponent, RecipeCard, Loading, ScrollToTopButton } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { changeBGColour } from '../../actions/bgActions';
 import axios from "axios";
@@ -17,13 +17,36 @@ const SeasonalPage = () => {
   const BGColour = useSelector(state => state.BGColour);
   const queryParams = new URLSearchParams(location.search);
   const selectedFilter = queryParams.get('filter'); 
+  const [showButton, setShowButton] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const selectedVegan = queryParams.get('vegan') === 'true';
   const selectedVegetarian = queryParams.get('vegetarian') === 'true';
 
   useEffect(() => {
     getIngredients();
     getRecipes();
+
+    function handleScroll() {
+      if (window.scrollY > 100) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   const BGStyle = {
     backgroundColor: BGColour,
@@ -164,9 +187,16 @@ return (
           </>
         )}
       </div>
-    </div>
-  </div>
-);
+      </div>
+        {showButton && (
+          <ScrollToTopButton
+            season={season}
+            handleScrollToTop={handleScrollToTop}
+            isHovered={isHovered}
+          />
+        )}
+      </div>
+  );
 }
 
 export default SeasonalPage;

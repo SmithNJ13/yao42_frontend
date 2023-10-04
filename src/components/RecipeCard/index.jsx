@@ -16,27 +16,27 @@ const RecipeCard = ({ recipe, season }) => {
     case "spring":
       cardColour = "#EDF6E0";
       buttonColor = "#BADC83";
-      buttonHoverColor = "#B0D07D";
+      buttonHoverColor = "#A3CB62";
       break;
     case "summer":
       cardColour = "#FFF8D2";
       buttonColor = "#FFE448";
-      buttonHoverColor = "#F8DE47";
+      buttonHoverColor = "#F0D013";
       break;
     case "autumn":
       cardColour = "#FFE8C0";
       buttonColor = "#FEBB40";
-      buttonHoverColor = "#F0B13E";
+      buttonHoverColor = "#E99700";
       break;
     case "winter":
       cardColour = "#E1F2FA";
       buttonColor = "#87CEEB";
-      buttonHoverColor = "#81C3DE";
+      buttonHoverColor = "#50B5DE";
       break;
     default:
       cardColour = "#F0E3FB";
       buttonColor = "#D296EE";
-      buttonHoverColor = "#C78FE1";
+      buttonHoverColor = "#BD66E5";
   }
 
   const handleClick = () => {
