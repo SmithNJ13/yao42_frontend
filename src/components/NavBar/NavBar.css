@@ -48,6 +48,7 @@ body {
 .collapsible-menu {
     display: flex;
     flex-direction: column;
+    padding-bottom: 20px;
 }
 
 .collapsible-content{
@@ -58,7 +59,7 @@ body {
     margin-top: 5px;
 }
 
-.seasonsDrop:hover {
+.drop:hover {
     font-weight: bold;
     scale: 110%;
     transition: 0.1s ease-in;
