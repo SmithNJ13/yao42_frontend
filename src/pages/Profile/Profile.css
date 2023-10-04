@@ -1,4 +1,14 @@
-
+#profileCard {
+    overflow-y: scroll;
+}
+#profileCard::-webkit-scrollbar {
+    width: 10px;
+}
+#profileCard::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    height: 40px; 
+    background-color: #d296ee;
+}
 .bosscontainer{
 margin-left: 240px;
 }
@@ -7,12 +17,13 @@ margin-left: 240px;
     height: 2rem;
     width: 2rem;
     color: #badc83;
+    scale: 250%;
 
 }
 
 .social:hover{
-
-color: #A17CD6;
+    cursor: pointer;
+    color: #A17CD6;
 
 }
 
@@ -70,4 +81,11 @@ transition: 0.5s;
 
 .likesdiv{
  border-bottom: solid 6px #badc83;
+}
+#likedRecipes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem
 }
