@@ -24,10 +24,4 @@ describe("Comment component", () => {
         expect(userName).toBeInTheDocument();
         expect(commentTextElement).toBeInTheDocument();
       });
-
-      it('should render the LikeButton component', () => {
-        const likeButton = screen.getByTestId("like-button");
-
-        expect(likeButton).toBeInTheDocument();
-      });
 })

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75.86% </span>
+                <span class="strong">67.24% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>44/58</span>
+                <span class='fraction'>39/58</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75.86% </span>
+                <span class="strong">67.24% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>44/58</span>
+                <span class='fraction'>39/58</span>
             </div>
         
             
@@ -125,11 +125,11 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -145,19 +145,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -170,13 +167,16 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useEffect } from 'react';
@@ -216,10 +216,10 @@ const ShoppingList = () =&gt; {
         &lt;&gt;
             &lt;div className="shopping-container"&gt;
                 {loading ? (
-                    &lt;p&gt;Loading...&lt;/p&gt;
-                ) : (
-                    &lt;ul&gt;
-                        {items.map((item, index) =&gt; (
+                    &lt;p&gt;Loading...<span class="branch-0 cbranch-no" title="branch not covered" >&lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >                ) : (</span>
+<span class="cstat-no" title="statement not covered" >                    &lt;ul&gt;</span>
+<span class="cstat-no" title="statement not covered" >                        {items.map((item, index) =&gt; (</span>
 <span class="cstat-no" title="statement not covered" >                            &lt;li id ="shopping_list_item" key={index}&gt;</span>
 <span class="cstat-no" title="statement not covered" >                                &lt;input </span>
 <span class="cstat-no" title="statement not covered" >                                    type="checkbox" </span>
@@ -228,8 +228,8 @@ const ShoppingList = () =&gt; {
 <span class="cstat-no" title="statement not covered" >                                /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                                &lt;span className={checkedItems[index] ? "checked-item" : ""}&gt;{item}&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >                            &lt;/li&gt;</span>
-                        ))}
-                    &lt;/ul&gt;
+<span class="cstat-no" title="statement not covered" >                        ))}</span>
+<span class="cstat-no" title="statement not covered" >                    &lt;/ul&gt;</span>
                 )}
             &lt;/div&gt;
         &lt;/&gt;
@@ -244,7 +244,7 @@ export default ShoppingList;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-10-04T11:55:10.197Z
+                at 2023-10-04T12:33:45.488Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
