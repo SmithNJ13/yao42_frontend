@@ -196,7 +196,7 @@ const Profile = () => {
               >Back</button>
               )}
               {endIndexRecipes < recipes.length && ( 
-              <button
+              <button 
               onClick={loadMoreRecipes}
               className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
               >See More Recipes</button>
