@@ -11,9 +11,6 @@ const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [showSeasonsMenu, setShowSeasonsMenu] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState(null);
-  const [selectedVegan, setSelectedVegan] = useState(false); 
-  const [selectedVegetarian, setSelectedVegetarian] = useState(false); 
 
   const isSeasonalPage = ['/spring', '/summer', '/autumn', '/winter'].includes(location.pathname);
 
@@ -74,43 +71,6 @@ const NavBar = () => {
     navigate('/login'); 
   };
 
-  const handleVeganFilterChange = () => {
-    const newSelectedVegan = !selectedVegan;
-    setSelectedVegan(newSelectedVegan);
-    const queryParams = new URLSearchParams(location.search);
-    queryParams.set('vegan', newSelectedVegan ? 'true' : 'false');
-    navigate(`${location.pathname}?${queryParams.toString()}`);
-  };
-  
-  const handleVegetarianFilterChange = () => {
-    const newSelectedVegetarian = !selectedVegetarian;
-    setSelectedVegetarian(newSelectedVegetarian);
-    const queryParams = new URLSearchParams(location.search);
-    queryParams.set('vegetarian', newSelectedVegetarian ? 'true' : 'false');
-    navigate(`${location.pathname}?${queryParams.toString()}`);
-  };
-
-  const handleClearVeganFilter = () => {
-    setSelectedVegan(false);
-    const queryParams = new URLSearchParams(location.search);
-    queryParams.delete('vegan');
-    navigate(`${location.pathname}?${queryParams.toString()}`);
-  };
-  
-  const handleClearVegetarianFilter = () => {
-    setSelectedVegetarian(false);
-    const queryParams = new URLSearchParams(location.search);
-    queryParams.delete('vegetarian');
-    navigate(`${location.pathname}?${queryParams.toString()}`);
-  };
-
-  const clearAllFilters = () => {
-    setSelectedFilter(null);
-    setSelectedVegan(false);
-    setSelectedVegetarian(false);
-    navigate(`/${location.pathname.split('/').pop()}`);
-  };
-
   return (
     <>
       <div className="sidebar" style={getNavbarStyle()}>
@@ -144,41 +104,6 @@ const NavBar = () => {
                 </div>
               )}
             </div>
-
-{isSeasonalPage && (
-            <>
-<br />
-            <h2> DIETARY REQUIREMENT FILTER:</h2>
-            <br />
-            {selectedVegan && (
-              <button className="clear-filter-button" onClick={handleClearVeganFilter}>
-                Clear Vegan Filter
-              </button>
-            )}
-            <button
-              className={`navlink ${selectedVegan ? 'selected' : ''}`}
-              onClick={handleVeganFilterChange}
-            >
-              VEGAN
-            </button>
-            {selectedVegetarian && (
-              <button className="clear-filter-button" onClick={handleClearVegetarianFilter}>
-                Clear Vegetarian Filter
-              </button>
-            )}
-            <button
-              className={`navlink ${selectedVegetarian ? 'selected' : ''}`}
-              onClick={handleVegetarianFilterChange}
-            >
-              VEGETARIAN
-            </button>
-            {selectedFilter || selectedVegan || selectedVegetarian ? (
-                <button onClick={clearAllFilters}>Clear All Filters</button>
-              ) : null}
-              <br/>
-           
-</>
-)}
             
           </div>
         </nav>    

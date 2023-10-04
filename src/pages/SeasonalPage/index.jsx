@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { CarouselComponent, RecipeCard, Loading, ScrollToTopButton, BudgetFilter } from "../../components";
+import { CarouselComponent, RecipeCard, Loading, ScrollToTopButton, BudgetFilter, DietaryRequirementsFilter } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { changeBGColour } from '../../actions/bgActions';
 import axios from "axios";
@@ -141,6 +141,7 @@ return (
         <h2>Our Recipes</h2>
       </div>
       <BudgetFilter />
+      <DietaryRequirementsFilter />
       <div id='RecipeInfo'>
         {ourRecipes.length > 0 && (
           <>
