@@ -89,6 +89,7 @@ transition: 0.5s;
     gap: 1rem;
     padding: 1rem
 }
-#userImage img{
+#userImage img:hover{
+    border: solid rebeccapurple 2px;
     cursor: pointer;
 }
