@@ -3,7 +3,9 @@ import { LoginForm } from '../../components'
 const LoginPage = () => {
   return (
     <div>
+      <div data-testid="Login">
         <LoginForm />
+        </div>
     </div>
   )
 }
