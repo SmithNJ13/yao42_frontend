@@ -3,74 +3,26 @@ import React, {useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'
 import {faHeart as regularHeart} from '@fortawesome/free-regular-svg-icons'
+import axios from "axios";
 import './LikeButton.css'
 
-const LikeButton = ({recipe_id}) => {
+function userLikesRecipe(data, user_id, recipe_id) {
+  const like = data.find((li) => li.user_id == user_id && li.recipe_id == recipe_id)
+  return like
+}
+const LikeButton = ({comment_id, recipe_id}) => {
+const [like, setLike] = useState(null);
+const uID = localStorage.getItem("user_id")
 
-const [like, setLike] = useState(false);
-const [likeId, setLikeId] = useState(null);
-
-const getUserIdFromLocalStorage = () => {
-  const userId = localStorage.getItem('user_id');
-  return userId ? parseInt(userId, 10) : null;
-};
-
-
-const userId = getUserIdFromLocalStorage();
-const recipeId = recipe_id;
-
-useEffect(() => {
-  if (userId !== null && recipeId !== null) {
-    fetch(`https://lap-4-server.onrender.com/likes?user_id=${userId}&recipe_id=${recipeId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')}`, 
-      },
+async function getLikes() {
+  await axios.get("https://lap-4-server.onrender.com/likes")
+    .then(resp => {
+      const data = resp.data.likes
+      setLike(userLikesRecipe(data,uID, recipe_id))
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if ( data.likes && data.likes.length > 0) {
-        console.log("There's a like!", data)
-          setLike(true);
-          setLikeId(data.likes[0].id);
-        } else {
-          setLikeId(null);
-        }})
-      .catch((error) => {
-        console.error('Error fetching user like:', error);
-      });
-  }
-}, [userId, recipeId]);
-
-
-const handleClick = async () => {
-  try {
-    if (userId !== null && recipeId !== null) {
-      if (like) {
-        if (likeId !== null) {
-          console.log('Deleting likeId:', likeId)
-          const response = await fetch(
-            `https://lap-4-server.onrender.com/likes/${likeId}`,
-            {
-              method: 'DELETE',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
-              },
-            }
-          );
-          if (response.ok) {
-            setLike(false);
-            setLikeId(null);
-          } else {
-            console.error('Failed to delete like');
-          }
-        }
-      } else {
-        setLike(!like);
-        if (!like) {
-          const requestBody = JSON.stringify({ user_id: userId, recipe_id: recipeId });
+}
+const createLike = async () => {
+  const requestBody = JSON.stringify({ user_id: uID, recipe_id: recipe_id });
           const response = await fetch('https://lap-4-server.onrender.com/likes', {
             method: 'POST',
             headers: {
@@ -79,19 +31,27 @@ const handleClick = async () => {
             },
             body: requestBody,
           });
-          if (response.ok) {
-            const data = await response.json();
-            setLikeId(data.id);
-            console.log('Like created:', data);
-          } else {
-            console.error('Failed to create like');
-            alert('You must be logged in to like recipes');
-          }
-        }
-      }
+}
+const deleteLike = async () => {
+  const response = await fetch(
+    `https://lap-4-server.onrender.com/likes/${like.id}`,
+    {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
     }
-  } catch (error) {
-    console.error('Error:', error);
+  );
+}
+useEffect(() => {
+  getLikes()
+},[])
+const handleClick = async () => {
+  if(like) {
+    deleteLike().then(getLikes)
+  } else {
+    createLike().then(getLikes)
   }
 };
 

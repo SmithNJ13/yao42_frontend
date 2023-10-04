@@ -17,8 +17,13 @@ const SeasonalPage = () => {
   const BGColour = useSelector(state => state.BGColour);
   const queryParams = new URLSearchParams(location.search);
   const selectedFilter = queryParams.get('filter'); 
+<<<<<<< HEAD
   const [showButton, setShowButton] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+=======
+  const selectedVegan = queryParams.get('vegan') === 'true';
+  const selectedVegetarian = queryParams.get('vegetarian') === 'true';
+>>>>>>> 69142c64d41c9f3ad27b1a822ce6b52a67ff8c8f
 
   useEffect(() => {
     getIngredients();
@@ -111,53 +116,28 @@ const SeasonalPage = () => {
   }
 
   const filteredRecipes = selectedFilter
-    ? recipes.filter(r => r.season.toLowerCase().includes(season) && r.budget === selectedFilter)
-    : recipes.filter(r => r.season.toLowerCase().includes(season));
+  ? recipes.filter(r => r.season.toLowerCase().includes(season) && r.budget === selectedFilter)
+  : recipes.filter(r => r.season.toLowerCase().includes(season));
 
-  const ourRecipes = filteredRecipes.filter(recipe => recipe.user_id === 1);
-  const userCreatedRecipes = filteredRecipes.filter(recipe => recipe.user_id !== 1);
+const ourRecipes = filteredRecipes.filter(recipe => {
+  const isOurRecipe = recipe.user_id === 1;
+  const isVegan = recipe.vegan === true;
+  const isVegetarian = recipe.vegetarian === true;
+  return isOurRecipe && ((!selectedVegan && !selectedVegetarian) || (selectedVegan && isVegan) || (selectedVegetarian && isVegetarian));
+});
 
-  return (
-    <body style={BGStyle}>
-      <div id="MainContent">
-        <div id="Title" className={season}>
-          {displaySeason}
-        </div>
-        <div id="Carousel" className={season}>
-          <CarouselComponent ingredients={ingredients} season={season} />
-        </div>
-        <div id ='User_Admin_Recipe_Heading'>
-        <h2>Our Recipes</h2>
-        </div>
-        <div id='RecipeInfo'>
-          
-          {ourRecipes.length > 0 && (
-            <>
-              
-              {ourRecipes.map((recipe, index) => (
-                <div key={index + 1} id='card'>
-                  <RecipeCard recipe={recipe} season={season} />
-                </div>
-              ))}
-            </>
-          )}
-          </div>
-          <div id="Community_Recipes_Heading">
-          <h2>Community Recipes</h2>
-          </div>
-          <div id='RecipeInfo'>
-          
-          {userCreatedRecipes.length > 0 && (
-            <>
-              {userCreatedRecipes.map((recipe, index) => (
-                <div key={index + 1 + ourRecipes.length} id='card'>
-                  <RecipeCard recipe={recipe} season={season} />
-                </div>
-              ))}
-            </>
-          )}
-        </div>
+const userCreatedRecipes = filteredRecipes.filter(recipe => recipe.user_id !== 1);
+
+const veganRecipes = filteredRecipes.filter(recipe => recipe.vegan === true && !ourRecipes.includes(recipe));
+const vegetarianRecipes = filteredRecipes.filter(recipe => recipe.vegetarian === true && !ourRecipes.includes(recipe));
+
+return (
+  <div style={BGStyle} className="SeasonalPage">
+    <div id="MainContent">
+      <div id="Title" className={season}>
+        {displaySeason}
       </div>
+<<<<<<< HEAD
       {showButton && (
         <ScrollToTopButton
           season={season}
@@ -167,6 +147,64 @@ const SeasonalPage = () => {
       )}
     </body>
   );
+=======
+      <div id="Carousel" className={season}>
+        <CarouselComponent ingredients={ingredients} season={season} />
+      </div>
+      <div id ='User_Admin_Recipe_Heading'>
+        <h2>Our Recipes</h2>
+      </div>
+      <div id='RecipeInfo'>
+        {ourRecipes.length > 0 && (
+          <>
+            {ourRecipes.map((recipe, index) => (
+              <div key={index + 1} id='card'>
+                <RecipeCard recipe={recipe} season={season} />
+              </div>
+            ))}
+          </>
+        )}
+      </div>
+      <div id="Community_Recipes_Heading">
+        <h2>Community Recipes</h2>
+      </div>
+      <div id='RecipeInfo'>
+        {selectedVegan && (
+          <>
+            {veganRecipes.map((recipe, index) => (
+              <div key={index + 1 + ourRecipes.length + userCreatedRecipes.length} id='card'>
+                <RecipeCard recipe={recipe} season={season} />
+              </div>
+            ))}
+          </>
+        )}
+        {selectedVegetarian && (
+          <>
+            {vegetarianRecipes.map((recipe, index) => (
+              <div key={index + 1 + ourRecipes.length + userCreatedRecipes.length} id='card'>
+                <RecipeCard recipe={recipe} season={season} />
+              </div>
+            ))}
+          </>
+        )}
+        {!selectedVegan && !selectedVegetarian && (
+          <>
+            {userCreatedRecipes.length > 0 && (
+              <>
+                {userCreatedRecipes.map((recipe, index) => (
+                  <div key={index + 1 + ourRecipes.length} id='card'>
+                    <RecipeCard recipe={recipe} season={season} />
+                  </div>
+                ))}
+              </>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  </div>
+);
+>>>>>>> 69142c64d41c9f3ad27b1a822ce6b52a67ff8c8f
 }
 
 export default SeasonalPage;

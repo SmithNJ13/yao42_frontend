@@ -9,6 +9,7 @@ import "./style.css";
 const ViewRecipe = () => {
   const { name } = useParams();
   const [recipes, setRecipes] = useState();
+  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch();
   const BGColour = useSelector((state) => state.BGColour);
   const BGStyle = {
@@ -25,12 +26,16 @@ const ViewRecipe = () => {
         const data = resp.data.recipes;
         setRecipes(data);
       });
+      setLoading(false)
   }
 
   useEffect(() => {
     getRecipes();
     handleBG("#F7F6FE");
   }, []);
+  if (loading) {
+    return <Loading />;
+  }
 
   const handleAddToList = async (ingredients) => {
     const user_id = localStorage.getItem('user_id');
@@ -52,12 +57,43 @@ const ViewRecipe = () => {
     }
   };
 
-  if (!recipes) {
-    return <Loading />;
-  }
+
+  const handleRemoveFromList = async (recipeIngredients) => {
+    const token = localStorage.getItem('token');
+    
+    try {
+        
+        const listsResponse = await axios.get('https://lap-4-server.onrender.com/lists', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        
+        const listItemToDelete = listsResponse.data.lists.find(listItem => 
+            listItem.items === recipeIngredients
+        );
+
+        if (listItemToDelete) {
+            
+            await axios.delete(`https://lap-4-server.onrender.com/lists/${listItemToDelete.id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            alert('Recipe ingredients removed from your shopping list!');
+        } else {
+            alert('Ingredient not found in your shopping list!');
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while trying to remove ingredients from the shopping list.');
+    }
+};
 
   return (
-    <body style={BGStyle} className="ViewRecipe">
+    <div style={BGStyle} className="ViewRecipe">
       <>
         {recipes.filter((r) => r.name.includes(name))
           .map((recipe, key) => (
@@ -75,7 +111,9 @@ const ViewRecipe = () => {
                   </div>
                   <div>
                   <button id ="shopping_button" onClick={() => handleAddToList(recipe.ingredients)}>Add to my Shopping List</button>
+                  <button id="shopping_button" onClick={() => handleRemoveFromList(recipe.ingredients)}>Remove from my Shopping List</button>
                   </div>
+                  
                 </div>
               </div>
               <div id="MainBody">
@@ -109,7 +147,7 @@ const ViewRecipe = () => {
             </div>
           ))}
       </>
-    </body>
+    </div>
   );
 };
 
