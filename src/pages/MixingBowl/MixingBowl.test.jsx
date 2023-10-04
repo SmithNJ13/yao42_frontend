@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import { render, screen, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter as Router } from 'react-router-dom';
 import MixingBowl from '.';
@@ -49,5 +49,33 @@ it('renders the title', () => {
     expect(image).toBeInTheDocument();
     })
 
+    it('renders the ingredients search bar', () => {
+        render(<Router>
+            <MixingBowl />
+            </Router>);
+        const searchBar = screen.getByTestId('input', { name: /Search for ingredients/i });
+        expect(searchBar).toBeInTheDocument();
+    })
 
+    it('renders the add button', () => {
+        render(<Router>
+            <MixingBowl />
+            </Router>);
+        const button = screen.getByTestId('button', { name: /Add/i });
+        expect(button).toBeInTheDocument();
+    })
+
+    it('plays the animation when the find recipes button is clicked', () => {
+        render(<Router>
+            <MixingBowl />
+            </Router>);
+        const button = screen.getByRole('button', { name: /Find recipes!/i });
+        fireEvent.click(button);
+        const animation = screen.getByTestId('animation', { name: /animation/i });
+        expect(animation).toBeInTheDocument();
+    });
+
+   
+    
+  
 });  

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import './style.css';
 
@@ -6,7 +7,7 @@ const IngredientList = ({ selectedIngredients, handleRemoveIngredient }) => {
     <div>
       <ul className="ingredients">
         {selectedIngredients.map((ingredient, index) => (
-          <li key={index}>
+          <li key={index} data-testid='ingredient'>
             {ingredient}
             <i
               data-testid="trash-icon"
