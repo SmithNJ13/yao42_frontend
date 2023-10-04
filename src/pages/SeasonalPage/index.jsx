@@ -17,13 +17,10 @@ const SeasonalPage = () => {
   const BGColour = useSelector(state => state.BGColour);
   const queryParams = new URLSearchParams(location.search);
   const selectedFilter = queryParams.get('filter'); 
-<<<<<<< HEAD
   const [showButton, setShowButton] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-=======
   const selectedVegan = queryParams.get('vegan') === 'true';
   const selectedVegetarian = queryParams.get('vegetarian') === 'true';
->>>>>>> 69142c64d41c9f3ad27b1a822ce6b52a67ff8c8f
 
   useEffect(() => {
     getIngredients();
@@ -137,17 +134,6 @@ return (
       <div id="Title" className={season}>
         {displaySeason}
       </div>
-<<<<<<< HEAD
-      {showButton && (
-        <ScrollToTopButton
-          season={season}
-          handleScrollToTop={handleScrollToTop}
-          isHovered={isHovered}
-        />
-      )}
-    </body>
-  );
-=======
       <div id="Carousel" className={season}>
         <CarouselComponent ingredients={ingredients} season={season} />
       </div>
@@ -201,10 +187,8 @@ return (
           </>
         )}
       </div>
-    </div>
-  </div>
-);
->>>>>>> 69142c64d41c9f3ad27b1a822ce6b52a67ff8c8f
+    </body>
+  );
 }
 
 export default SeasonalPage;
