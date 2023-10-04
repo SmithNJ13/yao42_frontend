@@ -5,14 +5,14 @@ import LikeButton from '../LikeButton'
 
 
 
-const Comment = ({comment, user_id}) => {
+const Comment = ({comment, comment_id, user_id}) => {
     return (
         <>
         <div className="usercomment">
             <p> User Id: {user_id}</p>
             <p>{comment}</p>
         </div>
-        <LikeButton/>
+        <LikeButton comment_id={comment_id}/>
         </>
     )
 }

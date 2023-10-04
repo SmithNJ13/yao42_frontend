@@ -68,9 +68,10 @@ async function filterComments() {
     {comments.filter((comment) => comment.recipe_id == recipe_id)
     .map((comment) => (
       <div key={comment.id}>
-     <Comment className='comment' key={comment.id} 
-     comment={comment.comment} 
-     user_id={comment.user_id} />
+      <Comment className='comment' key={comment.id} 
+      comment={comment.comment}
+      comment_id={comment.id} 
+      user_id={comment.user_id} />
       <DeleteButton comment={comment} onDelete={handleDelete}/> 
      </div>
     ))}
