@@ -4,8 +4,8 @@ const PopUp = ({SetOpenPopUp}) => {
     
 
     return (
-        <div onClick={() => {SetOpenPopUp(false)}} className="modalBackground">
-            <div onClick={(click) => {click.stopPropagation()}} className="modalContainer">
+        <div onClick={() => {SetOpenPopUp(false)}} data-testid="modalBackground" className="modalBackground">
+            <div onClick={(click) => {click.stopPropagation()}} data-testid="modalContainer" className="modalContainer">
                 <div className="title">
                     <h1>Recipe Created!</h1>
                 </div>
