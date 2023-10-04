@@ -46,6 +46,9 @@ vi.mock('react-router-dom', () => ({
 }));
 
 describe('ViewRecipe component', () => {
+  beforeEach(() => {
+    cleanup()
+  })
 
   afterEach(() => {
    cleanup();
