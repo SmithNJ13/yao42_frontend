@@ -8,7 +8,7 @@ import useDynamicHeightField from './useDynamicHeightField';
 const initialHeight = 46;
 
 const CommentBox = ({recipe_id}) => {
-
+  const username = localStorage.getItem('username');
   const getUserIdFromLocalStorage = () => {
     const userId = localStorage.getItem('user_id');
     return userId ? parseInt(userId, 10) : null;
@@ -104,7 +104,7 @@ setIsExpanded(true);
             <div className="user">
             </div>
           </div>
-          <label htmlFor="comment">User Id: {userId}</label>
+          <label htmlFor="comment">Username: {username}</label>
           <textarea
             ref={textRef}
             onClick={onExpand}

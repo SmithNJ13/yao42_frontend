@@ -1,23 +1,16 @@
-/* eslint-disable react/prop-types */
-import React from 'react'
-import LikeButton from '../LikeButton'
+import React from 'react';
+import LikeButton from '../LikeButton';
 
-
-
-
-const Comment = ({comment, comment_id, user_id}) => {
+const Comment = ({ comment, username }) => {
     return (
         <>
-        <div className="usercomment">
-            <p> User Id: {user_id}</p>
-            <p>{comment}</p>
-        </div>
-        <LikeButton comment_id={comment_id}/>
+            <div className="usercomment">
+                <p>{username}:</p>
+                <p>{comment}</p>
+            </div>
+            <LikeButton />
         </>
-    )
-}
-
-
+    );
+};
 
 export default Comment;
-
