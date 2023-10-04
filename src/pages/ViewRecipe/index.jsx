@@ -8,8 +8,8 @@ import "./style.css";
 
 const ViewRecipe = () => {
   const { name } = useParams();
-  const [recipes, setRecipes] = useState();
-  const [loading, setLoading] = useState(true)
+  const [recipes, setRecipes] = React.useState();
+  const [loading, setLoading] = React.useState(true)
   const dispatch = useDispatch();
   const BGColour = useSelector((state) => state.BGColour);
   const BGStyle = {

@@ -7,10 +7,10 @@ expect.extend(matchers)
 
 import Comment from '.'
 
-describe("Comments component", () => {
+describe("Comment component", () => {
 
     beforeEach(() => {
-        render(<Comment comment="Test Comment" user_id={123} />)
+        render(<Comment comment="Test Comment" username={'bob'} />)
     })
 
     afterEach(() => {
@@ -18,10 +18,10 @@ describe("Comments component", () => {
     })
 
     it('should render user_id and comment text', () => {
-        const userIdElement = screen.getByText('User Id: 123');
+        const userName = screen.getByText('bob:');
         const commentTextElement = screen.getByText('Test Comment');
     
-        expect(userIdElement).toBeInTheDocument();
+        expect(userName).toBeInTheDocument();
         expect(commentTextElement).toBeInTheDocument();
       });
 
