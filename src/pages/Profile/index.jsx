@@ -26,11 +26,9 @@ const Profile = () => {
       try { 
         const localId = localStorage.getItem('user_id')
         const recipesresponse= await axios.get('https://lap-4-server.onrender.com/recipes')
-        console.log(recipesresponse.data)
         setRecipes(recipesresponse.data.recipes.filter((r) => r.user_id == localId ))
       
         const likesresponse = await axios.get('https://lap-4-server.onrender.com/likes')
-        console.log(likesresponse.data)
         setLikedRecipes(likesresponse.data.likes.filter((l) => l.user_id == localId ))
       } catch (error) {   
         console.log(error)
@@ -102,7 +100,7 @@ const Profile = () => {
     {showLoginPopup && <LoginPopUp onClose={() => setShowLoginPopup(false)} />}
     <div className="tw-h-screen tw-overflow-hidden tw-flex tw-items-center tw-justify-center bosscontainer">
     <div style= {{ backgroundImage: `url(${form})`}}  className='backgroundimage'>
-      <div className="tw-container tw-w-full tw-px-20 about tw-h-screen">
+      <div id="profileCard" className="tw-container tw-w-full tw-px-20 about tw-h-screen">
         <div className="tw-md:flex tw-no-wrap">
           {/* <!-- Left Side --> */}
           <div className="tw-w-full tw-h-full">
@@ -222,12 +220,12 @@ const Profile = () => {
                   {likedRecipesToShow.map((like) => {
                     const recipe = recipes.find((r) => r.id === like.recipe_id);
                     if (recipe) {
+                      console.log(recipe)
                       return (
-                        <div key={recipe.id} className="tw-w-1/5 tw-mb-4 tw-mx-2 tw-text-center">
+                        <div key={recipe.id} className="">
                           <button className='button' onClick={() => navigate(`/recipe/${recipe.name}`)}>
                             <div className=" tw-font-semibold recipename">{recipe.name}</div>
                             <img className="tw-h-20 tw-w-20  tw-rounded-full tw-mx-auto recipes" src={recipe.image} alt={recipe.name} />
-                            <LikeButton recipeId={recipe.id} />
                           </button> 
                         </div>
                         );

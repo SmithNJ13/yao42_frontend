@@ -1,4 +1,14 @@
-
+#profileCard {
+    overflow-y: scroll;
+}
+#profileCard::-webkit-scrollbar {
+    width: 10px;
+}
+#profileCard::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    height: 40px; 
+    background-color: #d296ee;
+}
 .bosscontainer{
 margin-left: 240px;
 }
