@@ -1,0 +1,13 @@
+#dietaryRequirementsFilter {
+    font-size: 20px;
+}
+
+.dietaryRequirementsCheckbox {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 10px;
+}
+
+input {
+    margin-left: 10px;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import "./DietaryRequirementsFilter.css"
 
 const DietaryFilter = () => {
   const navigate = useNavigate();
@@ -43,9 +44,9 @@ const DietaryFilter = () => {
   };
 
   return (
-    <>
-      <h2>DIETARY REQUIREMENT FILTER:</h2>
-      <label>
+    <div id="dietaryRequirementsFilter">
+      <h2>DIETARY REQUIREMENTS:</h2>
+      <label className="dietaryRequirementsCheckbox">
         VEGAN
         <input 
             type="checkbox" 
@@ -53,7 +54,7 @@ const DietaryFilter = () => {
             onChange={handleVeganFilterChange} 
         />
       </label>
-      <label>
+      <label className="dietaryRequirementsCheckbox">
         VEGETARIAN
         <input 
             type="checkbox" 
@@ -61,7 +62,7 @@ const DietaryFilter = () => {
             onChange={handleVegetarianFilterChange} 
         />
       </label>
-    </>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import "./BudgetFilter.css"
 
 const BudgetFilter = () => {
   const navigate = useNavigate();
@@ -37,10 +38,9 @@ const BudgetFilter = () => {
   };
 
   return (
-    <>
-      <h2> BUDGET FILTER:</h2>
-      {selectedFilters.length > 0 && <button onClick={clearFilter}>Clear Filter</button>}
-      <label>
+    <div id="budgetFilter">
+      <h2> BUDGET:</h2>
+      <label className="budgetCheckbox">
         £
         <input
           type="checkbox"
@@ -49,7 +49,7 @@ const BudgetFilter = () => {
           onChange={() => handleFilterChange('£')}
         />
       </label>
-      <label>
+      <label className="budgetCheckbox">
         ££
         <input
           type="checkbox"
@@ -58,7 +58,7 @@ const BudgetFilter = () => {
           onChange={() => handleFilterChange('££')}
         />
       </label>
-      <label>
+      <label className="budgetCheckbox">
         £££
         <input
           type="checkbox"
@@ -67,7 +67,7 @@ const BudgetFilter = () => {
           onChange={() => handleFilterChange('£££')}
         />
       </label>
-    </>
+    </div>
   );
 };
 

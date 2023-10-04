@@ -78,3 +78,13 @@ font-family: 'Montserrat', sans-serif;
     height: 100%;
     width: 100%;
 }
+
+#filters {
+    display: flex;
+    margin-left: 250px;
+    margin-top: 20px;
+}
+
+.filter-space {
+    width: 50px;
+}

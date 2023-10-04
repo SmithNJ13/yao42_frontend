@@ -140,8 +140,11 @@ return (
       <div id ='User_Admin_Recipe_Heading'>
         <h2>Our Recipes</h2>
       </div>
-      <BudgetFilter />
-      <DietaryRequirementsFilter />
+      <div id="filters">
+        <BudgetFilter />
+          <div className="filter-space"></div>
+        <DietaryRequirementsFilter />
+      </div>
       <div id='RecipeInfo'>
         {ourRecipes.length > 0 && (
           <>
