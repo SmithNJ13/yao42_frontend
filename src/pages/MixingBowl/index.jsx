@@ -5,6 +5,11 @@ import animationData from '../../assets/mixing-bowl.json'
 import mixingBowlImage from '../../assets/mixing-bowl-still.png'
 import './style.css'
 
+const ingredientImages = {
+  tomato: '',
+  onion: '',
+  onion: '',
+};
 const MixingBowl = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [searchInput, setSearchInput] = useState('');
@@ -114,6 +119,8 @@ const MixingBowl = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  
 
   return (
     <div className="container">
