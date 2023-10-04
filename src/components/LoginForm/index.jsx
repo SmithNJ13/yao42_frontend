@@ -71,7 +71,7 @@ const Login = () => {
             <label>Username</label>
             <input className='tw-border-2 tw-rounded-lg focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm' 
             type='text' 
-            placeholder='Enter username here...'
+            placeholder='Please enter your username...'
             value={name}
             id='username'
             onChange={handleName}
@@ -81,7 +81,7 @@ const Login = () => {
             <label>Password</label>
             <input  className='tw-border-2 tw-rounded-lg focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm'
             type='password' 
-            placeholder='Enter password here...' 
+            placeholder='Please enter your password...' 
             value={password}
             id='password'
             onChange={handlePassword}
