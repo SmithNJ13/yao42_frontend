@@ -1,0 +1,48 @@
+#budgetFilter {
+    font-size: 20px;
+}
+
+.budgetCheckbox {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 10px;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+  
+.budgetCheckbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 1px solid #000;
+}
+  
+.budgetCheckbox input:checked ~ .checkmark {
+    background-color: white;
+}
+  
+.budgetCheckbox input:checked ~ .checkmark:after {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+  
