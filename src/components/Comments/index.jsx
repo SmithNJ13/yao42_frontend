@@ -7,7 +7,6 @@ import { useParams } from 'react-router-dom';
 const Comments = ({ recipe_id }) => {
   const [comments, setComments] = useState([]);
   const [users, setUsers] = useState([]);
-  const { postId } = useParams();
 
   const getComments = async () => {
     try {
@@ -33,6 +32,7 @@ const Comments = ({ recipe_id }) => {
     const user = users.find((user) => user.id === id);
     return user ? user.username : 'Unknown User';
   };
+
 
   const handleDelete = async (commentToDelete) => {
     const currentUserId = localStorage.getItem('user_id');
@@ -67,7 +67,7 @@ const Comments = ({ recipe_id }) => {
   useEffect(() => {
     getComments();
     getUsers();
-  }, [postId]);
+  }, []);
 
   return (
     <div className="comments">
@@ -82,7 +82,7 @@ const Comments = ({ recipe_id }) => {
           <DeleteButton comment={comment} onDelete={handleDelete} />
         </div>
       ))}
-      <CommentBox recipe_id={recipe_id} />
+      <CommentBox recipe_id={recipe_id} onCommentSuccess={getComments} />
     </div>
   );
 };

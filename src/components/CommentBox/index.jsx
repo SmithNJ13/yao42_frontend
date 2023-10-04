@@ -7,7 +7,7 @@ import useDynamicHeightField from './useDynamicHeightField';
 
 const initialHeight = 46;
 
-const CommentBox = ({recipe_id}) => {
+const CommentBox = ({recipe_id, onCommentSuccess }) => {
   const username = localStorage.getItem('username');
   const getUserIdFromLocalStorage = () => {
     const userId = localStorage.getItem('user_id');
@@ -48,7 +48,6 @@ setIsExpanded(true);
 
       const onSubmit = async (e) => {
         e.preventDefault();
-        console.log('commentValue:', commentValue)
        
         const newComment = {
           comment: commentValue,
@@ -61,22 +60,17 @@ setIsExpanded(true);
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`,
-              
             },
             body: JSON.stringify(newComment),
           });
-
-          if (response) {
-            console.log('Comment posted successfully!');
-            console.log(localStorage.getItem("token"))
-            console.log(userId)
-            console.log(recipeId)
+    
+          if (response.ok) {
             setCommentValue('');
             setIsExpanded(false);
+            onCommentSuccess(); 
           } else {
             console.error('Failed to post comment:', JSON.stringify(newComment));
             alert('Please Login to post comments');
-
           }
         } catch (error) {
           console.error('Error:', error);
@@ -104,7 +98,7 @@ setIsExpanded(true);
             <div className="user">
             </div>
           </div>
-          <label htmlFor="comment">Username: {username}</label>
+          <label htmlFor="comment">{username}:</label>
           <textarea
             ref={textRef}
             onClick={onExpand}
