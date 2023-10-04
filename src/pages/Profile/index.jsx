@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faFileLines, faUser} from '@fortawesome/free-solid-svg-icons'
@@ -19,6 +19,9 @@ const Profile = () => {
   const [likes, setLikes] = useState([])
   const [currentPageRecipes, setCurrentPageRecipes] = useState(1);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
+  const [image, setImage] = useState(localStorage.getItem('profileImage') || "https://cdn.justjared.com/wp-content/uploads/headlines/2022/06/ryan-gosling-ken.jpg")
+  const [upload, setUpload] = useState(false)
+  const fileInput = useRef(null)
 
   useEffect(() => {
     async function fetchData(){
@@ -71,13 +74,27 @@ const Profile = () => {
     }
   };
 
+  const handleImageClick = () => {
+    fileInput.current.click()
+  }
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const newImageSrc = event.target.result;
+        setImage(newImageSrc);
+        localStorage.setItem('profileImage', newImageSrc);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const startIndexRecipes = (currentPageRecipes - 1) * 4; 
   const endIndexRecipes = startIndexRecipes + 4;
   const recipesToShow = userRecipes.slice(startIndexRecipes, endIndexRecipes);
 
 
-
-  
 
   return (
   <>
@@ -90,11 +107,20 @@ const Profile = () => {
           <div className="tw-w-full tw-h-full">
           {/* <!-- Profile Card --> */}
           <div className="tw-bg-white tw-p-3 socialdiv">
-            <div className="tw-text-center tw-my-2">
+            <div className="tw-text-center tw-my-2" id="userImage">
               {localStorage.getItem('username') ? (
-              <img className="tw-h-32 tw-w-32 tw-rounded-full tw-mx-auto profile"
-              src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-              alt="Mark's profile picture" />
+              <>
+                <img className="tw-h-32 tw-w-32 tw-rounded-full tw-mx-auto profile"
+                src={image}
+                alt="User's profile image"
+                onClick={handleImageClick}/>
+                <input
+                type="file"
+                ref={fileInput}
+                accept="image/*"
+                style={{display: "none"}}
+                onChange={handleFileChange}/>
+              </>
               ) : (
               <FontAwesomeIcon icon={faUser} className='fontawesome fauser' />
               )}
