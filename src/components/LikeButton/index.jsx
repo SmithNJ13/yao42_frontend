@@ -56,8 +56,10 @@ const handleClick = async () => {
 
   if(like) {
     deleteLike().then(getLikes)
+    alert('Reciped removed from liked collection')
   } else {
     createLike().then(getLikes)
+    alert('Reciped added to liked collection')
   }
 };
 

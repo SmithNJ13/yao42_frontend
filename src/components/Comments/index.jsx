@@ -51,7 +51,7 @@ const Comments = ({ recipe_id }) => {
         );
   
         if (response.ok) {
-          console.log('Comment deleted successfully!');
+          alert('Comment Deleted!')
           setComments((prevComments) =>
             prevComments.filter((comment) => comment.id !== commentToDelete.id)
           );
