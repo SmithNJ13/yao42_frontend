@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselItem from 'react-bootstrap/CarouselItem'
@@ -12,7 +13,7 @@ const CarouselComponent = ({ingredients, season}) => {
       ingredients.filter((i) => i.season.toLowerCase().includes(season))
       .map((ingredient, index) => (
         <CarouselItem key={index}>
-          <img src={ingredient.image} className='ingredient-image'/>
+          <img src={ingredient.image} className='ingredient-image' alt={ingredient.name}/>
           <CarouselCaption>
             <h3>{ingredient.name}</h3>
             <p>{ingredient.description}</p>

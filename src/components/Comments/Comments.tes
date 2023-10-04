@@ -1,0 +1,89 @@
+import React from 'react';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
+import { render, cleanup, screen, waitFor } from '@testing-library/react';
+import * as matchers from '@testing-library/jest-dom/matchers'
+import { MemoryRouter } from 'react-router-dom';
+import { act } from '@testing-library/react';
+import axios from 'axios';
+expect.extend(matchers);
+import Comments from '.';
+
+
+const axiosGetMock = jest.spyOn(axios, 'get');
+
+const localStorageMock = {
+    getItem: jest.fn(),
+    setItem: jest.fn(),
+    removeItem: jest.fn(),
+  };
+  global.localStorage = localStorageMock;
+
+const sampleComments = [
+    { "id": 1, 'comment': 'Comment 1', 'user_id': 1, },
+    { 'id': 2, 'comment': 'Comment 2', 'user_id': 2 },
+  ];
+
+describe("Comments component", () => {
+    const postId = 1
+    beforeEach(() => {
+        render( 
+        <MemoryRouter initialEntries={[`/profile/${postId}`]}>
+        <Comments />
+      </MemoryRouter>)
+    })
+
+    afterEach(() => {
+        cleanup()
+    })
+
+    it('renders correctly with comments', async () => {
+        // Mock Axios GET request
+        axiosGetMock.mockResolvedValueOnce({ data: { comments: sampleComments } });
+    
+        // Render the Comments component
+        render( 
+            <MemoryRouter initialEntries={[`/profile/${postId}`]}>
+            <Comments />
+          </MemoryRouter>)
+    
+        // Wait for Axios GET request to complete (use async/await if necessary)
+        // ...
+    
+        // Assertions: Use screen or other functions from @testing-library/react
+        expect(screen.getByText('Comment 1')).toBeInTheDocument();
+        expect(screen.getByText('Comment 2')).toBeInTheDocument();
+      });
+
+    it("Fetches comments from the API", async () => {
+        
+        vi.spyOn(axios, "get").mockResolvedValueOnce({
+            data: {
+                comments: [
+                    {
+                        "id": 1,
+                        "comment": "This recipe is amazing!",
+                        "recipe_id": 1,
+                        "user_id": 1
+                    }
+                ]
+            }
+        });
+
+        
+        await waitFor(() => {
+            expect(screen.getByText("This recipe is amazing!")).toBeInTheDocument();
+        });
+    });
+
+    it("Calls the delete request from the API", async () => {
+
+
+
+
+
+    })
+
+
+
+    
+})
