@@ -9,6 +9,7 @@ import "./style.css";
 const ViewRecipe = () => {
   const { name } = useParams();
   const [recipes, setRecipes] = useState();
+  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch();
   const BGColour = useSelector((state) => state.BGColour);
   const BGStyle = {
@@ -25,12 +26,16 @@ const ViewRecipe = () => {
         const data = resp.data.recipes;
         setRecipes(data);
       });
+      setLoading(false)
   }
 
   useEffect(() => {
     getRecipes();
     handleBG("#F7F6FE");
   }, []);
+  if (loading) {
+    return <Loading />;
+  }
 
   const handleAddToList = async (ingredients) => {
     const user_id = localStorage.getItem('user_id');
@@ -51,10 +56,6 @@ const ViewRecipe = () => {
       alert('Please sign up and login to add these ingredients to your shopping list');
     }
   };
-
-  if (!recipes) {
-    return <Loading />;
-  }
 
 
   const handleRemoveFromList = async (recipeIngredients) => {
