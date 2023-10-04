@@ -70,6 +70,7 @@ const navWinter = () => navigate("/winter")
         transition= {{ duration: 0.1, staggerChildren: 0.15, when: "beforeChildren" }}
     >
         <motion.div
+        data-testid='spring'
             style={{ backgroundColor: '#BADC83' }}
             className='tw-h-full tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
             onClick={navSpring}
@@ -89,6 +90,7 @@ const navWinter = () => navigate("/winter")
         </motion.div> 
 
          <motion.div
+            data-testid='summer'
             style={{ backgroundColor: '#FFE448' }}
             className='tw-h-full tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
             onClick={navSummer}
@@ -109,6 +111,7 @@ const navWinter = () => navigate("/winter")
         </motion.div> 
 
          <motion.div
+         data-testid='autumn'
             style={{ backgroundColor: '#FFA500' }}
             className='tw-h-full tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
             onClick={navAutumn}
@@ -127,6 +130,7 @@ const navWinter = () => navigate("/winter")
         </motion.div>
 
          <motion.div
+            data-testid='winter'
          style={{ backgroundColor: '#87CEEB' }}
             className= 'tw-h-full tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
             onClick={navWinter}
