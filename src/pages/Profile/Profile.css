@@ -89,3 +89,6 @@ transition: 0.5s;
     gap: 1rem;
     padding: 1rem
 }
+#userImage img{
+    cursor: pointer;
+}
