@@ -6,12 +6,47 @@ const BudgetFilter = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [checkboxColors, setCheckboxColors] = useState({
+    '£': 'white',
+    '££': 'white',
+    '£££': 'white'
+  });
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const filterParam = queryParams.getAll('filter');
     setSelectedFilters(filterParam);
-  }, [location.search]);
+  }, [location.search, location.pathname]);
+
+  useEffect(() => {
+    const updatedColors = { ...checkboxColors };
+
+    Object.keys(updatedColors).forEach(filter => {
+      if (selectedFilters.includes(filter)) {
+        switch (location.pathname) {
+          case '/spring':
+            updatedColors[filter] = '#BADC83';
+            break;
+          case '/summer':
+            updatedColors[filter] = '#FFE448';
+            break;
+          case '/autumn':
+            updatedColors[filter] = '#FFA500';
+            break;
+          case '/winter':
+            updatedColors[filter] = '#87CEEB';
+            break;
+          default:
+            updatedColors[filter] = 'white';
+        }
+      } else {
+        updatedColors[filter] = 'white';
+      }
+    });
+
+    setCheckboxColors(updatedColors);
+  }, [selectedFilters, location.pathname]);
+
 
   const handleFilterChange = (filter) => {
     const updatedFilters = [...selectedFilters];
@@ -30,12 +65,7 @@ const BudgetFilter = () => {
     navigate(`${location.pathname}?${queryParams.toString()}`);
   };
 
-  const clearFilter = () => {
-    setSelectedFilters([]);
-    const queryParams = new URLSearchParams(location.search);
-    queryParams.delete('filter');
-    navigate(`${location.pathname}?${queryParams.toString()}`);
-  };
+  
 
   return (
     <div id="budgetFilter">
@@ -48,6 +78,7 @@ const BudgetFilter = () => {
           checked={selectedFilters.includes('£')}
           onChange={() => handleFilterChange('£')}
         />
+        <span className="checkmark" style={{ backgroundColor: checkboxColors['£'] }}></span>
       </label>
       <label className="budgetCheckbox">
         ££
@@ -57,6 +88,7 @@ const BudgetFilter = () => {
           checked={selectedFilters.includes('££')}
           onChange={() => handleFilterChange('££')}
         />
+        <span className="checkmark" style={{ backgroundColor: checkboxColors['££'] }}></span>
       </label>
       <label className="budgetCheckbox">
         £££
@@ -66,6 +98,7 @@ const BudgetFilter = () => {
           checked={selectedFilters.includes('£££')}
           onChange={() => handleFilterChange('£££')}
         />
+        <span className="checkmark" style={{ backgroundColor: checkboxColors['£££'] }}></span>
       </label>
     </div>
   );

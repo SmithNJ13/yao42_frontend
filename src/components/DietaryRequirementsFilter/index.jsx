@@ -7,6 +7,10 @@ const DietaryFilter = () => {
   const location = useLocation();
   const [selectedVegan, setSelectedVegan] = useState(false);
   const [selectedVegetarian, setSelectedVegetarian] = useState(false);
+  const [checkboxColors, setCheckboxColors] = useState({
+    vegan: 'white',
+    vegetarian: 'white'
+  });
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -14,7 +18,55 @@ const DietaryFilter = () => {
     const vegetarianParam = queryParams.get('vegetarian') === 'true';
     setSelectedVegan(veganParam);
     setSelectedVegetarian(vegetarianParam);
-  }, [location.search]);
+  }, [location.search, location.pathname]); 
+
+  useEffect(() => {
+    const updatedColors = { ...checkboxColors };
+
+    if (selectedVegan) {
+      switch (location.pathname) {
+        case '/spring':
+          updatedColors.vegan = '#BADC83';
+          break;
+        case '/summer':
+          updatedColors.vegan = '#FFE448';
+          break;
+        case '/autumn':
+          updatedColors.vegan = '#FFA500';
+          break;
+        case '/winter':
+          updatedColors.vegan = '#87CEEB';
+          break;
+        default:
+          updatedColors.vegan = 'white';
+      }
+    } else {
+      updatedColors.vegan = 'white';
+    }
+
+    if (selectedVegetarian) {
+      switch (location.pathname) {
+        case '/spring':
+          updatedColors.vegetarian = '#BADC83';
+          break;
+        case '/summer':
+          updatedColors.vegetarian = '#FFE448';
+          break;
+        case '/autumn':
+          updatedColors.vegetarian = '#FFA500';
+          break;
+        case '/winter':
+          updatedColors.vegetarian = '#87CEEB';
+          break;
+        default:
+          updatedColors.vegetarian = 'white';
+      }
+    } else {
+      updatedColors.vegetarian = 'white';
+    }
+
+    setCheckboxColors(updatedColors);
+  }, [selectedVegan, selectedVegetarian, location.pathname]);
 
   const handleVeganFilterChange = () => {
     const newSelectedVegan = !selectedVegan;
@@ -49,18 +101,20 @@ const DietaryFilter = () => {
       <label className="dietaryRequirementsCheckbox">
         VEGAN
         <input 
-            type="checkbox" 
-            checked={selectedVegan} 
-            onChange={handleVeganFilterChange} 
+          type="checkbox" 
+          checked={selectedVegan} 
+          onChange={handleVeganFilterChange}
         />
+        <span className="checkmark" style={{ backgroundColor: checkboxColors.vegan }}></span>
       </label>
       <label className="dietaryRequirementsCheckbox">
         VEGETARIAN
         <input 
-            type="checkbox" 
-            checked={selectedVegetarian} 
-            onChange={handleVegetarianFilterChange} 
+          type="checkbox" 
+          checked={selectedVegetarian} 
+          onChange={handleVegetarianFilterChange}
         />
+        <span className="checkmark" style={{ backgroundColor: checkboxColors.vegetarian }}></span>
       </label>
     </div>
   );
