@@ -134,6 +134,7 @@ const MixingBowl = () => {
           <div className="right-column">
             {loading ? (
               <Lottie 
+              data-testid="animation"
                 className="animation"
                 animationData={animationData}
               />

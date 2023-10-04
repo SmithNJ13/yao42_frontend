@@ -67,7 +67,8 @@ setIsExpanded(true);
           if (response.ok) {
             setCommentValue('');
             setIsExpanded(false);
-            onCommentSuccess(); 
+            onCommentSuccess();
+            alert('Comment Added!')
           } else {
             console.error('Failed to post comment:', JSON.stringify(newComment));
             alert('Please Login to post comments');

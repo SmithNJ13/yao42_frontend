@@ -16,7 +16,7 @@ const SeasonalPage = () => {
   const dispatch = useDispatch();
   const BGColour = useSelector(state => state.BGColour);
   const queryParams = new URLSearchParams(location.search);
-  const selectedFilter = queryParams.get('filter'); 
+  const selectedFilters = queryParams.getAll('filter'); 
   const [showButton, setShowButton] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const selectedVegan = queryParams.get('vegan') === 'true';
@@ -112,8 +112,8 @@ const SeasonalPage = () => {
     );
   }
 
-  const filteredRecipes = selectedFilter
-  ? recipes.filter(r => r.season.toLowerCase().includes(season) && r.budget === selectedFilter)
+  const filteredRecipes = selectedFilters.length 
+  ? recipes.filter(r => r.season.toLowerCase().includes(season) && selectedFilters.includes(r.budget))
   : recipes.filter(r => r.season.toLowerCase().includes(season));
 
 const ourRecipes = filteredRecipes.filter(recipe => {

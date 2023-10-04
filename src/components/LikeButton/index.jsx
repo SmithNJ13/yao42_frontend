@@ -47,11 +47,19 @@ const deleteLike = async () => {
 useEffect(() => {
   getLikes()
 },[])
+
 const handleClick = async () => {
+  if (!uID) {
+    alert("You must be logged in to like a recipe.");
+    return;
+  }
+
   if(like) {
     deleteLike().then(getLikes)
+    alert('Reciped removed from liked collection')
   } else {
     createLike().then(getLikes)
+    alert('Reciped added to liked collection')
   }
 };
 
