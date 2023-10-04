@@ -46,7 +46,7 @@ body {
 }
 
 .mix-button:hover {
-    background-color: #C78FE1;
+    background-color: #BD66E5;
 }
 
 .animation {
@@ -68,4 +68,8 @@ body {
     padding: 5px 20px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.back-to-top:hover {
+    background-color: #BD66E5;
 }
