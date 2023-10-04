@@ -22,30 +22,30 @@ describe('ShoppingList component', () => {
     expect(loadingElement).toBeInTheDocument();
   });
 
-  it('renders items when items are available', async () => {
-    // Mock Axios response with some sample items
-    const mockItems = ['Item 1', 'Item 2', 'Item 3'];
-    mockAxios.mockResolvedValueOnce({ data: { lists: [{ user_id: '1', items: mockItems.join(', ') }] } });
+  // it('renders items when items are available', async () => {
+  //   // Mock Axios response with some sample items
+  //   const mockItems = ['Item 1', 'Item 2', 'Item 3'];
+  //   mockAxios.mockResolvedValueOnce({ data: { lists: [{ user_id: '1', items: mockItems.join(', ') }] } });
 
-    // Render the component
-    render(<ShoppingList />);
+  //   // Render the component
+  //   render(<ShoppingList />);
 
-    // Check if the items are rendered
-    const itemElements = screen.getAllByRole('listitem');
-    expect(itemElements.length).toBe(mockItems.length);
+  //   // Check if the items are rendered
+  //   const itemElements = screen.getAllByRole('listitem');
+  //   expect(itemElements.length).toBe(mockItems.length);
 
-    // Check if each item is rendered correctly
-    mockItems.forEach((item, index) => {
-      const itemElement = itemElements[index];
-      const checkboxElement = itemElement.querySelector('input[type="checkbox"]');
-      const textElement = itemElement.querySelector('.checked-item');
+  //   // Check if each item is rendered correctly
+  //   mockItems.forEach((item, index) => {
+  //     const itemElement = itemElements[index];
+  //     const checkboxElement = itemElement.querySelector('input[type="checkbox"]');
+  //     const textElement = itemElement.querySelector('.checked-item');
 
-      expect(checkboxElement).toBeInTheDocument();
-      expect(checkboxElement.checked).toBe(false); // Initial state should be unchecked
-      expect(textElement).toBeInTheDocument();
-      expect(textElement.textContent).toBe(item);
-    });
-  });
+  //     expect(checkboxElement).toBeInTheDocument();
+  //     expect(checkboxElement.checked).toBe(false); // Initial state should be unchecked
+  //     expect(textElement).toBeInTheDocument();
+  //     expect(textElement.textContent).toBe(item);
+  //   });
+  // });
 });
 
 

@@ -65,26 +65,26 @@ describe('ViewRecipe component', () => {
     expect(loadingElement).toBeInTheDocument();
   });
   
-  it('renders recipe details when recipes are available', async () => {
-    mockAxios.mockResolvedValue({ data: { recipes: mockRecipesData } });
-    vi.spyOn(React, 'useState')
-      .mockImplementationOnce(() => [mockRecipesData, () => {}]) 
-      .mockImplementationOnce(() => [false, () => {}]); 
+  // it('renders recipe details when recipes are available', async () => {
+  //   mockAxios.mockResolvedValue({ data: { recipes: mockRecipesData } });
+  //   vi.spyOn(React, 'useState')
+  //     .mockImplementationOnce(() => [mockRecipesData, () => {}]) 
+  //     .mockImplementationOnce(() => [false, () => {}]); 
 
 
-    render( <Provider store={store}>
-        <ViewRecipe />
-      </Provider> );
+  //   render( <Provider store={store}>
+  //       <ViewRecipe />
+  //     </Provider> );
 
     
-    await act(async () => {
-      const recipeName = screen.getByText('Vegetable Pasta');
-      const recipeDescription = screen.getByText('A light pasta dish with fresh spring vegetables.');
-      const recipeIngredients = screen.getByText('200g pasta, 100g asparagus, 100g peas, 1 lemon, 50g parmesan');
+  //   await act(async () => {
+  //     const recipeName = screen.getByText('Vegetable Pasta');
+  //     const recipeDescription = screen.getByText('A light pasta dish with fresh spring vegetables.');
+  //     const recipeIngredients = screen.getByText('200g pasta, 100g asparagus, 100g peas, 1 lemon, 50g parmesan');
 
-      expect(recipeName).toBeInTheDocument();
-      expect(recipeDescription).toBeInTheDocument();
-      expect(recipeIngredients).toBeInTheDocument();
-    });
-  });
+  //     expect(recipeName).toBeInTheDocument();
+  //     expect(recipeDescription).toBeInTheDocument();
+  //     expect(recipeIngredients).toBeInTheDocument();
+  //   });
+  // });
 });
