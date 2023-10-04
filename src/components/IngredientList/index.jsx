@@ -9,6 +9,7 @@ const IngredientList = ({ selectedIngredients, handleRemoveIngredient }) => {
           <li key={index}>
             {ingredient}
             <i
+              data-testid="trash-icon"
               className="fa fa-trash"
               style={{ color: '#181a1b', marginLeft: '5px', cursor: 'pointer' }}
               onClick={() => handleRemoveIngredient(ingredient)}
