@@ -29,7 +29,12 @@ import island4 from "../../assets/Banner4/Island 4.png"
 
 const parent = {
     animate: {
-        opacity: [1, 1]
+        opacity: [1, 1],
+    transition: {
+        duration: 0.1, 
+        staggerChildren: 0.15, 
+        when: "beforeChildren"
+        }
     }
 }
 
@@ -37,15 +42,29 @@ const parent = {
 const child = {
     animate: {
         width: ['1%', '1%', '1%', '25%'],
-        y: ['-100%', '0%', '0%', '0%']
-    }
+        y: ['-100%', '0%', '0%', '0%'],
+        transition: {
+            ease: "easeInOut", 
+            duration: 1.6,
+            when: "beforeChildren" 
+        }
+    },
 }
 const text = {
     animate: {
         display: "block",
-        y: ["5vh", "0vh"]
+        y: ["5vh", "0vh"],
+    transition: { duration: 0.4, ease: [0, 0.55, 0.45, 1] }
+    } 
+}
+const bannerImgs = {
+    animate: {
+        display: "block",
+        y: ["30vh", "0vh"],
+    transition: { duration: 0.4, delay: 0.1, ease: [0, 0.55, 0.45, 1] }
     }
 }
+
 
 
 
@@ -67,86 +86,147 @@ const navWinter = () => navigate("/winter")
         className='tw-flex tw-h-screen tw-w-full'
         variants={parent}
         animate="animate"
-        transition= {{ duration: 0.1, staggerChildren: 0.15, when: "beforeChildren" }}
+        
     >
         <motion.div
         data-testid='spring'
             style={{ backgroundColor: '#BADC83' }}
-            className='tw-h-full tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
+            className='season-banner tw-h-full tw-w-min-[15%] tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
             onClick={navSpring}
             variants={child}
-            transition={{ ease: "easeInOut", duration: 1.6, when: "beforeChildren" }}
             >
                 <motion.h1 
                     className='tw-hidden tw-text-4xl tw-text-white'
                     variants={text}
-                    transition={{ duration: 0.4, ease: [0, 0.55, 0.45, 1] }}
+                    // 
                     >SPRING</motion.h1>
-                <img className='tw-absolute tw-left-[2rem] tw-top-[2rem]' src={sun1} alt='sun one' />
-                <img className='tw-absolute tw-right-[2rem] tw-top-[2rem]' src={cloud1} alt='cloud one' />
-                <img className='tw-absolute tw-left-[2rem] tw-top-[8rem]' src={cloud2} alt='cloud two' />
-                <img className='tw-absolute tw-left-[12rem] tw-top-[9.1rem]' src={cloud3} alt='cloud three' />
-                <img className='tw-absolute tw-bottom-[3rem]' src={island1} alt='island one' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[2rem]'
+                    variants={bannerImgs}
+                    src={sun1} 
+                    alt='sun one' />
+                <motion.img className='tw-hidden tw-absolute tw-right-[2rem] tw-top-[2rem]'
+                    variants={bannerImgs}
+                    src={cloud1} 
+                    alt='cloud one' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[8rem]' 
+                    variants={bannerImgs}
+                    src={cloud2} 
+                    alt='cloud two' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[12rem] tw-top-[9.1rem]'
+                    variants={bannerImgs}
+                    src={cloud3} 
+                    alt='cloud three' />
+                <motion.img className='tw-hidden tw-absolute tw-bottom-[3rem]'
+                    variants={bannerImgs}
+                    src={island1} 
+                    alt='island one' />
         </motion.div> 
 
          <motion.div
             data-testid='summer'
             style={{ backgroundColor: '#FFE448' }}
-            className='tw-h-full tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
+            className='season-banner tw-h-full tw-w-min-[15%] tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
             onClick={navSummer}
             variants={child}
-            transition={{ ease: "easeInOut", duration: 1.6, when: "beforeChildren"  }}
+            // transition={{ ease: "easeInOut", duration: 1.6, when: "beforeChildren"  }}
             >
                 <motion.h1 
                     className='tw-hidden tw-text-4xl tw-text-white' 
                     variants={text}
-                    transition={{ duration: 0.4, ease: [0, 0.55, 0.45, 1] }}
+                    
                     >SUMMER</motion.h1>
-                <img className='tw-absolute tw-left-[2rem] tw-top-[2rem]' src={sun2} alt='sun one' />
-                <img className='tw-absolute tw-right-[2rem] tw-top-[2rem]' src={cloud2_1} alt='cloud one' />
-                <img className='tw-absolute tw-left-[2rem] tw-top-[8rem]' src={cloud2_2} alt='cloud two' />
-                <img className='tw-absolute tw-left-[16rem] tw-top-[9rem]' src={cloud2_3} alt='cloud three' />
-                <img className='tw-absolute tw-bottom-[3rem]' src={island2} alt='island one' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[2rem]'
+                    variants={bannerImgs}
+                    src={sun2} 
+                    alt='sun one' />
+                <motion.img className='tw-hidden tw-absolute tw-right-[2rem] tw-top-[2rem]'
+                    variants={bannerImgs}
+                    src={cloud2_1} 
+                    alt='cloud one' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[8rem]'
+                    variants={bannerImgs} 
+                    src={cloud2_2}
+                     alt='cloud two' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[16rem] tw-top-[9rem]'
+                    variants={bannerImgs}
+                    src={cloud2_3} 
+                    alt='cloud three' />
+                <motion.img className='tw-hidden tw-absolute tw-bottom-[3rem]'
+                    variants={bannerImgs}
+                    src={island2} 
+                    alt='island one' />
                     
         </motion.div> 
 
          <motion.div
          data-testid='autumn'
             style={{ backgroundColor: '#FFA500' }}
-            className='tw-h-full tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
+            className='season-banner tw-h-full tw-w-min-[15%] tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
             onClick={navAutumn}
             variants={child}
-            transition={{ ease: "easeInOut", duration: 1.6, when: "beforeChildren"  }}
             >
                 <motion.h1 
                     className='tw-hidden tw-text-4xl tw-text-white' 
                     variants={text}
-                    transition={{ duration: 0.4, ease: [0, 0.55, 0.45, 1] }}
+                    
                     >AUTUMN</motion.h1>
-                <img className='tw-absolute tw-left-[2rem] tw-top-[2rem]' src={sun3} alt='sun one' />
-                <img className='tw-absolute tw-right-[2rem] tw-top-[2rem]' src={cloud3_1} alt='cloud one' />
-                <img className='tw-absolute tw-left-[2rem] tw-top-[8rem]' src={cloud3_2} alt='cloud two' />
-                <img className='tw-absolute tw-bottom-[3rem]' src={island3} alt='island one' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[2rem]'
+                    variants={bannerImgs}
+                    
+                    src={sun3} 
+                    alt='sun one' />
+                <motion.img className='tw-hidden tw-absolute tw-right-[2rem] tw-top-[2rem]'
+                    variants={bannerImgs}
+                    
+                    src={cloud3_1} 
+                    alt='cloud one' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[8rem]'
+                    variants={bannerImgs}
+                    src={cloud3_2} 
+                    alt='cloud two' />
+                <motion.img className='tw-hidden tw-absolute tw-bottom-[3rem]'
+                    variants={bannerImgs}
+                   
+                    src={island3}
+                    alt='island one' />
         </motion.div>
 
          <motion.div
             data-testid='winter'
          style={{ backgroundColor: '#87CEEB' }}
-            className= 'tw-h-full tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
+            className= 'season-banner tw-h-full tw-w-min-[15%] tw-flex tw-justify-center tw-items-center tw-overflow-hidden'
             onClick={navWinter}
             variants={child}
-            transition={{ ease: "easeInOut", duration: 1.6, when: "beforeChildren"  }}
             >
                 <motion.h1 
                     className='tw-hidden tw-text-4xl tw-text-white' 
                     variants={text}
-                    transition={{ duration: 0.4, ease: [0, 0.55, 0.45, 1] }}
+                    
                     >WINTER</motion.h1>
-                <img className='tw-absolute tw-left-[2rem] tw-top-[2rem]' src={sun4} alt='sun one' />
-                <img className='tw-absolute tw-right-[2rem] tw-top-[2rem]' src={cloud4_1} alt='cloud one' />
-                <img className='tw-absolute tw-left-[2rem] tw-top-[8rem]' src={cloud4_2} alt='cloud two' />
-                <img className='tw-absolute tw-left-[16rem] tw-top-[9rem]' src={cloud4_3} alt='cloud three' />
-                <img className='tw-absolute tw-bottom-[3rem]' src={island4} alt='island one' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[2rem]'
+                    variants={bannerImgs}
+                    
+                    src={sun4} 
+                    alt='sun one' />
+                <motion.img className='tw-hidden tw-absolute tw-right-[2rem] tw-top-[2rem]'
+                    variants={bannerImgs}
+                    
+                    src={cloud4_1} 
+                    alt='cloud one' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[8rem]'
+                    variants={bannerImgs}
+                    src={cloud4_2} 
+                    alt='cloud two' />
+                <motion.img className='tw-hidden tw-absolute tw-left-[20rem] tw-top-[11.25rem]'
+                    variants={bannerImgs}
+                    
+                    src={cloud4_3} 
+                    alt='cloud three' />
+                <motion.img className='tw-hidden tw-absolute tw-bottom-[3rem]'
+                    variants={bannerImgs}
+                
+                    src={island4} 
+                    alt='island one' />
         </motion.div>
         
     </motion.div>
