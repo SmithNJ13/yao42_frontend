@@ -37,7 +37,7 @@ const RecipePage = () => {
 
                 <div className="tw-bg-white tw-p-3 ">
 
-                  <div className="tw-items-center tw-my-2 ">
+                  <div className="tw-items-center tw-my-2 " data-testid="Post_Recipe">
 
                     <PostRecipe />
 
