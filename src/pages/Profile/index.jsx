@@ -249,7 +249,7 @@ const Profile = () => {
                                     <div className=" tw-font-semibold recipename">{recipe.name}</div>
                                     <img className="tw-h-20 tw-w-20  tw-rounded-full tw-mx-auto recipes" src={recipe.image} alt={recipe.name} />
                                     <LikeButton recipeId={recipe.id} />
-                                    </button>
+                                    </button> 
                                 </div>
                                
                             );
