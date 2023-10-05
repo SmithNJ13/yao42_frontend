@@ -95,3 +95,28 @@ body {
     text-shadow: 1px 1px 10px white,
     2px 2px 20px snow;
 }
+
+.boldNavLink {
+    font-weight: bold;
+  }
+  
+.navlink:hover {
+    font-weight: bold;
+}
+
+.springNavLink {
+    color: #85AA4A;
+}
+  
+.summerNavLink {
+    color: #CEB000;
+}
+  
+.autumnNavLink {
+    color: #C37F02;
+}
+  
+.winterNavLink {
+    color: #2380A6;
+}
+  
