@@ -118,21 +118,21 @@ const PostRecipe = () => {
           required
         />
       </div>
+      <div className='tw-flex tw-items-center tw-my-2 tw-pb-4' id="vegetarian_vegan">
+        <label className="recipe_label" id="label_vegetarian" htmlFor="vegetarian">Vegetarian</label>
+        <input checked={vegetarian} type="checkbox" id="recipe_vegetarian" onChange={(e) => setVegetarian(e.target.checked)} />
+        <label className="recipe_label" id="label_vegan" htmlFor="vegan">Vegan</label>
+        <input checked={vegan} type="checkbox" id="recipe_vegan" onChange={(e) => setVegan(e.target.checked)} />
+      </div>
       <div className='tw-flex tw-items-center tw-my-2 tw-pb-4'>
-  <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4 tw-flex-1" htmlFor="vegetarian">Vegetarian</label>
-  <input checked={vegetarian} type="checkbox" id="recipe_vegetarian" onChange={(e) => setVegetarian(e.target.checked)} />
-  <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4 tw-flex-1" htmlFor="vegan">Vegan</label>
-  <input checked={vegan} type="checkbox" id="recipe_vegan" onChange={(e) => setVegan(e.target.checked)} />
-</div>
-      <div className='tw-flex tw-items-center tw-my-2 tw-pb-4'>
-        <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="description"> Description</label>
+        <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="description">Description</label>
         <input
         className="tw-w-2/3 tw-py-2 tw-px-3 tw-border"
           type="text"
           id="recipe_description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="A tasty dish originating from ..."
+          placeholder="A tasty dish originating from..."
           required
         />
       </div>
@@ -144,7 +144,7 @@ const PostRecipe = () => {
           id="recipe_ingredients"
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
-          placeholder="ie: two tablespoons of ..."
+          placeholder="ie: two tablespoons of..."
           required
         />
       </div>

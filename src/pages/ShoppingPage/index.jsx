@@ -25,7 +25,7 @@ const ShoppingPage = () => {
     <>
       {showPopUp && <LoginPopUp onClose={closePopUp} />} 
       <div className="shopping-page-container">
-      <h1 id="Shopping_Title" data-testid="Shopping_Title">Shopping List</h1>
+      <h1 id="Shopping_Title" data-testid="Shopping_Title">SHOPPING LIST</h1>
       <div data-testid="shopping-list">
         <ShoppingList/>
         </div>

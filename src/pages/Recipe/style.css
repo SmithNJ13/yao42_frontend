@@ -46,24 +46,35 @@
     font-size: 30px;
 }
 
+#recipe_label {
+    margin-left: 250px;
+}
+
 .button_container {
     text-align: center;
 }
 
+#vegetarian_vegan {
+    margin-left: 270px;
+}
+
+#label_vegetarian,
+#label_vegan {
+    margin-right: 10px;
+}
+
+#recipe_vegetarian {
+    margin-right: 50px;
+}
 
 #button {
-    background-color: #A17CD6;
+    background-color: #D296EE;
     color: #181A1B;
     padding: 20px;
     margin: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
 } 
 
 #button:hover {
-    background-color: #D27CD6;
-    color: #181A1B;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-
+    background-color: #BD66E5;
 }

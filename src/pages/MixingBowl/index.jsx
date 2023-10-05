@@ -115,6 +115,8 @@ const MixingBowl = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  
+
   return (
     <div className="container">
       <div className="mixing-bowl-container">

@@ -51,7 +51,11 @@
     border: none;
     background-color: rgb(210, 150, 238);
     color: white;
-    border-radius: 8px;
+    border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
+  }
+
+  .modalContainer .footer button:hover {
+    background-color: #BD66E5;
   }
