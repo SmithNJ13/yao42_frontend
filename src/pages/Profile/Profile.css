@@ -2,7 +2,7 @@
     overflow-y: scroll;
 }
 #profileCard::-webkit-scrollbar {
-    width: 10px;
+    width: 6px;
 }
 #profileCard::-webkit-scrollbar-thumb {
     border-radius: 10px;
