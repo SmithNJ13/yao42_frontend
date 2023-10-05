@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unknown-property */
 import { React, useRef, useState } from 'react'
 import Lottie from 'lottie-react'
 import animationData from '../../assets/szndChef.json'
 import form from '../../assets/form.png'
-import logo from '../../assets/logo_color_transparent.png'
+import chefHat from '../../assets/chefhat.png'
 import './LoginForm.css'
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -61,9 +62,11 @@ const Login = () => {
       
       <div id='form-con' className='tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-ml-[250px] tw-shadow-lg tw-shadow-gray-600 tw-border-none'>
       <div className='tw-hidden tw-relative md:tw-block tw-w-[700px] tw-h-[760px]  tw-mx-auto leftsideform'>
-            <p className='tw-text-4xl tw-w-full tw-text-white tw-mt-10 tw-absolute tw-text-center tw-font-bold tw-text-7xl'>Welcome to </p> <img src={logo} className='logo' alt='szndChef logo'/>
+            <p className='tw-text-4xl tw-w-full tw-text-white tw-mt-10 tw-absolute tw-text-center tw-font-bold tw-text-7xl welcome2'>Welcome to </p> 
+            <img src={chefHat} className='chef-hat-logo2' alt='szndChef logo'/>
+            <p className='tw-text-4xl tw-w-full tw-mt-10 tw-absolute tw-text-center tw-font-bold tw-text-7xl szndChef2'> szndChef </p>
             <Lottie onComplete={() => {
-            }} lottieRef={cookingRef} animationData={animationData} className='lottie'/>
+            }} lottieRef={cookingRef} animationData={animationData} className='lottie2'/>
         </div>
         <form style= {{ backgroundImage: `url(${form})`}} className= 'poppins-font tw-bg-cover tw-w-full tw-mx-auto tw-px-[4rem]' onSubmit={handleSubmit} autocomplete="off">
           <h2 className='tw-text-left tw-text-4xl tw-text-white tw-font-bold tw-pt-[12.5rem] tw-pb-[8.5rem]  tw-text-5xl'>Login</h2>
