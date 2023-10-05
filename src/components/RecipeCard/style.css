@@ -25,6 +25,7 @@
     width: 18rem;
     height: 10rem;
     padding: 1rem;
+    line-height: 2rem;
     overflow-y: scroll;
 }
 #card ::-webkit-scrollbar {

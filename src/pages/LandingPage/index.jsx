@@ -98,6 +98,7 @@ const navWinter = () => navigate("/winter")
                 <motion.h1 
                     className='tw-hidden tw-text-4xl tw-text-white'
                     variants={text}
+                    style={{ textShadow: '2px 3px 4px rgba(0, 0, 0, 0.5)' }}
                     // 
                     >SPRING</motion.h1>
                 <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[2rem]'
@@ -133,6 +134,7 @@ const navWinter = () => navigate("/winter")
                 <motion.h1 
                     className='tw-hidden tw-text-4xl tw-text-white' 
                     variants={text}
+                    style={{ textShadow: '2px 3px 4px rgba(0, 0, 0, 0.5)' }}
                     
                     >SUMMER</motion.h1>
                 <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[2rem]'
@@ -168,6 +170,7 @@ const navWinter = () => navigate("/winter")
                 <motion.h1 
                     className='tw-hidden tw-text-4xl tw-text-white' 
                     variants={text}
+                    style={{ textShadow: '2px 3px 4px rgba(0, 0, 0, 0.5)' }}
                     
                     >AUTUMN</motion.h1>
                 <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[2rem]'
@@ -201,6 +204,7 @@ const navWinter = () => navigate("/winter")
                 <motion.h1 
                     className='tw-hidden tw-text-4xl tw-text-white' 
                     variants={text}
+                    style={{ textShadow: '2px 3px 4px rgba(0, 0, 0, 0.5)' }}
                     
                     >WINTER</motion.h1>
                 <motion.img className='tw-hidden tw-absolute tw-left-[2rem] tw-top-[2rem]'
