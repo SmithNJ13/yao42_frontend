@@ -1,21 +1,37 @@
 
-.logo{
-    width: 90%;
-    height: 90%;
+
+
+
+
+  .chef-hat-logo1 {
+    width: 8%;
+    height: 8%;
     object-fit: contain;
-    position: relative;
-    top: -120px;
-    left: 20px;
-}
+    position: absolute;
+    top: 128px; 
+    left: 329px; 
+    transform: rotate(-25deg);
+    z-index: 2; 
+  }
 
 
-.lottie{
+.lottie1{
    height: 500px;
     width: 500px;
-    position: relative;
-    bottom: 400px;
-    left: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
+
+.szndChef1 {
+    position: relative;
+    top: 130px;
+    color: #badc83;
+    z-index: 1; 
+  }
+
 
 .leftsideform{
     background-color: #AB5AD1;
@@ -24,6 +40,7 @@
 
 .formbutton{
     background-color: #badc83;
+    border-radius: 10px !important;
 }
 
 .formbutton:hover{
