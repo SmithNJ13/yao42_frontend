@@ -65,7 +65,7 @@ const Login = () => {
             <Lottie onComplete={() => {
             }} lottieRef={cookingRef} animationData={animationData} className='lottie'/>
         </div>
-        <form style= {{ backgroundImage: `url(${form})`}} className= 'poppins-font tw-bg-cover tw-w-full tw-mx-auto tw-px-[4rem]' onSubmit={handleSubmit}>
+        <form style= {{ backgroundImage: `url(${form})`}} className= 'poppins-font tw-bg-cover tw-w-full tw-mx-auto tw-px-[4rem]' onSubmit={handleSubmit} autocomplete="off">
           <h2 className='tw-text-left tw-text-4xl tw-text-white tw-font-bold tw-pt-[12.5rem] tw-pb-[8.5rem]  tw-text-5xl'>Login</h2>
           <div className='tw-flex tw-flex-col tw-py-6 tw-text-xl'>
             <label>Username</label>
