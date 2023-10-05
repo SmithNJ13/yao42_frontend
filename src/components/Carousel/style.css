@@ -81,3 +81,7 @@ background-color: #FEBB40;
 .winter .carousel-caption > p {
 background-color: #87ceeb;
 }
+
+.carousel {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  }

@@ -11,6 +11,11 @@
     object-fit: cover;
     border-radius: 10px;
 }
+
+.card {
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
 .card-title {
     font-weight: bold;
     /* text-decoration: underline; */
