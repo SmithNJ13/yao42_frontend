@@ -17,4 +17,8 @@
 .season-banner h1 {
     transition: font-size 0.3s ease-in-out;
 }
-
+@media (max-width: 720px) {
+    .season-banner h1 {
+        font-size: 24px;
+    }
+}

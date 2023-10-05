@@ -1,24 +1,26 @@
 .ViewRecipe {
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: repeat(2,1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-content: center; 
     height: 100%;
     width: 100%;
-    grid-gap: 1em;
     padding-left: 260px;
 }
 #Information {
+    position: relative;
     min-width: none;
     width: 46em;
     height: 52em;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1rem;
     border: solid #D296EE 1rem;
     border-left: 0;
     border-right: 0;
     border-radius: 10%;
-    box-sizing: border-box; /* Include border in the width calculation */
+    box-sizing: border-box; 
+    clear: both; 
 }
 .top {
     display: flex;
@@ -111,6 +113,7 @@
     scale: 180%;
 }
 #CommentInfo {
+    position: relative;
     background-color: #F0E3FB;
     border: solid #D296EE 0.25em;
     border-radius: 5%;
@@ -120,7 +123,11 @@
     max-width: auto;
     max-height: auto;
 }
+#Comments {
+    position: relative;
+}
 .comments_title {
+    position: relative;
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: 1.25em;
@@ -129,9 +136,11 @@
     text-align: center;
 }
 .comment_username {
+    position: relative;
     font-weight: bold;
 }
 .usercomment {
+    position: relative;
     padding: 1rem;
     background-color: rgba(210, 150, 238, 0.2);
     border: solid #D296EE 5px;
@@ -154,8 +163,8 @@
 }
 @media (max-width: 1800px) {
     .ViewRecipe {
-        grid-template-columns: 1fr; /* Change to 1 column on smaller screens */
-        padding-left: 260px; /* Remove left padding on smaller screens */
+        padding-left: 260px;
+        gap: 25em;
     }
 }
 
