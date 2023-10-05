@@ -110,9 +110,9 @@ const ViewRecipe = () => {
                     <p>{recipe.season}</p>
                   </div>
                   <div>
-                  <button id ="shopping_button" onClick={() => handleAddToList(recipe.ingredients)}>Add to my Shopping List</button>
+                  <button id ="shopping_button" onClick={() => handleAddToList(recipe.ingredients)}>Add to List</button>
                   </div>
-                  <button id="shopping_button" onClick={() => handleRemoveFromList(recipe.ingredients)}>Remove from my Shopping List</button>
+                  <button id="shopping_button" onClick={() => handleRemoveFromList(recipe.ingredients)}>Remove from List</button>
                 </div>
               </div>
               <div id="MainBody">
@@ -138,7 +138,7 @@ const ViewRecipe = () => {
                 </div>
                 
               </div>
-              <div id="SideInfo">
+              <div id="CommentInfo">
                 <div id="Comments">
                   <Comments recipe_id={recipe.id} />
                 </div>
