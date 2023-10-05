@@ -5,7 +5,7 @@ const Comment = ({ comment, username }) => {
     return (
         <>
             <div className="usercomment">
-                <p>{username}:</p>
+                <p className="comment_username">{username}:</p>
                 <p>{comment}</p>
             </div>
         </>

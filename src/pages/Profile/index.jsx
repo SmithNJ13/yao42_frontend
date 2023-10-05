@@ -20,8 +20,14 @@ const Profile = () => {
   const [currentPageRecipes, setCurrentPageRecipes] = useState(1);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [image, setImage] = useState(localStorage.getItem('profileImage') || "https://cdn.justjared.com/wp-content/uploads/headlines/2022/06/ryan-gosling-ken.jpg")
-  const [upload, setUpload] = useState(false)
   const fileInput = useRef(null)
+  const [currentPage, setCurrentPage] = useState(1);
+  const recipesPerPage = 5;
+
+  const startIndex = (currentPage - 1) * recipesPerPage;
+  const endIndex = startIndex + recipesPerPage;
+  const likedRecipesToShow = likes.slice(startIndex, endIndex);
+
 
   useEffect(() => {
     async function fetchData(){
@@ -87,6 +93,16 @@ const Profile = () => {
         localStorage.setItem('profileImage', newImageSrc);
       };
       reader.readAsDataURL(file);
+    }
+  };
+  const handleNextClick = () => {
+    if (endIndex < likes.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  const handleBackClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
   };
 
@@ -215,51 +231,65 @@ const Profile = () => {
         {/* <!-- End of My recipes --> */}
         </div>
         <div className="tw-my-4"></div>
-        {/* <!-- Liked recipes --> */}
+        {/* Liked recipes */}
         <div className="tw-bg-white tw-p-3 tw-shadow-sm tw-rounded-sm likesdiv">
-          <div className="tw-grid tw-grid-cols-1">
-            <div>
-              <div className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-900 tw-leading-8 tw-mb-3  ">
-                <span >
-                  <FontAwesomeIcon icon={faHeart} className='fontawesome' />
-                </span>
-                <span className="tw-tracking-wide"> Liked Recipes</span>
-              </div>
-              <ul id="likedRecipes" className="tw-list-inside tw-space-y-2">
-                {likes.map((like) => {
-                  const likedRecipe = recipes.find((recipe) => recipe.id === like.recipe_id);
+                <div className="tw-grid tw-grid-cols-1">
+                  <div>
+                    <div className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-900 tw-leading-8 tw-mb-3">
+                      <span>
+                        <FontAwesomeIcon icon={faHeart} className="fontawesome" />
+                      </span>
+                      <span className="tw-tracking-wide"> Liked Recipes</span>
+                    </div>
+                    <ul id="likedRecipes" className="tw-list-inside tw-space-y-2">
+                      {likedRecipesToShow.map((like) => {
+                        const likedRecipe = recipes.find((recipe) => recipe.id === like.recipe_id);
 
-                  if (likedRecipe) {
-                    return (
-                      <li key={like.id}>
-                        <div>
-                          <button className='button' onClick={() => navigate(`/recipe/${likedRecipe.name}`)}>
-                            <div className="tw-font-semibold recipename">{likedRecipe.name}</div>
-                            <img className="tw-h-20 tw-w-20 tw-rounded-full tw-mx-auto recipes" src={likedRecipe.image} alt={likedRecipe.name} />
-                          </button>
-                        </div>
-                      </li>
-                    );
-                  }
-                  return null;
-                })}
-              </ul>
-              <button
-              className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
-              >More Liked Recipes</button>
-              <div className="tw-flex tw-justify-between tw-mt-2">
-                <button
-                className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
-                >Back</button>
-                <button
-                className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
-                >See More Liked Recipes</button>
+                        if (likedRecipe) {
+                          return (
+                            <li key={like.id}>
+                              <div>
+                                <button
+                                  className="button"
+                                  onClick={() => navigate(`/recipe/${likedRecipe.name}`)}
+                                >
+                                  <div className="tw-font-semibold recipename">
+                                    {likedRecipe.name}
+                                  </div>
+                                  <img
+                                    className="tw-h-20 tw-w-20 tw-rounded-full tw-mx-auto recipes"
+                                    src={likedRecipe.image}
+                                    alt={likedRecipe.name}
+                                  />
+                                </button>
+                              </div>
+                            </li>
+                          );
+                        }
+                        return null;
+                      })}
+                    </ul>
+                    <div className="tw-flex tw-justify-between tw-mt-2">
+                      <button
+                        className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
+                        onClick={handleBackClick}
+                        disabled={currentPage === 1}
+                      >
+                        Back
+                      </button>
+                      <button
+                        className="tw-text-white tw-rounded tw-py-2 tw-px-4 tw-font-semibold profilebutton"
+                        onClick={handleNextClick}
+                        disabled={endIndex >= likes.length}
+                      >
+                        Next
+                      </button>
+                    </div>
+                  </div>
                 </div>
+                {/* End of Liked recipes */}
               </div>
-            </div>
-            {/* <!-- End of Liked recipes --> */}
-          </div>
-          {/* <!-- End of profile tab --> */}
+              {/* End of profile tab */}
         </div>
       </div>
       </div>
