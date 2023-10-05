@@ -110,10 +110,11 @@ const NavBar = () => {
               </button>
               {showSeasonsMenu && (
                 <div className="collapsible-content">
-                  <NavLink to='/spring' className='drop' style={({isActive}) => (isActive ? activeStyle : undefined)}>SPRING</NavLink>
-                  <NavLink to='/summer' className='drop' style={({isActive}) => (isActive ? activeStyle : undefined)}>SUMMER</NavLink>
-                  <NavLink to='/autumn' className='drop' style={({isActive}) => (isActive ? activeStyle : undefined)}>AUTUMN</NavLink>
-                  <NavLink to='/winter' className='drop' style={({isActive}) => (isActive ? activeStyle : undefined)}>WINTER</NavLink>
+                  <NavLink to='/spring' className={`navlink ${location.pathname === '/spring' ? 'boldNavLink springNavLink' : ''}`}>SPRING</NavLink>
+                  <NavLink to='/summer' className={`navlink ${location.pathname === '/summer' ? 'boldNavLink summerNavLink' : ''}`}>SUMMER</NavLink>
+                  <NavLink to='/autumn' className={`navlink ${location.pathname === '/autumn' ? 'boldNavLink autumnNavLink' : ''}`}>AUTUMN</NavLink>
+                  <NavLink to='/winter' className={`navlink ${location.pathname === '/winter' ? 'boldNavLink winterNavLink' : ''}`}>WINTER</NavLink>
+
                 </div>
               )}
             </div>
