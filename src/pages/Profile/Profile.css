@@ -7,7 +7,7 @@
 #profileCard::-webkit-scrollbar-thumb {
     border-radius: 10px;
     height: 40px; 
-    background-color: #d296ee;
+    background-color: #BD66E5;
 }
 .bosscontainer{
 margin-left: 240px;
@@ -23,7 +23,7 @@ margin-left: 240px;
 
 .social:hover{
     cursor: pointer;
-    color: #AB5AD1;
+    color: #BD66E5;
 
 }
 
@@ -53,13 +53,11 @@ margin-left: 240px;
 
 .profilebutton{
     background-color: #badc83;
-    
+    opacity: 1 !important;
 }
 
 .profilebutton:hover{
-background-color: #AB5AD1;  
- 
-   
+background-color: #BD66E5;  
 }
 
 .email{
@@ -90,6 +88,11 @@ transition: 0.5s;
     padding: 1rem
 }
 #userImage img:hover{
-    border: solid rebeccapurple 2px;
+    border: solid #BD66E5 2px;
     cursor: pointer;
+}
+
+#test:hover {
+    background-color: #BD66E5;  
+
 }
