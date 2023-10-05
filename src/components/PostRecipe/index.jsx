@@ -104,7 +104,7 @@ const PostRecipe = () => {
   
   return (
     <>
-    <form onSubmit={handleSubmit} className="Recipe_Form">
+    <form onSubmit={handleSubmit} className="Recipe_Form" autocomplete="off">
       <div className='tw-flex tw-items-center tw-my-2 tw-pb-4 '>
         
         <label className="recipe_label tw-w-1/3 tw-text-right tw-pr-4" htmlFor="name">Name</label>
