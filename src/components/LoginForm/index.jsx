@@ -60,19 +60,19 @@ const Login = () => {
   return (
     <div id='page' className='tw-flex tw-justify-center tw-items-center tw-h-screen tw-w-full'>
       
-      <div id='form-con' className='tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-ml-[250px] tw-shadow-lg tw-shadow-gray-600 tw-border-none'>
-      <div className='tw-hidden tw-relative md:tw-block tw-w-[700px] tw-h-[760px]  tw-mx-auto leftsideform'>
+      <div id='form-con' className='tw-rounded-xl tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-ml-[250px] tw-shadow-lg tw-shadow-gray-600 tw-border-none'>
+      <div className='tw-hidden tw-rounded-l-xl tw-relative md:tw-block tw-w-[600px] tw-h-[760px]  tw-mx-auto leftsideform'>
             <p className='tw-text-4xl tw-w-full tw-text-white tw-mt-10 tw-absolute tw-text-center tw-font-bold tw-text-7xl welcome2'>Welcome to </p> 
             <img src={chefHat} className='chef-hat-logo2' alt='szndChef logo'/>
             <p className='tw-text-4xl tw-w-full tw-mt-10 tw-absolute tw-text-center tw-font-bold tw-text-7xl szndChef2'> szndChef </p>
             <Lottie onComplete={() => {
             }} lottieRef={cookingRef} animationData={animationData} className='lottie2'/>
         </div>
-        <form style= {{ backgroundImage: `url(${form})`}} className= 'poppins-font tw-bg-cover tw-w-full tw-mx-auto tw-px-[4rem]' onSubmit={handleSubmit} autocomplete="off">
-          <h2 className='tw-text-left tw-text-4xl tw-text-white tw-font-bold tw-pt-[12.5rem] tw-pb-[8.5rem]  tw-text-5xl'>Login</h2>
+        <form style= {{ backgroundImage: `url(${form})`}} className= 'tw-rounded-r-xl poppins-font tw-bg-cover tw-w-full tw-mx-auto tw-px-[4rem]' onSubmit={handleSubmit} autocomplete="off">
+          <h2 className='tw-text-center tw-text-4xl tw-text-white tw-font-bold tw-pt-[12.5rem] tw-pb-[6.5rem]  tw-text-5xl'>Login</h2>
           <div className='tw-flex tw-flex-col tw-py-6 tw-text-xl'>
             <label>Username</label>
-            <input className='tw-border-2 tw-rounded-lg focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm' 
+            <input className='tw-border-2 tw-rounded-lg focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-base' 
             type='text' 
             placeholder='Please enter your username...'
             value={name}
@@ -82,7 +82,7 @@ const Login = () => {
           </div>
           <div className='tw-flex tw-flex-col tw-py-9 tw-text-xl'>
             <label>Password</label>
-            <input  className='tw-border-2 tw-rounded-lg focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-sm'
+            <input  className='tw-border-2 tw-rounded-lg focus:tw-outline-none tw-border-gray-200 tw-p-[0.4rem] tw-text-base'
             type='password' 
             placeholder='Please enter your password...' 
             value={password}
@@ -91,8 +91,8 @@ const Login = () => {
             />
           </div>
           
-          <button type='submit' className='tw-border tw-rounded-2xl tw-flex tw-mx-auto tw-justify-center tw-transition tw-ease-in-out tw-w-1/3 tw-my-2 tw-py-2 tw-text-white tw-font-bold formbutton'>Login</button>
-          <p className='tw-text-center tw-text-sm'>Need an account? <Link to="/register" className='tw-font-bold tw-transition tw-ease-in-out formlink'>Sign-up</Link> here !</p>
+          <button type='submit' className='tw-border tw-rounded-2xl tw-flex tw-mx-auto tw-justify-center tw-transition tw-ease-in-out tw-w-1/3 tw-my-2 tw-py-2 tw-text-white tw-font-bold tw-text-xl formbutton'>Login</button>
+          <p className='tw-text-center tw-pt-5 tw-text-base'>Need an account? <Link to="/register" className='tw-font-bold tw-transition tw-ease-in-out formlink'>Sign-up</Link> here !</p>
         </form>
       </div>
     </div>
