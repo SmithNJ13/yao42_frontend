@@ -29,7 +29,7 @@ const RecipePage = () => {
 
           <div className="tw-container tw-w-full tw-px-20 about tw-h-screen">
 
-            <h1 id='title' className='tw-text-center tw-mb-40'>SUMBIT A RECIPE</h1>
+            <h1 id='title' className='tw-text-center tw-mb-40'>SUBMIT A RECIPE</h1>
 
             <div className="tw-md:flex tw-no-wrap formcontainer">
 
